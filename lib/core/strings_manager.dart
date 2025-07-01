@@ -11,7 +11,12 @@ class StringsManager {
   static const String home = "الرئيسية";
   static const String notifications = "الإشعارات";
   static const String profile = "حسابي";
+  static const String tunes = "ألحان";
+  static const String coptic = "قبطي";
+  static const String taks = "طقس";
+  static const String mahfozat = "محفوظات";
 
   // constants
 static const String fontFamily = "PlaypenSansArabic";
+static const String ruqaaFont = "ArefRuqaa";
 }

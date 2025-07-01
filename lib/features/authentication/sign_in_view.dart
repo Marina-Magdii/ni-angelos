@@ -96,7 +96,7 @@ class _SignInViewState extends State<SignInView> {
                           decoration: BoxDecoration(
                             color: ColorManager.primaryColor,
                             borderRadius: BorderRadius.circular(32.r),
-                            boxShadow: [BoxShadow(offset: Offset(0, 2), blurRadius: 7, color: Colors.grey)]
+                            boxShadow: ColorManager.shadow
                           ),
                           child: Padding(
                             padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
@@ -120,7 +120,7 @@ class _SignInViewState extends State<SignInView> {
   onSignIn(){
     if (formKey.currentState?.validate() ?? false) {
       Navigator.pushNamedAndRemoveUntil
-        (context, RoutesManager.home, (route)=>false);
+        (context, RoutesManager.main, (route)=>false);
     }
   }
 }

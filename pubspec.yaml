@@ -67,6 +67,7 @@ flutter:
    - assets/images/logo/
    - assets/images/icons/
    - assets/images/bottom_navigation_bar/
+   - assets/images/sections/
    - assets/animations/
    - assets/fonts/
 
@@ -87,6 +88,10 @@ flutter:
          - asset: assets/fonts/PlaypenSansArabic-Light.ttf
          - asset: assets/fonts/PlaypenSansArabic-Regular.ttf
          - asset: assets/fonts/PlaypenSansArabic-SemiBold.ttf
+    - family: ArefRuqaa
+      fonts:
+         - asset: assets/fonts/ArefRuqaa-Bold.ttf
+         - asset: assets/fonts/ArefRuqaa-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

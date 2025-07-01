@@ -29,7 +29,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(32.r),
-          boxShadow:  [BoxShadow(offset: Offset(0, 2), blurRadius: 7, color: Colors.grey)]
+          boxShadow:  ColorManager.shadow
         ),
         child: TextFormField(
           textDirection: TextDirection.rtl,
