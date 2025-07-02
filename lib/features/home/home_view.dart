@@ -28,23 +28,7 @@ class HomeView extends StatelessWidget {
         ) ,],
         actionsPadding: REdgeInsets.only(right: 8),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: REdgeInsets.symmetric(vertical: 16,horizontal: 32.0),
-              child: Row(
-                textDirection: TextDirection.rtl,
-                children: [
-
-
-                ],
-              ),
-            ),
-            ChildHome(),
-          ],
-        ),
-      ),
+      child: ChildHome(),
     );
   }
 }
