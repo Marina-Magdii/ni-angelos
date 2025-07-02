@@ -23,7 +23,7 @@ class _SignInViewState extends State<SignInView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 3), () {
       setState(() {
         _showFields = true;
       });
@@ -42,11 +42,11 @@ class _SignInViewState extends State<SignInView> {
                   onPlay: (controller) => controller, // avoid re-triggering
                 )
                 .move(
-                  duration: Duration(seconds: 2),
+                  duration: Duration(seconds: 3),
                   begin: Offset(0, 0),
                   end: Offset(0, -100),
                   delay: 2.seconds,
-                  curve: Curves.decelerate, // Moves up
+                  curve: Curves.easeOut, // Moves up
                 ),
             if (_showFields) ...[
               Center(

@@ -63,6 +63,10 @@ class ChildHome extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  Colors.white,
+                  ColorManager.bgColor
+                ],),
                   boxShadow: ColorManager.whiteShadow
               ),
             ),

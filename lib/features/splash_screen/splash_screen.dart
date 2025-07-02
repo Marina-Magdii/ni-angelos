@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).push(
         PageRouteBuilder(
             pageBuilder: (_, __, ___) =>SignInView(),
@@ -19,9 +19,14 @@ class SplashScreen extends StatelessWidget {
       ));
     });
     return MyCustomScaffold(
-        child: Center(
-          child: SvgPicture.asset(ImageAssets.logoIcon),
-        ).animate().fadeIn(duration: const Duration(seconds: 4)),)
-        ;
+      child: Center(
+        child: SvgPicture.asset(ImageAssets.logoIcon),
+      ).animate().scale(
+        begin: Offset(0.2, 0.2), // Start at half size
+        end: Offset(1, 1), // End at full size
+        duration: 3.seconds, // 800 milliseconds
+        curve: Curves.easeOut,
+      ),
+    );
   }
 }
