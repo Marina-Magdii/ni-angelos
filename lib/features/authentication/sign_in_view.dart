@@ -81,32 +81,34 @@ class _SignInViewState extends State<SignInView> {
                         obscure: true,
                         controller: TextEditingController(),
                         isPass: true,
-                      ) .animate()
-                          .slideX(
-                        duration: const Duration(
-                          seconds: 1,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
+                      ).animate().slideX(duration: const Duration(seconds: 1)),
+                      SizedBox(height: 20.h),
                       InkWell(
                         onTap: onSignIn,
                         child: Container(
+                          width: MediaQuery.of(context).size.width * 0.8,
                           decoration: BoxDecoration(
                             color: ColorManager.primaryColor,
                             borderRadius: BorderRadius.circular(32.r),
-                            boxShadow: ColorManager.shadow
+                            boxShadow: ColorManager.shadow,
                           ),
                           child: Padding(
-                            padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
-                            child: Text(StringsManager.signIn,
-                            style: TextStyle(
-                              color: ColorManager.bgColor
-                            ),),
+                            padding: REdgeInsets.symmetric(
+                              vertical: 8.0,
+                              horizontal: 16,
+                            ),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  StringsManager.signIn,
+                                  style: TextStyle(color: ColorManager.bgColor),
+                                ),
+                              ),
+                            ),
                           ),
                         ).animate().fade(duration: Duration(seconds: 3)),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -117,10 +119,14 @@ class _SignInViewState extends State<SignInView> {
       ),
     );
   }
-  onSignIn(){
+
+  onSignIn() {
     if (formKey.currentState?.validate() ?? false) {
-      Navigator.pushNamedAndRemoveUntil
-        (context, RoutesManager.main, (route)=>false);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        RoutesManager.main,
+        (route) => false,
+      );
     }
   }
 }

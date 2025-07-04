@@ -21,9 +21,8 @@ class CustomSectionContainer extends StatelessWidget {
             color: ColorManager.containerColor,
             borderRadius: BorderRadius.circular(48.r),
             border: Border.all(
-                color: ColorManager.containerBorderColor,
-            width: 2.w),
-            boxShadow: ColorManager.shadow
+                color: ColorManager.containerBorderColor),
+            // boxShadow: ColorManager.shadow
           ),
           child: FittedBox(
             child: Padding(

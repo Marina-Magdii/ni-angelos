@@ -25,20 +25,27 @@ class ChildHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.22,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: ColorManager.shadow,
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16),
-            child: Image.asset(
-              ImageAssets.church,
-              fit: BoxFit.fitHeight,
-              height: MediaQuery.of(context).size.height * 0.22,
+        Stack(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: ColorManager.shadow,
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.asset(ImageAssets.church, fit: BoxFit.fitHeight),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 0,
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.17,
+                child: Image.asset(ImageAssets.childLogo),
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 20.h),
         Stack(
@@ -61,24 +68,35 @@ class ChildHome extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Colors.white,
-                  ColorManager.bgColor
-                ],),
-                  boxShadow: ColorManager.whiteShadow
+            Positioned(
+              top: 100.sp,
+              bottom: 100.sp,
+              right: 100.sp,
+              left: 100.sp,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: ColorManager.lightShadow,
+                  shape: BoxShape.circle,
+                  gradient: RadialGradient(
+                    center: Alignment.center,
+                    radius: 0,
+                    stops: [0, 1],
+                    colors: [
+                      Colors.white,
+                      Colors.transparent,
+                    ],
+                  ),
+                ),
               ),
             ),
             Positioned(
-              top: 90.sp,
-              bottom: 90.sp,
-              right: 90.sp,
-              left: 90.sp,
+              top: 100.sp,
+              bottom: 100.sp,
+              right: 100.sp,
+              left: 100.sp,
               child: SvgPicture.asset(
                 ImageAssets.crossLogo,
-                width: 48.w,
-                height: 48.h,
+                fit: BoxFit.contain,
               ),
             ),
           ],

@@ -18,6 +18,7 @@ class HomeView extends StatelessWidget {
           children: [
             Text(
               StringsManager.hello,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ],
         ),
@@ -26,7 +27,7 @@ class HomeView extends StatelessWidget {
           width: 40.sp,
           height: 40.sp,
         ) ,],
-        actionsPadding: REdgeInsets.only(right: 8),
+        actionsPadding: REdgeInsets.only(right: 16),
       ),
       child: ChildHome(),
     );

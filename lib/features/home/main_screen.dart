@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: SvgPicture.asset(ImageAssets.notificationsOn),
             backgroundColor: Colors.transparent,
             icon: SvgPicture.asset(ImageAssets.notificationsOff),
-            label: StringsManager.profile,
+            label: StringsManager.notifications,
           ),
 
           // home tab
@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: SvgPicture.asset(ImageAssets.profileOn),
             backgroundColor: Colors.transparent,
             icon: SvgPicture.asset(ImageAssets.profileOff),
-            label: StringsManager.notifications,
+            label: StringsManager.profile,
           ),
         ],
 

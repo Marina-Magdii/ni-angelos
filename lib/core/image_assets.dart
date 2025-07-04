@@ -15,7 +15,9 @@ class ImageAssets {
   static const String tunesIcon = "assets/images/sections/tunes.svg";
   static const String mahfozatIcon = "assets/images/sections/mahfozat.svg";
   static const String crossLogo = "assets/images/logo/cross.svg";
+  static const String childLogo = "assets/images/logo/child.png";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";
+static const String notificationAnimation = "assets/animations/notifications.json";
 }
