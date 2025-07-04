@@ -12,23 +12,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCustomScaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              StringsManager.hello,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-          ],
-        ),
-        actions:[Lottie.asset(
-          ImageAssets.helloAnimation,
-          width: 40.sp,
-          height: 40.sp,
-        ) ,],
-        actionsPadding: REdgeInsets.only(right: 16),
-      ),
+      appBarTitle: StringsManager.hello,
+      actions: [
+        Lottie.asset(ImageAssets.helloAnimation, width: 40.w, height: 40.h),
+      ],
       child: ChildHome(),
     );
   }

@@ -1,7 +1,7 @@
 class StringsManager {
   // app texts
   static const String hello = "اهلا موسي";
-  static const String name = "الاسم";
+  static const String id = "الكود";
   static const String pass = "الباسورد";
   static const String signIn = "تسجيل الدخول";
   static const String enterName = "اكتب الاسم";

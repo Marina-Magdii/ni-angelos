@@ -15,6 +15,6 @@ class ColorManager {
     BoxShadow(offset: Offset(0, 2), blurRadius: 7, color: Colors.grey),
   ];
   static const List<BoxShadow> lightShadow = [
-    BoxShadow(offset: Offset(0, 1), color: Colors.transparent, blurRadius: 5),
+    BoxShadow(offset: Offset(0, 1), color: bgColor, blurRadius: 80),
   ];
 }

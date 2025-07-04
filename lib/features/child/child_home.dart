@@ -11,7 +11,6 @@ class ChildHome extends StatelessWidget {
   const ChildHome({super.key});
   static List<SectionModel> sections = [
     SectionModel("screenName", StringsManager.coptic, ImageAssets.copticIcon),
-
     SectionModel("screenName", StringsManager.tunes, ImageAssets.tunesIcon),
     SectionModel(
       "screenName",
@@ -27,6 +26,8 @@ class ChildHome extends StatelessWidget {
       children: [
         Stack(
           children: [
+
+            // church image
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
@@ -38,8 +39,11 @@ class ChildHome extends StatelessWidget {
                 child: Image.asset(ImageAssets.church, fit: BoxFit.fitHeight),
               ),
             ),
+
+            // child image
             Positioned(
               bottom: 0,
+              left: 10,
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.17,
                 child: Image.asset(ImageAssets.childLogo),
@@ -47,7 +51,11 @@ class ChildHome extends StatelessWidget {
             ),
           ],
         ),
+
+        // just space
         SizedBox(height: 20.h),
+
+        // sections
         Stack(
           children: [
             Padding(
@@ -68,6 +76,8 @@ class ChildHome extends StatelessWidget {
                 ),
               ),
             ),
+
+            // background glowing
             Positioned(
               top: 100.sp,
               bottom: 100.sp,
@@ -81,14 +91,13 @@ class ChildHome extends StatelessWidget {
                     center: Alignment.center,
                     radius: 0,
                     stops: [0, 1],
-                    colors: [
-                      Colors.white,
-                      Colors.transparent,
-                    ],
+                    colors: [Colors.white, Colors.transparent],
                   ),
                 ),
               ),
             ),
+
+            // cross image
             Positioned(
               top: 100.sp,
               bottom: 100.sp,

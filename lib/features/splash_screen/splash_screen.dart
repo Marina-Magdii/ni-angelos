@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).push(
+      Navigator.of(context).pushReplacement(
         PageRouteBuilder(
             pageBuilder: (_, __, ___) =>SignInView(),
           transitionDuration: Duration.zero,
@@ -22,9 +22,9 @@ class SplashScreen extends StatelessWidget {
       child: Center(
         child: SvgPicture.asset(ImageAssets.logoIcon),
       ).animate().scale(
-        begin: Offset(0.2, 0.2), // Start at half size
+        begin: Offset(0.1, 0.1), // Start small
         end: Offset(1, 1), // End at full size
-        duration: 3.seconds, // 800 milliseconds
+        duration: 2.seconds,
         curve: Curves.easeOut,
       ),
     );

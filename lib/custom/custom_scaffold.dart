@@ -6,11 +6,13 @@ class MyCustomScaffold extends StatelessWidget {
     super.key,
     required this.child,
     this.bottomNavigationBar,
-    this.appBar,
+    this.appBarTitle,
+    this.actions,
   });
   final Widget child;
   final Widget? bottomNavigationBar;
-  final PreferredSizeWidget? appBar;
+  final String? appBarTitle;
+  final List<Widget>? actions;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -21,12 +23,26 @@ class MyCustomScaffold extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
-        SafeArea(
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: child,
-            bottomNavigationBar: bottomNavigationBar,
-            appBar: appBar,
+        MediaQuery.removePadding(
+          context: context,
+          removeTop: true,
+          child: SafeArea(
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: child,
+              bottomNavigationBar: bottomNavigationBar,
+              appBar: AppBar(
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      appBarTitle ?? "",
+                    ),
+                  ],
+                ),
+                actions: actions,
+              ),
+            ),
           ),
         ),
       ],
