@@ -28,6 +28,7 @@ class MyCustomScaffold extends StatelessWidget {
           removeTop: true,
           child: SafeArea(
             child: Scaffold(
+              resizeToAvoidBottomInset: false,
               backgroundColor: Colors.transparent,
               body: child,
               bottomNavigationBar: bottomNavigationBar,

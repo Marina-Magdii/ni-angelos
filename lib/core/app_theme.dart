@@ -10,7 +10,7 @@ class AppTheme {
       centerTitle: false,
       backgroundColor: Colors.transparent,
       titleTextStyle: TextStyle(
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
         fontSize: 20.sp,
         color: ColorManager.secondaryColor,
         fontFamily: StringsManager.fontFamily,
@@ -33,6 +33,11 @@ class AppTheme {
       bodySmall: TextStyle(
         color: ColorManager.textFieldColor,
         fontSize: 20.sp,fontWeight: FontWeight.w500
+      ),
+      bodyMedium: TextStyle(
+        color: ColorManager.primaryColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp
       )
     ),
   );

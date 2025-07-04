@@ -15,6 +15,14 @@ class StringsManager {
   static const String coptic = "قبطي";
   static const String taks = "طقس";
   static const String mahfozat = "محفوظات";
+  static const String notificationMsg = "بقالك كتير مش بيتيجي يا بولا مستينيك المرة اللي جاية الساعة 6:30 في الكنيسة";
+  static const String notificationMsg2= "متنسوش معاد بكرة وراجعوا علي كاطاني خورس كويس";
+  static const String notificationSender = "موسي عادل";
+  static const String before = "قبل";
+  static const String min = "دقيقة";
+  static const String month = "شهر";
+  static const String day = "يوم";
+  static const String hour = "ساعة";
 
   // constants
 static const String fontFamily = "PlaypenSansArabic";

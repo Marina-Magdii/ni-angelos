@@ -5,6 +5,7 @@ class ColorManager {
   // app colors
   static const Color primaryColor = Color(0xff560702);
   static const Color secondaryColor = Color(0xff5A121A);
+  static const Color greyColor = Color(0xff666666);
   static const Color textFieldColor = Color(0xfffcf0f1);
   static const Color bgColor = Color(0xfffef3e2);
   static const Color containerColor = Color(0xfffdedd3);
