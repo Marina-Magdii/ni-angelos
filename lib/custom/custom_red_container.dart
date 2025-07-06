@@ -8,44 +8,41 @@ class CustomRedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
+      clipBehavior: Clip.none,
       children: [
-        Center(
-          child: Stack(
-            children: [
-              // dark container
-              Positioned(
-                bottom: 12,
-                right: 12,
-                child: Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    color: ColorManager.secondaryColor, // Dark maroon shadow color
-                    borderRadius: BorderRadius.circular(8.r),
-                  ),
-                ),
-              ),
-
-              // red container
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: ColorManager.redContainer, // Main red color
-                  borderRadius: BorderRadius.circular(8.r),
-                ),
-              ),
-
-              // center widget
-              Positioned(
-                top:10,
-                  bottom: 10,
-                  left: 10,
-                  right: 10,
-                  child: child)
-            ],
+        // dark container
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color:
+                ColorManager.secondaryColor, // Dark maroon shadow color
+            borderRadius: BorderRadius.circular(8.r),
           ),
+        ),
+
+        // red container
+        Positioned(
+          bottom: 4,
+          right: 4,
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: ColorManager.redContainer, // Main red color
+              borderRadius: BorderRadius.circular(8.r),
+            ),
+          ),
+        ),
+
+        // center widget
+        Positioned(
+          top: 1,
+          bottom: 1,
+          left: 1,
+          right: 1,
+          child: child,
         ),
       ],
     );
