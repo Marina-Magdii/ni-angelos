@@ -6,7 +6,9 @@ class ColorManager {
   static const Color sectionColor = Color(0xff440d14);
   static const Color secondaryColor = Color(0xff5A121A);
   static const Color redContainer = Color(0xff931f27);
+  static const Color titleSmall = Color(0xffb82731);
   static const Color redRoseColor = Color(0xffc6525a);
+  static const Color darkGrey = Color(0xff444444);
   static const Color greyColor = Color(0xff666666);
   static const Color textFieldColor = Color(0xfffcf0f1);
   static const Color dividerColor = Color(0xffeedadc);

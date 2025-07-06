@@ -26,6 +26,10 @@ class StringsManager {
   static const String userId = "00023";
   static const String editProfile = "تعديل الحساب";
   static const String logOut = "تسجيل خروج";
+  static const String nextSession = "مواعيد الحصة الأسبوع القادم";
+  static const String nextSessionDescription = "الخميس من كل اسبوع - الساعة 6:30  مساءاً بعد العشية (مبني الخدمات - الدور الاول)";
+  static const String attendance = "الحضور (6/3)";
+  static const String attendDate = "الخميس 29 مايو 2025";
 
   // constants
 static const String fontFamily = "PlaypenSansArabic";

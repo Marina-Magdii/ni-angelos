@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_divider.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 
@@ -19,37 +20,45 @@ class ProfileView extends StatelessWidget {
       actions: [Lottie.asset(ImageAssets.profileAnimation, width: 40.w)],
 
       // profile content
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // profile image
-          profilePicAndName(context),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // profile image
+            profilePicAndName(context),
 
-          // edit and log out
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // log out
-              logOut(context),
+            // edit and log out
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // log out
+                logOut(context),
 
-              // dot
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8, top: 5),
-                child: Icon(
-                  Icons.circle_rounded,
-                  size: 5.sp,
-                  color: ColorManager.redRoseColor,
+                // dot
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8, top: 5),
+                  child: Icon(
+                    Icons.circle_rounded,
+                    size: 5.sp,
+                    color: ColorManager.redRoseColor,
+                  ),
                 ),
-              ),
 
-              // edit profile
-              editProfile(context),
-            ],
-          ),
+                // edit profile
+                editProfile(context),
+              ],
+            ),
 
-          // divider
-          CustomDivider()
-        ],
+            // divider
+            CustomDivider(),
+
+            // next session
+            nextSession(context),
+
+            // attendance
+            attendance(context),
+          ],
+        ),
       ),
     );
   }
@@ -81,11 +90,10 @@ class ProfileView extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            StringsManager.editProfile,
+            " ${StringsManager.editProfile} ",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          SvgPicture.asset(ImageAssets.editIcon,
-            width: 25 ),
+          SvgPicture.asset(ImageAssets.editIcon, width: 25.w),
         ],
       ),
     );
@@ -97,12 +105,82 @@ class ProfileView extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            StringsManager.logOut,
+            " ${StringsManager.logOut} ",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          SvgPicture.asset(ImageAssets.logOutIcon, width: 25),
+          SvgPicture.asset(ImageAssets.logOutIcon, width: 25.w),
         ],
       ),
+    );
+  }
+
+  nextSession(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              StringsManager.nextSession,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Padding(
+              padding: REdgeInsets.symmetric(horizontal: 8.0),
+              child: SvgPicture.asset(ImageAssets.calenderIcon),
+            ),
+          ],
+        ),
+        Padding(
+          padding: REdgeInsets.only(top: 8.0),
+          child: CustomContainer(
+            child: Text(
+              StringsManager.nextSessionDescription,
+              style: Theme.of(context).textTheme.labelSmall,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+        CustomDivider(),
+      ],
+    );
+  }
+
+  attendance(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              StringsManager.attendance,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Padding(
+              padding: REdgeInsets.symmetric(horizontal: 8.0),
+              child: SvgPicture.asset(ImageAssets.attendIcon),
+            ),
+          ],
+        ),
+        Padding(
+          padding: REdgeInsets.symmetric(vertical: 8.0),
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 6,
+            itemBuilder: (context, index) {
+              return CustomContainer(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(StringsManager.attendDate),
+                    SvgPicture.asset(ImageAssets.checkIcon),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

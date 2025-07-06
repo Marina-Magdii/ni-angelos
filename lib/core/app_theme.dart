@@ -40,9 +40,19 @@ class AppTheme {
         fontSize: 16.sp
       ),
       titleSmall: TextStyle(
-        color: ColorManager.redRoseColor,
+        color: ColorManager.titleSmall,
         fontSize: 14.sp,
         fontWeight: FontWeight.w500
+      ),
+      titleMedium: TextStyle(
+        color: ColorManager.redRoseColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp
+      ),
+      labelSmall: TextStyle(
+        color: ColorManager.darkGrey,
+        fontWeight: FontWeight.w400,
+        fontSize: 14.sp
       )
     ),
   );

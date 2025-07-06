@@ -8,7 +8,7 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: REdgeInsets.symmetric(horizontal: 16.0,vertical: 32),
+      padding: REdgeInsets.symmetric(horizontal: 16.0,vertical: 16),
       child: Row(
         children: [
           Transform.rotate(
