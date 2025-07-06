@@ -17,15 +17,15 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
-  bool _showFields = false;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController codeController = TextEditingController();
+  final TextEditingController passController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 1), () {
       setState(() {
-        _showFields = true;
       });
     });
   }
@@ -47,85 +47,78 @@ class _SignInViewState extends State<SignInView> {
           ),
 
           // delay to show text fields
-          AnimatedOpacity(
-            opacity: _showFields ? 1.0 : 0.0,
-            duration: const Duration(seconds: 1),
-            child: IgnorePointer(
-              ignoring: !_showFields,
-              child: Center(
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      // id text field
-                      CustomTextField(
-                        hintText: StringsManager.id,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return StringsManager.enterName;
-                          }
-                          return null;
-                        },
-                        obscure: false,
-                        controller: TextEditingController(),
-                        isPass: false,
-                      ).animate().slideX(
-                        duration: const Duration(seconds: 1),
-                        begin: 1.0,
-                        end: 0,
-                      ),
+           Center(
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    // id text field
+                    CustomTextField(
+                      hintText: StringsManager.id,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return StringsManager.enterName;
+                        }
+                        return null;
+                      },
+                      obscure: false,
+                      controller: codeController,
+                      isPass: false,
+                    ).animate().slideX(
+                      duration: const Duration(seconds: 1),
+                      begin: 1.0,
+                      end: 0,
+                    ),
 
-                      // password text field
-                      CustomTextField(
-                        hintText: StringsManager.pass,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return StringsManager.enterPass;
-                          }
-                          return null;
-                        },
-                        obscure: true,
-                        controller: TextEditingController(),
-                        isPass: true,
-                      ).animate().slideX(
-                        duration: const Duration(seconds: 1),
-                      ),
+                    // password text field
+                    CustomTextField(
+                      hintText: StringsManager.pass,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return StringsManager.enterPass;
+                        }
+                        return null;
+                      },
+                      obscure: true,
+                      controller: passController,
+                      isPass: true,
+                    ).animate().slideX(
+                      duration: const Duration(seconds: 1),
+                    ),
 
-                      // sign in button
-                      SizedBox(height: 20.h),
-                      InkWell(
-                        onTap: onSignIn,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          decoration: BoxDecoration(
-                            color: ColorManager.primaryColor,
-                            borderRadius: BorderRadius.circular(32.r),
-                            boxShadow: ColorManager.shadow,
+                    // sign in button
+                    SizedBox(height: 20.h),
+                    InkWell(
+                      onTap: onSignIn,
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        decoration: BoxDecoration(
+                          color: ColorManager.primaryColor,
+                          borderRadius: BorderRadius.circular(32.r),
+                          boxShadow: ColorManager.shadow,
+                        ),
+                        child: Padding(
+                          padding: REdgeInsets.symmetric(
+                            vertical: 8.0,
+                            horizontal: 16,
                           ),
-                          child: Padding(
-                            padding: REdgeInsets.symmetric(
-                              vertical: 8.0,
-                              horizontal: 16,
-                            ),
-                            child: Center(
-                              child: Padding(
-                                padding: REdgeInsets.all(8.0),
-                                child: Text(
-                                  StringsManager.signIn,
-                                  style:
-                                      Theme.of(context).textTheme.bodySmall,
-                                ),
+                          child: Center(
+                            child: Padding(
+                              padding: REdgeInsets.all(8.0),
+                              child: Text(
+                                StringsManager.signIn,
+                                style:
+                                    Theme.of(context).textTheme.bodySmall,
                               ),
                             ),
                           ),
-                        ).animate().fade(duration: Duration(seconds: 3)),
-                      ),
-                    ],
-                  ),
+                        ),
+                      ).animate().fade(duration: Duration(seconds: 3)),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ),
         ],
       ),
     );

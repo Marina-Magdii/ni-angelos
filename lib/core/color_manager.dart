@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class ColorManager {
   // app colors
   static const Color primaryColor = Color(0xff560702);
+  static const Color sectionColor = Color(0xff440d14);
   static const Color secondaryColor = Color(0xff5A121A);
+  static const Color redContainer = Color(0xff931f27);
+  static const Color redRoseColor = Color(0xffc6525a);
   static const Color greyColor = Color(0xff666666);
   static const Color textFieldColor = Color(0xfffcf0f1);
+  static const Color dividerColor = Color(0xffeedadc);
   static const Color bgColor = Color(0xfffef3e2);
   static const Color containerColor = Color(0xfffdedd3);
   static const Color containerBorderColor = Color(0xffdbc68c);
@@ -16,6 +20,6 @@ class ColorManager {
     BoxShadow(offset: Offset(0, 2), blurRadius: 7, color: Colors.grey),
   ];
   static const List<BoxShadow> lightShadow = [
-    BoxShadow(offset: Offset(0, 1), color: bgColor, blurRadius: 80),
+    BoxShadow(offset: Offset(0, 0.5), color: bgColor, blurRadius: 105),
   ];
 }

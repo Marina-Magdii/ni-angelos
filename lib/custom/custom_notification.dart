@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_red_container.dart';
 import 'package:ni_angelos/models/notification_model.dart';
 
 class CustomNotification extends StatelessWidget {
@@ -13,10 +15,10 @@ class CustomNotification extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-      child: Container(
-        // notification container design
+      child:
+      Container(
         decoration: BoxDecoration(
-          color: ColorManager.textFieldColor,
+          color: ColorManager.bgColor,
           boxShadow: ColorManager.shadow,
           border: Border.all(color: ColorManager.containerBorderColor),
           borderRadius: BorderRadius.circular(8.r),
@@ -37,7 +39,7 @@ class CustomNotification extends StatelessWidget {
               // notification icon
               Padding(
                 padding: REdgeInsets.only(left: 8.0),
-                child: Image.asset(ImageAssets.notificationContainer),
+                child: CustomRedContainer(child: SvgPicture.asset(ImageAssets.goldCross)),
               ),
             ],
           ),
@@ -68,7 +70,7 @@ class CustomNotification extends StatelessWidget {
           style: TextStyle(color: ColorManager.greyColor, fontSize: 14.sp),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.only(left: 8.0,right: 8,top: 5),
           child: Icon(
             Icons.circle_rounded,
             size: 5.sp,

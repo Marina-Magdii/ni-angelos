@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: ColorManager.primaryColor,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor:  ColorManager.bgColor,
         selectedLabelStyle: TextStyle(color: ColorManager.primaryColor),
 
         // tabs list
@@ -36,14 +36,14 @@ class _MainScreenState extends State<MainScreen> {
           // notifications tab
           BottomNavigationBarItem(
             activeIcon: SvgPicture.asset(ImageAssets.notificationsOn),
-            backgroundColor: Colors.transparent,
+            backgroundColor: ColorManager.bgColor,
             icon: SvgPicture.asset(ImageAssets.notificationsOff),
             label: StringsManager.notifications,
           ),
 
           // home tab
           BottomNavigationBarItem(
-            backgroundColor: Colors.transparent,
+            backgroundColor:  ColorManager.bgColor,
             activeIcon: SvgPicture.asset(ImageAssets.homeOn),
             icon: SvgPicture.asset(ImageAssets.homeOff),
             label: StringsManager.home,
@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
           // profile tab
           BottomNavigationBarItem(
             activeIcon: SvgPicture.asset(ImageAssets.profileOn),
-            backgroundColor: Colors.transparent,
+            backgroundColor: ColorManager.bgColor,
             icon: SvgPicture.asset(ImageAssets.profileOff),
             label: StringsManager.profile,
           ),

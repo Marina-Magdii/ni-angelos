@@ -27,7 +27,7 @@ class AppTheme {
       labelLarge: TextStyle(
         fontFamily: StringsManager.ruqaaFont,
         fontSize: 40.sp,
-        color: ColorManager.secondaryColor,
+        color: ColorManager.sectionColor,
         fontWeight: FontWeight.w700,
       ),
       bodySmall: TextStyle(
@@ -38,6 +38,11 @@ class AppTheme {
         color: ColorManager.primaryColor,
         fontWeight: FontWeight.w500,
         fontSize: 16.sp
+      ),
+      titleSmall: TextStyle(
+        color: ColorManager.redRoseColor,
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w500
       )
     ),
   );

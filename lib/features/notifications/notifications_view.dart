@@ -27,7 +27,7 @@ class NotificationsView extends StatelessWidget {
     NotificationModel(
       title: StringsManager.notificationMsg2,
       senderName: StringsManager.notificationSender,
-      sentTime: DateTime.now().subtract(Duration(hours:7,minutes: 5)),
+      sentTime: DateTime.now().subtract(Duration(hours: 7, minutes: 5)),
     ),
   ];
 

@@ -43,7 +43,7 @@ class ChildHome extends StatelessWidget {
             // child image
             Positioned(
               bottom: 0,
-              left: 10,
+              left: 30.sp,
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.17,
                 child: Image.asset(ImageAssets.childLogo),
@@ -60,20 +60,18 @@ class ChildHome extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Expanded(
-                child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: sections.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                  ),
-                  itemBuilder: (context, index) {
-                    return CustomSectionContainer(
-                      sectionModel: sections[index],
-                    );
-                  },
+              child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: sections.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                 ),
+                itemBuilder: (context, index) {
+                  return CustomSectionContainer(
+                    sectionModel: sections[index],
+                  );
+                },
               ),
             ),
 
@@ -81,8 +79,8 @@ class ChildHome extends StatelessWidget {
             Positioned(
               top: 100.sp,
               bottom: 100.sp,
-              right: 100.sp,
-              left: 100.sp,
+              right: 110.sp,
+              left: 110.sp,
               child: Container(
                 decoration: BoxDecoration(
                   boxShadow: ColorManager.lightShadow,
@@ -91,7 +89,7 @@ class ChildHome extends StatelessWidget {
                     center: Alignment.center,
                     radius: 0,
                     stops: [0, 1],
-                    colors: [Colors.white, Colors.transparent],
+                    colors: [ColorManager.bgColor, Colors.transparent],
                   ),
                 ),
               ),

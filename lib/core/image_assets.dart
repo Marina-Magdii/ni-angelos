@@ -17,8 +17,12 @@ class ImageAssets {
   static const String crossLogo = "assets/images/logo/cross.svg";
   static const String childLogo = "assets/images/logo/child.png";
   static const String notificationContainer = "assets/images/icons/notification_container.png";
+  static const String editIcon = "assets/images/icons/edit.svg";
+  static const String logOutIcon = "assets/images/icons/logout.svg";
+  static const String goldCross = "assets/images/icons/cross.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";
 static const String notificationAnimation = "assets/animations/notifications.json";
+static const String profileAnimation = "assets/animations/profile.json";
 }

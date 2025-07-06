@@ -23,6 +23,9 @@ class StringsManager {
   static const String month = "شهر";
   static const String day = "يوم";
   static const String hour = "ساعة";
+  static const String userId = "00023";
+  static const String editProfile = "تعديل الحساب";
+  static const String logOut = "تسجيل خروج";
 
   // constants
 static const String fontFamily = "PlaypenSansArabic";
