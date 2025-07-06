@@ -10,6 +10,7 @@ class ColorManager {
   static const Color greyColor = Color(0xff666666);
   static const Color textFieldColor = Color(0xfffcf0f1);
   static const Color dividerColor = Color(0xffeedadc);
+  static const Color bottomNavigationColor = Color(0xffffefcc);
   static const Color bgColor = Color(0xfffef3e2);
   static const Color containerColor = Color(0xfffdedd3);
   static const Color containerBorderColor = Color(0xffdbc68c);
