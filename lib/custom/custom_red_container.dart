@@ -38,11 +38,11 @@ class CustomRedContainer extends StatelessWidget {
 
         // center widget
         Positioned(
-          top: 1,
-          bottom: 1,
-          left: 1,
-          right: 1,
-          child: child,
+          top: 5,
+          bottom: 12,
+          left: 5,
+          right: 10,
+          child: Center(child: child),
         ),
       ],
     );

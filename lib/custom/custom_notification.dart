@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
+import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_red_container.dart';
 import 'package:ni_angelos/models/notification_model.dart';
@@ -38,7 +38,7 @@ class CustomNotification extends StatelessWidget {
               Padding(
                 padding: REdgeInsets.only(left: 8.0),
                 child: CustomRedContainer(
-                  child: SvgPicture.asset("assets/images/icons/cross.svg")
+                  child: Image.asset(ImageAssets.goldCross)
                 ),
               ),
             ],

@@ -19,7 +19,7 @@ class ImageAssets {
   static const String notificationContainer = "assets/images/icons/notification_container.png";
   static const String editIcon = "assets/images/icons/edit.svg";
   static const String logOutIcon = "assets/images/icons/logout.svg";
-  static const String goldCross = "assets/images/icons/cross.svg";
+  static const String goldCross = "assets/images/icons/cross.png";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";
