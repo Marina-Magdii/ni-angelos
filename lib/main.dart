@@ -10,6 +10,8 @@ import 'package:ni_angelos/features/home/main_screen.dart';
 import 'package:ni_angelos/features/notifications/notifications_view.dart';
 import 'package:ni_angelos/features/profile/profile_view.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
+import 'package:ni_angelos/features/tunes/presentation/tune_details_view.dart';
+import 'package:ni_angelos/features/tunes/presentation/tunes_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +42,8 @@ class MyApp extends StatelessWidget {
             RoutesManager.main:(_)=>MainScreen(),
             RoutesManager.notificationsView:(_)=>NotificationsView(),
             RoutesManager.profile:(_)=>ProfileView(),
+            RoutesManager.tunes:(_)=>TunesView(),
+            RoutesManager.tuneDetails:(_)=>TuneDetailsView(),
           },
         );
       },

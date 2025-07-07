@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_section_container.dart';
 import 'package:ni_angelos/models/section_model.dart';
@@ -10,14 +11,26 @@ import 'package:ni_angelos/models/section_model.dart';
 class ChildHome extends StatelessWidget {
   const ChildHome({super.key});
   static List<SectionModel> sections = [
-    SectionModel("screenName", StringsManager.coptic, ImageAssets.copticIcon),
-    SectionModel("screenName", StringsManager.tunes, ImageAssets.tunesIcon),
     SectionModel(
-      "screenName",
+      RoutesManager.tunes,
+      StringsManager.coptic,
+      ImageAssets.copticIcon,
+    ),
+    SectionModel(
+      RoutesManager.tunes,
+      StringsManager.tunes,
+      ImageAssets.tunesIcon,
+    ),
+    SectionModel(
+      RoutesManager.tunes,
       StringsManager.mahfozat,
       ImageAssets.mahfozatIcon,
     ),
-    SectionModel("screenName", StringsManager.taks, ImageAssets.taksIcon),
+    SectionModel(
+      RoutesManager.tunes,
+      StringsManager.taks,
+      ImageAssets.taksIcon,
+    ),
   ];
 
   @override
@@ -26,7 +39,6 @@ class ChildHome extends StatelessWidget {
       children: [
         Stack(
           children: [
-
             // church image
             Container(
               width: MediaQuery.of(context).size.width * 0.9,
@@ -68,9 +80,7 @@ class ChildHome extends StatelessWidget {
                   crossAxisCount: 2,
                 ),
                 itemBuilder: (context, index) {
-                  return CustomSectionContainer(
-                    sectionModel: sections[index],
-                  );
+                  return CustomSectionContainer(sectionModel: sections[index]);
                 },
               ),
             ),
@@ -89,7 +99,7 @@ class ChildHome extends StatelessWidget {
                     center: Alignment.center,
                     radius: 0,
                     stops: [0, 1],
-                    colors: [ColorManager.bgColor, Colors.transparent],
+                    colors: [ColorManager.containerColor, Colors.transparent],
                   ),
                 ),
               ),

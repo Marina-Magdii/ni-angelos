@@ -27,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: ColorManager.primaryColor,
         elevation: 0,
-        backgroundColor:  ColorManager.bottomNavigationColor,
+        backgroundColor:  Colors.transparent,
         selectedLabelStyle: TextStyle(color: ColorManager.primaryColor),
 
         // tabs list

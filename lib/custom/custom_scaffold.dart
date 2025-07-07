@@ -33,6 +33,7 @@ class MyCustomScaffold extends StatelessWidget {
               body: child,
               bottomNavigationBar: bottomNavigationBar,
               appBar: AppBar(
+                automaticallyImplyLeading: false,
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

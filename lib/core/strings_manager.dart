@@ -30,6 +30,7 @@ class StringsManager {
   static const String nextSessionDescription = "الخميس من كل اسبوع - الساعة 6:30  مساءاً بعد العشية (مبني الخدمات - الدور الاول)";
   static const String attendance = "الحضور (6/3)";
   static const String attendDate = "الخميس 29 مايو 2025";
+  static const String firstSemester = "الترم الأول";
 
   // constants
 static const String fontFamily = "PlaypenSansArabic";

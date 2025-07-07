@@ -16,12 +16,12 @@ class CustomDivider extends StatelessWidget {
             child: Container(
               width: 10.w,
               height: 10.h,
-              color:  ColorManager.dividerColor,
+              color:  ColorManager.titleSmall,
             ),
           ),
           Expanded(
             child: Divider(
-              color: ColorManager.dividerColor,
+              color: ColorManager.titleSmall,
               thickness: 4.sp,
             ),
           ),
@@ -30,7 +30,7 @@ class CustomDivider extends StatelessWidget {
             child: Container(
               width: 10.w,
               height: 10.h,
-              color:  ColorManager.dividerColor,
+              color:  ColorManager.titleSmall,
             ),
           ),
         ],

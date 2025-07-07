@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_red_container.dart';
 import 'package:ni_angelos/models/notification_model.dart';
 
@@ -12,38 +13,22 @@ class CustomNotification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: REdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-      child: Container(
-        decoration: BoxDecoration(
-          color: ColorManager.bgColor,
-          boxShadow: ColorManager.shadow,
-          border: Border.all(color: ColorManager.containerBorderColor),
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-
-        // notification content
-        child: Padding(
-          padding: REdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              // notification message, sender and time
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [titleMessage(context), senderAndTime()],
-              ),
-
-              // notification icon
-              Padding(
-                padding: REdgeInsets.only(left: 8.0),
-                child: CustomRedContainer(
-                  child: Image.asset(ImageAssets.goldCross)
-                ),
-              ),
-            ],
+    return CustomContainer(
+      // notification content
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          // notification message, sender and time
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [titleMessage(context), senderAndTime()],
           ),
-        ),
+
+          // notification icon
+          CustomRedContainer(
+            child: Image.asset(ImageAssets.goldCross),
+          ),
+        ],
       ),
     );
   }

@@ -23,6 +23,7 @@ class ImageAssets {
   static const String calenderIcon = "assets/images/icons/calendar.svg";
   static const String attendIcon = "assets/images/icons/attendance.svg";
   static const String checkIcon = "assets/images/icons/check.svg";
+  static const String arrowBack = "assets/images/icons/arrow_back.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";

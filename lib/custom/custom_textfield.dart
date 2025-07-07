@@ -3,19 +3,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 
 class CustomTextField extends StatefulWidget {
-  CustomTextField({
+   CustomTextField({
     super.key,
     required this.hintText,
     required this.validator,
-    required this.obscure,
+     required this.obscure,
     required this.controller,
     required this.isPass,
   });
   final String hintText;
-  bool obscure = false;
+   bool obscure = false;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  bool isPass = false;
+  final bool isPass;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -67,7 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderSide: BorderSide(color: Colors.transparent, width: 2.w),
             ),
             filled: true,
-            fillColor: ColorManager.bgColor,
+            fillColor: ColorManager.containerColor,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32.r),
               borderSide: BorderSide(color: Colors.transparent, width: 2.w),

@@ -15,8 +15,8 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCustomScaffold(
+      // app bar title and icon
       appBarTitle: StringsManager.profile,
-      // profile icon
       actions: [Lottie.asset(ImageAssets.profileAnimation, width: 40.w)],
 
       // profile content
@@ -36,7 +36,7 @@ class ProfileView extends StatelessWidget {
 
                 // dot
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8, top: 5),
+                  padding: REdgeInsets.only(left: 8.0, right: 8, top: 5),
                   child: Icon(
                     Icons.circle_rounded,
                     size: 5.sp,

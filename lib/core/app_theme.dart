@@ -24,36 +24,47 @@ class AppTheme {
         fontSize: 20.sp,
         color: ColorManager.secondaryColor,
       ),
+      titleMedium: TextStyle(
+        color: ColorManager.redRoseColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp,
+      ),
+      titleSmall: TextStyle(
+        color: ColorManager.titleSmall,
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w500,
+      ),
       labelLarge: TextStyle(
         fontFamily: StringsManager.ruqaaFont,
         fontSize: 40.sp,
         color: ColorManager.sectionColor,
         fontWeight: FontWeight.w700,
       ),
-      bodySmall: TextStyle(
-        color: ColorManager.textFieldColor,
-        fontSize: 20.sp,fontWeight: FontWeight.w500
-      ),
-      bodyMedium: TextStyle(
-        color: ColorManager.primaryColor,
+      labelMedium: TextStyle(
+        color: ColorManager.tuneColor,
+        fontSize: 18.sp,
         fontWeight: FontWeight.w500,
-        fontSize: 16.sp
-      ),
-      titleSmall: TextStyle(
-        color: ColorManager.titleSmall,
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500
-      ),
-      titleMedium: TextStyle(
-        color: ColorManager.redRoseColor,
-        fontWeight: FontWeight.w500,
-        fontSize: 16.sp
       ),
       labelSmall: TextStyle(
         color: ColorManager.darkGrey,
         fontWeight: FontWeight.w400,
-        fontSize: 14.sp
-      )
+        fontSize: 14.sp,
+      ),
+      bodyLarge: TextStyle(
+        color: Colors.white,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyMedium: TextStyle(
+        color: ColorManager.primaryColor,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.sp,
+      ),
+      bodySmall: TextStyle(
+        color: ColorManager.textFieldColor,
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w500,
+      ),
     ),
   );
 }

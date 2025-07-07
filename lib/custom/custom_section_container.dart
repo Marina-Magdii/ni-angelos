@@ -12,7 +12,7 @@ class CustomSectionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context).pushNamed(sectionModel.screenName);
+        Navigator.of(context).pushNamed(sectionModel.screenName);
       },
       child: Padding(
         padding:REdgeInsets.symmetric(vertical: 6,horizontal: 10),
