@@ -20,7 +20,7 @@ class ProfileView extends StatelessWidget {
       actions: [Lottie.asset(ImageAssets.profileAnimation, width: 40.w)],
 
       // profile content
-      child: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

@@ -24,6 +24,23 @@ class ImageAssets {
   static const String attendIcon = "assets/images/icons/attendance.svg";
   static const String checkIcon = "assets/images/icons/check.svg";
   static const String arrowBack = "assets/images/icons/arrow_back.svg";
+  static const String showIcon = "assets/images/icons/show.svg";
+  static const String deleteIcon = "assets/images/icons/delete.svg";
+  static const String shareIcon = "assets/images/icons/share.svg";
+  static const String recordIcon = "assets/images/icons/record.svg";
+  static const String pdfIcon = "assets/images/icons/pdf.svg";
+  static const String moneyIcon = "assets/images/icons/money_tick.svg";
+  static const String minusIcon = "assets/images/icons/minus.svg";
+  static const String menuEmptyIcon = "assets/images/icons/menu_empty.svg";
+  static const String menuFillIcon = "assets/images/icons/menu_selected.svg";
+  static const String imageIcon = "assets/images/icons/image.svg";
+  static const String hideIcon = "assets/images/icons/hide.svg";
+  static const String excelIcon = "assets/images/icons/excel.svg";
+  static const String darkEditIcon = "assets/images/icons/dark_edit.svg";
+  static const String darkCheckIcon = "assets/images/icons/dark_check.svg";
+  static const String bookIcon = "assets/images/icons/book.svg";
+  static const String arrowDown = "assets/images/icons/arrow_down.svg";
+  static const String addIcon = "assets/images/icons/add.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";

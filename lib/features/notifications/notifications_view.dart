@@ -36,7 +36,7 @@ class NotificationsView extends StatelessWidget {
     return MyCustomScaffold(
       appBarTitle: StringsManager.notifications,
       actions: [Lottie.asset(ImageAssets.notificationAnimation)],
-      child: Column(
+      body: Column(
         children: [
           Expanded(
             child: ListView.builder(

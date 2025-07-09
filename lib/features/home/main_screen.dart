@@ -68,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
 
       // tabs body
-      child: Container(child: tabs[currentIndex]),
+      body: Container(child: tabs[currentIndex]),
     );
   }
 }

@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
       actions: [
         Lottie.asset(ImageAssets.helloAnimation, width: 40.w, height: 40.h),
       ],
-      child: ChildHome(),
+      body: ChildHome(),
     );
   }
 }

@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
       ));
     });
     return MyCustomScaffold(
-      child: Center(
+      body: Center(
         child: SvgPicture.asset(ImageAssets.logoIcon),
       ).animate().scale(
         begin: Offset(0.1, 0.1), // Start small

@@ -4,15 +4,17 @@ import 'package:ni_angelos/core/image_assets.dart';
 class MyCustomScaffold extends StatelessWidget {
   const MyCustomScaffold({
     super.key,
-    required this.child,
+    required this.body,
     this.bottomNavigationBar,
     this.appBarTitle,
     this.actions,
+    this.leading
   });
-  final Widget child;
+  final Widget body;
   final Widget? bottomNavigationBar;
   final String? appBarTitle;
   final List<Widget>? actions;
+  final Widget? leading;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,27 +26,25 @@ class MyCustomScaffold extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         MediaQuery.removePadding(
-          context: context,
           removeTop: true,
-          child: SafeArea(
-            child: Scaffold(
-              resizeToAvoidBottomInset: false,
-              backgroundColor: Colors.transparent,
-              body: child,
-              bottomNavigationBar: bottomNavigationBar,
-              appBar: AppBar(
-                automaticallyImplyLeading: false,
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      appBarTitle ?? "",
-                    ),
-                  ],
-                ),
-                actions: actions,
+          context: context,
+          child: Scaffold(
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    appBarTitle ?? "",
+                  ),
+                ],
               ),
+              actions: actions,
             ),
+            resizeToAvoidBottomInset: false,
+            backgroundColor: Colors.transparent,
+            body: body,
+            bottomNavigationBar: bottomNavigationBar,
           ),
         ),
       ],

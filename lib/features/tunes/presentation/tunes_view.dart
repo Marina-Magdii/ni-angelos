@@ -22,10 +22,15 @@ class TunesView extends StatelessWidget {
             onTap: (){
               Navigator.pop(context);
             },
-            child: SvgPicture.asset(ImageAssets.arrowBack),
+            child: Padding(
+              padding: REdgeInsets.only(top: 10.0),
+              child: SvgPicture.asset(ImageAssets.arrowBack,
+                width: 24.w,
+                height: 24.h,),
+            ),
           )
         ],
-          child: SingleChildScrollView(
+          body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
