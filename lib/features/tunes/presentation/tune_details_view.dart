@@ -15,6 +15,23 @@ class TuneDetailsView extends StatelessWidget {
   final bool showArabic = true;
   final bool showMoaarab = true;
   final bool showCoptic = true;
+  static List<String> arabicText = [
+    'هذا نص باللغة العربية ١',
+    'هذا نص باللغة العربية ٢',
+    'هذا نص باللغة العربية ٣',
+  ];
+
+  static List<String> englishText = [
+    'English paragraph 1',
+    'English paragraph 2',
+    'English paragraph 3',
+  ];
+
+  static List<String> copticText = [
+    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 1',
+    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 2',
+    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 3',
+  ];
   static List<TuneContainerModel> options = [
     TuneContainerModel(
       title: StringsManager.recorder1,
@@ -59,61 +76,66 @@ class TuneDetailsView extends StatelessWidget {
             ),
           ),
         ],
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            SizedBox(
-              height: 100.h,
-              child: ListView.builder(
-                physics: AlwaysScrollableScrollPhysics(),
-                reverse: true,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: options.length,
-                itemBuilder: (context, index) {
-                  return CustomContainer(
-                    child: Column(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              SizedBox(
+                height: 100.h,
+                child: ListView.builder(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  reverse: true,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: options.length,
+                  itemBuilder: (context, index) {
+                    return CustomContainer(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 24.h,
+                            width: 24.h,
+                            child: options[index].icon,
+                          ),
+                          Text(options[index].title),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              Row(
+                children: [
+                  CustomContainer(
+                    child: Row(
                       children: [
-                        SizedBox(
-                          height: 24.h,
-                          width: 24.h,
-                          child: options[index].icon,
-                        ),
-                        Text(options[index].title),
+                        Text(StringsManager.inCoptic),
+                        SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        SizedBox(width: 6.w),
+                        Text(StringsManager.moaarab),
+                        SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        SizedBox(width: 6.w),
+                        Text(StringsManager.arabic),
+                        SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        SizedBox(width: 6.w),
                       ],
                     ),
-                  );
-                },
-              ),
-            ),
-            Row(
-              children: [
-                CustomContainer(
-                  child: Row(
-                    children: [
-                      Text(StringsManager.inCoptic),
-                      SvgPicture.asset(ImageAssets.darkCheckIcon),
-                      SizedBox(width: 6.w),
-                      Text(StringsManager.moaarab),
-                      SvgPicture.asset(ImageAssets.darkCheckIcon),
-                      SizedBox(width: 6.w),
-                      Text(StringsManager.arabic),
-                      SvgPicture.asset(ImageAssets.darkCheckIcon),
-                      SizedBox(width: 6.w),
-                    ],
                   ),
+                  Expanded(child: CustomDivider()),
+                ],
+              ),
+              Padding(
+                padding: REdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    if (showArabic) CustomTuneQuarter(texts: arabicText,),
+                    if (showMoaarab) CustomTuneQuarter(texts: englishText,),
+                    if (showCoptic) CustomTuneQuarter(texts: copticText,),
+                  ],
                 ),
-                Expanded(child: CustomDivider()),
-              ],
-            ),
-            Row(
-              children: [
-                if (showArabic) CustomTuneQuarter(),
-                if (showMoaarab) CustomTuneQuarter(),
-                if (showCoptic) CustomTuneQuarter(),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

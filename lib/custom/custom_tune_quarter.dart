@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTuneQuarter extends StatelessWidget {
-  const CustomTuneQuarter({super.key});
+  const CustomTuneQuarter({super.key,required this.texts});
   final bool showArabic = true;
   final bool showMoaarab = true;
   final bool showCoptic = true;
-  static List<String> arabicText = [
-    'هذا نص باللغة العربية ١',
-    'هذا نص باللغة العربية ٢',
-    'هذا نص باللغة العربية ٣',
-  ];
-
-  static List<String> englishText = [
-    'English paragraph 1',
-    'English paragraph 2',
-    'English paragraph 3',
-  ];
-
-  static List<String> copticText = [
-    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 1',
-    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 2',
-    'ⲡⲁⲣⲁⲅⲣⲁⲫⲟⲥ 3',
-  ];
+  final List<String>texts;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
+        shrinkWrap: true,
         separatorBuilder: (context,index){
           return Divider();
         },
           itemBuilder: (context,index){
-            return Text(copticText[index]);
-      }, itemCount: copticText.length,),
+            return SizedBox(
+              height: 50.h,
+                child: Text(texts[index]));
+      }, itemCount: texts.length,),
     );
   }
 }
