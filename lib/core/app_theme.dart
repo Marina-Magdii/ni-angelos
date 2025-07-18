@@ -26,7 +26,7 @@ class AppTheme {
       ),
       titleMedium: TextStyle(
         color: ColorManager.redRoseColor,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w600,
         fontSize: 16.sp,
       ),
       titleSmall: TextStyle(

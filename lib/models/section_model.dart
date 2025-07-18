@@ -2,5 +2,5 @@ class SectionModel {
   String title;
   String screenName;
   String? icon;
-  SectionModel (this.screenName,this.title,this.icon);
+  SectionModel ({required this.screenName,required  this.title, this.icon});
 }

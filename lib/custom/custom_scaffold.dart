@@ -21,28 +21,23 @@ class MyCustomScaffold extends StatelessWidget {
   final bool withBackArrow;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          ImageAssets.bgImagePng,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
-        ),
-        MediaQuery.removePadding(
-          removeTop: true,
-          context: context,
-          child: Scaffold(
-            appBar: AppBar(
-              elevation: 0,
-              shadowColor: Colors.transparent,
+    return SafeArea(
+      child: Stack(
+        children: [
+          Image.asset(
+            ImageAssets.bgImagePng,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
+          Scaffold(
+            appBar:appBarTitle!=null? AppBar(
               scrolledUnderElevation: 0,
               backgroundColor: Colors.transparent,
               automaticallyImplyLeading: false,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Text(appBarTitle ?? "")],
-              ),
+              title: Align(
+                alignment: Alignment.centerRight,
+                  child: Text(appBarTitle ?? "")),
               actions:
                   withBackArrow
                       ? [
@@ -61,14 +56,14 @@ class MyCustomScaffold extends StatelessWidget {
                         ),
                       ]
                       : actions,
-            ),
+            ):null,
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: body,
             bottomNavigationBar: bottomNavigationBar,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

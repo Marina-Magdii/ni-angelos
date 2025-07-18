@@ -33,7 +33,7 @@ class StringsManager {
   static const String logOut = "تسجيل خروج";
   static const String nextSession = "مواعيد الحصة الأسبوع القادم";
   static const String nextSessionDescription = "الخميس من كل اسبوع - الساعة 6:30  مساءاً بعد العشية (مبني الخدمات - الدور الاول)";
-  static const String attendance = "الحضور (6/3)";
+  static const String attendanceDate = "الحضور (6/3)";
   static const String attendDate = "الخميس 29 مايو 2025";
   static const String firstSemester = "الترم الأول";
   static const String recorder1 = "تسجيل مستر مينا";
@@ -47,6 +47,12 @@ class StringsManager {
   static const String manhag = "المنهج";
   static const String sharh = "الشروحات";
   static const String firstStage = "المستوي  الأول - الحصة الاولي";
+  static const String classes = "الفصول";
+  static const String attendance = "الحضور";
+  static const String children = "المخدومين";
+  static const String childrenCheck = "إفتقاد المخدمين";
+  static const String teachers = "الخدام";
+  static const String teachersCheck = "إفتقاد الخدام";
   static const String policyEng = """
  Privacy Policy
 

@@ -36,9 +36,12 @@ class CustomSectionContainer extends StatelessWidget {
                         height: 85.h,
                       )
                       : SizedBox.shrink(),
-                  Text(
-                    sectionModel.title,
-                    style: Theme.of(context).textTheme.labelLarge,
+                  Center(
+                    child: Text(
+                      sectionModel.title,
+                      maxLines: 2,
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
                   ),
                 ],
               ),

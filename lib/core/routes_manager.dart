@@ -15,4 +15,10 @@ class RoutesManager {
   static const String taksDetails = "TaksDetails/";
   static const String mahfozat = "Mahfozat/";
   static const String mahfozatDetails = "MahfozatDetails/";
+  static const String classes = "Classes/";
+  static const String attendance = "Attendance/";
+  static const String teachers = "Teachers/";
+  static const String children = "Children/";
+  static const String teachersCheck = "TeachersCheck";
+  static const String childrenCheck = "ChildrenCheck";
 }

@@ -15,14 +15,14 @@ import 'package:ni_angelos/models/chat_message_model.dart';
 import 'package:ni_angelos/models/tune_model.dart';
 import 'package:record/record.dart';
 
-class TaksDetailsView extends StatefulWidget {
-  const TaksDetailsView({super.key});
+class MahfozatDetailsView extends StatefulWidget {
+  const MahfozatDetailsView({super.key});
 
   @override
-  State<TaksDetailsView> createState() => _TaksDetailsViewState();
+  State<MahfozatDetailsView> createState() => _MahfozatDetailsViewState();
 }
 
-class _TaksDetailsViewState extends State<TaksDetailsView>{
+class _MahfozatDetailsViewState extends State<MahfozatDetailsView> {
   final TextEditingController controller = TextEditingController();
   final record = RecordPlatform.instance;
   final audioPlayer = AudioPlayer();
@@ -54,20 +54,18 @@ class _TaksDetailsViewState extends State<TaksDetailsView>{
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as TuneModel;
-    return SafeArea(
-      child: MyCustomScaffold(
-        withBackArrow: true,
-        appBarTitle: args.title,
-        leading: SvgPicture.asset(ImageAssets.deleteIcon),
-        body: Padding(
-          padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(child: chatMessages()),
-              isAdmin() ? messageTypeInput() : Container(),
-            ],
-          ),
+    return MyCustomScaffold(
+      withBackArrow: true,
+      appBarTitle: args.title,
+      leading: SvgPicture.asset(ImageAssets.deleteIcon),
+      body: Padding(
+        padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(child: chatMessages()),
+            isAdmin() ? messageTypeInput() : Container(),
+          ],
         ),
       ),
     );

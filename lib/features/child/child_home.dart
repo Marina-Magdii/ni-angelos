@@ -12,24 +12,24 @@ class ChildHome extends StatelessWidget {
   const ChildHome({super.key});
   static List<SectionModel> sections = [
     SectionModel(
-      RoutesManager.coptic,
-      StringsManager.coptic,
-      ImageAssets.copticIcon,
+      screenName: RoutesManager.coptic,
+      title: StringsManager.coptic,
+      icon: ImageAssets.copticIcon,
     ),
     SectionModel(
-      RoutesManager.tunes,
-      StringsManager.tunes,
-      ImageAssets.tunesIcon,
+      screenName: RoutesManager.tunes,
+      title: StringsManager.tunes,
+      icon: ImageAssets.tunesIcon,
     ),
     SectionModel(
-      RoutesManager.mahfozat,
-      StringsManager.mahfozat,
-      ImageAssets.mahfozatIcon,
+      screenName: RoutesManager.mahfozat,
+      title: StringsManager.mahfozat,
+      icon: ImageAssets.mahfozatIcon,
     ),
     SectionModel(
-      RoutesManager.taks,
-      StringsManager.taks,
-      ImageAssets.taksIcon,
+      screenName: RoutesManager.taks,
+      title: StringsManager.taks,
+      icon: ImageAssets.taksIcon,
     ),
   ];
 
@@ -41,9 +41,9 @@ class ChildHome extends StatelessWidget {
           children: [
             // church image
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 try {
-                   SvgPicture.asset(ImageAssets.notificationsOn);
+                  SvgPicture.asset(ImageAssets.notificationsOn);
                 } catch (e) {
                   print('SVG failed: $e');
                   // fallback

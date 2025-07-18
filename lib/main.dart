@@ -3,21 +3,27 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/app_theme.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/features/admin/admin_home.dart';
+import 'package:ni_angelos/features/admin/attendance/presentation/attendance_view.dart';
+import 'package:ni_angelos/features/admin/children/presentation/children_view.dart';
+import 'package:ni_angelos/features/admin/children_check/presentation/children_check_view.dart';
+import 'package:ni_angelos/features/admin/classes/presentation/classes_view.dart';
+import 'package:ni_angelos/features/admin/teachers/presentation/teachers_view.dart';
+import 'package:ni_angelos/features/admin/teachers_check/presentation/teachers_check_view.dart';
 import 'package:ni_angelos/features/authentication/sign_in_view.dart';
 import 'package:ni_angelos/features/child/child_home.dart';
-import 'package:ni_angelos/features/coptic/presentation/coptic_details_view.dart';
-import 'package:ni_angelos/features/coptic/presentation/coptic_view.dart';
+import 'package:ni_angelos/features/child/coptic/presentation/coptic_details_view.dart';
+import 'package:ni_angelos/features/child/coptic/presentation/coptic_view.dart';
+import 'package:ni_angelos/features/child/mahfozat/presentation/mahfozat_details_view.dart';
+import 'package:ni_angelos/features/child/mahfozat/presentation/mahfozat_view.dart';
+import 'package:ni_angelos/features/child/taks/presentation/taks_details_view.dart';
+import 'package:ni_angelos/features/child/taks/presentation/taks_view.dart';
+import 'package:ni_angelos/features/child/tunes/presentation/tune_details_view.dart';
+import 'package:ni_angelos/features/child/tunes/presentation/tunes_view.dart';
 import 'package:ni_angelos/features/home/home_view.dart';
 import 'package:ni_angelos/features/home/main_screen.dart';
-import 'package:ni_angelos/features/mahfozat/presentation/mahfozat_details_view.dart';
-import 'package:ni_angelos/features/mahfozat/presentation/mahfozat_view.dart';
 import 'package:ni_angelos/features/notifications/notifications_view.dart';
 import 'package:ni_angelos/features/profile/profile_view.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
-import 'package:ni_angelos/features/taks/presentation/taks_details_view.dart';
-import 'package:ni_angelos/features/taks/presentation/taks_view.dart';
-import 'package:ni_angelos/features/tunes/presentation/tune_details_view.dart';
-import 'package:ni_angelos/features/tunes/presentation/tunes_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,6 +62,12 @@ class MyApp extends StatelessWidget {
             RoutesManager.taksDetails :(_)=> TaksDetailsView(),
             RoutesManager.mahfozat:(_)=> MahfozatView(),
             RoutesManager.mahfozatDetails :(_)=> MahfozatDetailsView(),
+            RoutesManager.attendance :(_)=> AttendanceView(),
+            RoutesManager.children :(_)=> ChildrenView(),
+            RoutesManager.childrenCheck :(_)=> ChildrenCheckView(),
+            RoutesManager.classes :(_)=> ClassesView(),
+            RoutesManager.teachers :(_)=> TeachersView(),
+            RoutesManager.teachersCheck :(_)=> TeachersCheckView(),
           },
         );
       },

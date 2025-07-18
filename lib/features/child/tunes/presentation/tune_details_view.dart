@@ -68,42 +68,40 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
     final args = ModalRoute.of(context)?.settings.arguments as TuneModel;
     return Stack(
       children: [
-        SafeArea(
-          child: MyCustomScaffold(
-            withBackArrow: true,
-            appBarTitle: args.title,
-            body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  options(),
-                  Padding(
-                    padding:REdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      children: [
-                        toggleLanguage(),
-                        Expanded(child: CustomDivider()),
-                      ],
-                    ),
+        MyCustomScaffold(
+          withBackArrow: true,
+          appBarTitle: args.title,
+          body: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                options(),
+                Padding(
+                  padding:REdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    children: [
+                      toggleLanguage(),
+                      Expanded(child: CustomDivider()),
+                    ],
                   ),
-                  Padding(
-                    padding: REdgeInsets.all(16.0),
-                    child: Row(
-                      children: [
-                        if (showCoptic)
-                          CustomTuneQuarter(
-                            texts: TuneDetailsView.copticText,
-                            isCoptic: true,
-                          ),
-                        if (showMoaarab)
-                          CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
-                        if (showArabic)
-                          CustomTuneQuarter(texts: TuneDetailsView.arabicText),
-                      ],
-                    ),
+                ),
+                Padding(
+                  padding: REdgeInsets.all(16.0),
+                  child: Row(
+                    children: [
+                      if (showCoptic)
+                        CustomTuneQuarter(
+                          texts: TuneDetailsView.copticText,
+                          isCoptic: true,
+                        ),
+                      if (showMoaarab)
+                        CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
+                      if (showArabic)
+                        CustomTuneQuarter(texts: TuneDetailsView.arabicText),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
