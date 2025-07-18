@@ -11,6 +11,7 @@ class AdminHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCustomScaffold(
+      withBackArrow: false,
       body: Column(
         children: [
           Padding(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_tune_container.dart';
@@ -16,20 +17,8 @@ class TunesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: MyCustomScaffold(
+        withBackArrow: true,
         appBarTitle: StringsManager.tunes,
-        actions: [
-          InkWell(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: Padding(
-              padding: REdgeInsets.only(top: 10.0),
-              child: SvgPicture.asset(ImageAssets.arrowBack,
-                width: 24.w,
-                height: 24.h,),
-            ),
-          )
-        ],
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -44,6 +33,7 @@ class TunesView extends StatelessWidget {
                   itemCount: 10,
                     itemBuilder: (context,index){
                       return CustomTuneContainer(
+                        screenName: RoutesManager.tuneDetails,
                           tuneModel: tuneModel,
                       number: index+1,);
                     }),

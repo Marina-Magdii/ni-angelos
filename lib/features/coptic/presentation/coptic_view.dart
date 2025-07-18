@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_divider.dart';
@@ -24,21 +25,7 @@ class CopticView extends StatelessWidget {
     return SafeArea(
       child: MyCustomScaffold(
         appBarTitle: StringsManager.coptic,
-        actions: [
-          InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Padding(
-              padding: REdgeInsets.only(top: 10.0),
-              child: SvgPicture.asset(
-                ImageAssets.arrowBack,
-                width: 24.w,
-                height: 24.h,
-              ),
-            ),
-          ),
-        ],
+        withBackArrow: true,
         body: Padding(
           padding: REdgeInsets.symmetric(horizontal: 16.0),
           child: SingleChildScrollView(
@@ -106,6 +93,7 @@ class CopticView extends StatelessWidget {
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return CustomTuneContainer(
+                        screenName: RoutesManager.copticDetails,
                         teacher: true,
                         tuneModel: tuneModel,
                         number: index + 1,

@@ -35,6 +35,7 @@ class _SignInViewState extends State<SignInView> {
   @override
   Widget build(BuildContext context) {
     return MyCustomScaffold(
+      withBackArrow: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: REdgeInsets.all(16.0),

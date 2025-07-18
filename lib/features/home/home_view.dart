@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCustomScaffold(
+      withBackArrow: false,
       appBarTitle: StringsManager.hello,
       actions: [
         Lottie.asset(ImageAssets.helloAnimation, width: 40.w, height: 40.h),

@@ -5,6 +5,7 @@ import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/features/admin/admin_home.dart';
 import 'package:ni_angelos/features/authentication/sign_in_view.dart';
 import 'package:ni_angelos/features/child/child_home.dart';
+import 'package:ni_angelos/features/coptic/presentation/coptic_details_view.dart';
 import 'package:ni_angelos/features/coptic/presentation/coptic_view.dart';
 import 'package:ni_angelos/features/home/home_view.dart';
 import 'package:ni_angelos/features/home/main_screen.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
             RoutesManager.tunes: (_) => TunesView(),
             RoutesManager.tuneDetails: (_) => TuneDetailsView(),
             RoutesManager.coptic :(_)=> CopticView(),
+            RoutesManager.copticDetails :(_)=> CopticDetailsView(),
           },
         );
       },

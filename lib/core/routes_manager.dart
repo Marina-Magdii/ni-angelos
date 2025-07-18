@@ -10,4 +10,5 @@ class RoutesManager {
   static const String tunes = "Tunes/";
   static const String tuneDetails = "TuneDetails/";
   static const String coptic = "Coptic/";
+  static const String copticDetails = "CopticDetails/";
 }

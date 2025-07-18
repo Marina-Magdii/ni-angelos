@@ -7,15 +7,17 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this.hintText,
     required this.validator,
-     required this.obscure,
+    this.obscure = false,
     required this.controller,
-    required this.isPass,
+    this.isPass = false,
+     this.withIcon =false,
   });
   final String hintText;
-   bool obscure = false;
+  bool obscure;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final bool isPass;
+  final bool withIcon;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -24,54 +26,61 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: REdgeInsets.symmetric(vertical: 16.0, horizontal: 32),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32.r),
-          boxShadow:  ColorManager.shadow
-        ),
-        child: TextFormField(
-          textDirection: TextDirection.rtl,
-          controller: widget.controller,
-          obscureText: widget.obscure,
-          validator: widget.validator,
-          decoration: InputDecoration(
-            suffixIcon: widget.isPass
-                ?Icon(Icons.lock,color: ColorManager.primaryColor,)
-            :Icon(Icons.person_rounded,color: ColorManager.primaryColor,),
-            prefixIcon:
-                widget.isPass
-                    ? IconButton(
-                      onPressed: () {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(32.r),
+        boxShadow: ColorManager.shadow,
+      ),
+      child: TextFormField(
+        textDirection: TextDirection.rtl,
+        controller: widget.controller,
+        obscureText: widget.obscure,
+        validator: widget.validator,
+        decoration: InputDecoration(
+          suffixIcon: widget.withIcon?
+              widget.isPass
+                  ? Icon(Icons.lock, color: ColorManager.primaryColor)
+                  : Icon(
+                    Icons.person_rounded,
+                    color: ColorManager.primaryColor,
+                  )
+          :null,
+          prefixIcon:
+              widget.isPass
+                  ? IconButton(
+                    onPressed: () {
+                      setState(() {
                         widget.obscure = !widget.obscure;
-                        setState(() {});
-                      },
-                      icon:
-                          widget.obscure
-                              ? Icon(Icons.visibility_off,color: ColorManager.primaryColor,)
-                              : Icon(Icons.visibility,color: ColorManager.primaryColor,),
-                    )
-                    : null,
-            hintText: widget.hintText,
-            hintTextDirection: TextDirection.rtl,
-            hintStyle: TextStyle(
-              color: ColorManager.secondaryColor,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
-            ),
-            filled: true,
-            fillColor: ColorManager.containerColor,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
-            ),
+                      });
+                    },
+                    icon:
+                        widget.obscure
+                            ? Icon(
+                              Icons.visibility_off,
+                              color: ColorManager.primaryColor,
+                            )
+                            : Icon(
+                              Icons.visibility,
+                              color: ColorManager.primaryColor,
+                            ),
+                  )
+                  : null,
+          hintText: widget.hintText,
+          hintTextDirection: TextDirection.rtl,
+          hintStyle: TextStyle(color: ColorManager.secondaryColor),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32.r),
+            borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32.r),
+            borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+          ),
+          filled: true,
+          fillColor: ColorManager.containerColor,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(32.r),
+            borderSide: BorderSide(color: Colors.transparent, width: 2.w),
           ),
         ),
       ),

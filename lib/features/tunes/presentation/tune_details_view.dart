@@ -70,22 +70,8 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
       children: [
         SafeArea(
           child: MyCustomScaffold(
+            withBackArrow: true,
             appBarTitle: args.title,
-            actions: [
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Padding(
-                  padding: REdgeInsets.only(top: 10.0),
-                  child: SvgPicture.asset(
-                    ImageAssets.arrowBack,
-                    width: 24.w,
-                    height: 24.h,
-                  ),
-                ),
-              ),
-            ],
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,

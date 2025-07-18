@@ -12,10 +12,12 @@ class CustomTuneContainer extends StatelessWidget {
     required this.tuneModel,
     required this.number,
     this.teacher = false,
+    required this.screenName,
   });
   final TuneModel tuneModel;
   final int number;
   final bool teacher;
+  final String screenName;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CustomTuneContainer extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          RoutesManager.tuneDetails,
+          screenName,
           arguments: tuneModel,
         );
       },
