@@ -11,4 +11,8 @@ class RoutesManager {
   static const String tuneDetails = "TuneDetails/";
   static const String coptic = "Coptic/";
   static const String copticDetails = "CopticDetails/";
+  static const String taks = "Taks/";
+  static const String taksDetails = "TaksDetails/";
+  static const String mahfozat = "Mahfozat/";
+  static const String mahfozatDetails = "MahfozatDetails/";
 }

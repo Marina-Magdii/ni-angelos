@@ -9,9 +9,13 @@ import 'package:ni_angelos/features/coptic/presentation/coptic_details_view.dart
 import 'package:ni_angelos/features/coptic/presentation/coptic_view.dart';
 import 'package:ni_angelos/features/home/home_view.dart';
 import 'package:ni_angelos/features/home/main_screen.dart';
+import 'package:ni_angelos/features/mahfozat/presentation/mahfozat_details_view.dart';
+import 'package:ni_angelos/features/mahfozat/presentation/mahfozat_view.dart';
 import 'package:ni_angelos/features/notifications/notifications_view.dart';
 import 'package:ni_angelos/features/profile/profile_view.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
+import 'package:ni_angelos/features/taks/presentation/taks_details_view.dart';
+import 'package:ni_angelos/features/taks/presentation/taks_view.dart';
 import 'package:ni_angelos/features/tunes/presentation/tune_details_view.dart';
 import 'package:ni_angelos/features/tunes/presentation/tunes_view.dart';
 
@@ -48,6 +52,10 @@ class MyApp extends StatelessWidget {
             RoutesManager.tuneDetails: (_) => TuneDetailsView(),
             RoutesManager.coptic :(_)=> CopticView(),
             RoutesManager.copticDetails :(_)=> CopticDetailsView(),
+            RoutesManager.taks :(_)=> TaksView(),
+            RoutesManager.taksDetails :(_)=> TaksDetailsView(),
+            RoutesManager.mahfozat:(_)=> MahfozatView(),
+            RoutesManager.mahfozatDetails :(_)=> MahfozatDetailsView(),
           },
         );
       },

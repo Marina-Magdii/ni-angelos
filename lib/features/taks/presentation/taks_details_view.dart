@@ -15,14 +15,14 @@ import 'package:ni_angelos/models/chat_message_model.dart';
 import 'package:ni_angelos/models/tune_model.dart';
 import 'package:record/record.dart';
 
-class CopticDetailsView extends StatefulWidget {
-  const CopticDetailsView({super.key});
+class TaksDetailsView extends StatefulWidget {
+  const TaksDetailsView({super.key});
 
   @override
-  State<CopticDetailsView> createState() => _CopticDetailsViewState();
+  State<TaksDetailsView> createState() => _TaksDetailsViewState();
 }
 
-class _CopticDetailsViewState extends State<CopticDetailsView> {
+class _TaksDetailsViewState extends State<TaksDetailsView>{
   final TextEditingController controller = TextEditingController();
   final record = RecordPlatform.instance;
   final audioPlayer = AudioPlayer();

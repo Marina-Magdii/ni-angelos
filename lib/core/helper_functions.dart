@@ -1,0 +1,3 @@
+bool isAdmin() {
+  return false;
+}

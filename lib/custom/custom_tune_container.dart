@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_red_container.dart';
 import 'package:ni_angelos/models/tune_model.dart';
@@ -72,15 +71,11 @@ class CustomTuneContainer extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                CustomRedContainer(
-                  child: Text(
-                    "$number",
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                ),
-              ],
+            CustomRedContainer(
+              child: Text(
+                "$number",
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ),
           ],
         ),

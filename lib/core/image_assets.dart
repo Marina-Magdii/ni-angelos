@@ -43,6 +43,8 @@ class ImageAssets {
   static const String backSecIcon = "assets/images/icons/back_seconds.svg";
   static const String forwardSecIcon = "assets/images/icons/forward_seconds.svg";
   static const String awIcon = "assets/images/icons/aw.svg";
+  static const String taks = "assets/images/icons/taks.svg";
+  static const String bibleIcon = "assets/images/icons/bible.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";

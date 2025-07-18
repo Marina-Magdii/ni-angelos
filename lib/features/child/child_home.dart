@@ -22,12 +22,12 @@ class ChildHome extends StatelessWidget {
       ImageAssets.tunesIcon,
     ),
     SectionModel(
-      RoutesManager.tunes,
+      RoutesManager.mahfozat,
       StringsManager.mahfozat,
       ImageAssets.mahfozatIcon,
     ),
     SectionModel(
-      RoutesManager.tunes,
+      RoutesManager.taks,
       StringsManager.taks,
       ImageAssets.taksIcon,
     ),
