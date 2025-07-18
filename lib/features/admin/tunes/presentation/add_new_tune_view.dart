@@ -1,0 +1,201 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ni_angelos/core/color_manager.dart';
+import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_container.dart';
+import 'package:ni_angelos/custom/custom_divider.dart';
+import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/custom/custom_title_container.dart';
+
+class AddNewTuneView extends StatefulWidget {
+  const AddNewTuneView({super.key});
+
+  @override
+  State<AddNewTuneView> createState() => _AddNewTuneViewState();
+}
+
+class _AddNewTuneViewState extends State<AddNewTuneView> {
+  bool showArabic = true;
+  bool showMoaarab = true;
+  bool showCoptic = true;
+  @override
+  Widget build(BuildContext context) {
+    return MyCustomScaffold(
+      appBarTitle: StringsManager.newTune,
+      withBackArrow: true,
+      body: Padding(
+        padding: REdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [toggleLanguage()],
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset(ImageAssets.minusIcon),
+                  Expanded(child: CustomDivider()),
+                  Text(StringsManager.quarter1),
+                ],
+              ),
+              Row(
+                children: [
+                  CustomTitleContainer(
+                    showCoptic: true,
+                    title: StringsManager.coptic,
+                    description: StringsManager.quarterCoptic,
+                  ),
+                  CustomTitleContainer(
+                    title: StringsManager.moaarab,
+                    description: StringsManager.quarterMooarab,
+                  ),
+                  CustomTitleContainer(
+                    title: StringsManager.arabic,
+                    description: StringsManager.quarterArabic,
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset(ImageAssets.minusIcon),
+                  Expanded(child: CustomDivider()),
+                  Text(StringsManager.quarter2),
+                ],
+              ),
+              Row(
+                children: [
+                  CustomTitleContainer(
+                    showCoptic: true,
+                    title: StringsManager.coptic,
+                    description: StringsManager.quarterCoptic,
+                  ),
+                  CustomTitleContainer(
+                    title: StringsManager.moaarab,
+                    description: StringsManager.quarterMooarab,
+                  ),
+                  CustomTitleContainer(
+                    title: StringsManager.arabic,
+                    description: StringsManager.quarterArabic,
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(child: CustomDivider()),
+                  CustomContainer(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: REdgeInsets.only(bottom: 6.0),
+                          child: Text(StringsManager.addNewQuarter),
+                        ),
+                        Icon(
+                          Icons.add_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 50.h),
+              CustomContainer(
+                child: Padding(
+                  padding: REdgeInsets.only(bottom: 6.0),
+                  child: Text(StringsManager.save),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  toggleLanguage() {
+    return CustomContainer(
+      child: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                showCoptic = !showCoptic;
+              });
+            },
+            child: Row(
+              children: [
+                Text(StringsManager.inCoptic),
+                showCoptic
+                    ? Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                    )
+                    : Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: Icon(
+                        Icons.circle_rounded,
+                        color: ColorManager.secondaryColor,
+                      ),
+                    ),
+                SizedBox(width: 6.w),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              setState(() {
+                showMoaarab = !showMoaarab;
+              });
+            },
+            child: Row(
+              children: [
+                Text(StringsManager.m),
+                showMoaarab
+                    ? Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                    )
+                    : Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: Icon(
+                        Icons.circle_rounded,
+                        color: ColorManager.secondaryColor,
+                      ),
+                    ),
+                SizedBox(width: 6.w),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              setState(() {
+                showArabic = !showArabic;
+              });
+            },
+            child: Row(
+              children: [
+                Text(StringsManager.a),
+                showArabic
+                    ? Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                    )
+                    : Padding(
+                      padding: REdgeInsets.only(top: 4.0),
+                      child: Icon(
+                        Icons.circle_rounded,
+                        color: ColorManager.secondaryColor,
+                      ),
+                    ),
+                SizedBox(width: 6.w),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

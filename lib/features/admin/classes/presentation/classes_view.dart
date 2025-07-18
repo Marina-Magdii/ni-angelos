@@ -15,10 +15,7 @@ class ClassesView extends StatelessWidget {
       appBarTitle: StringsManager.classes,
       leading: InkWell(
         onTap: (){},
-        child: Padding(
-          padding: REdgeInsets.all(8.0),
-          child: SvgPicture.asset(ImageAssets.addIcon,width: 24.w,height: 24.h,),
-        ),
+        child: SvgPicture.asset(ImageAssets.addIcon,width: 24.w,height: 24.h,),
       ),
       withBackArrow: true,
       body: ListView.builder(

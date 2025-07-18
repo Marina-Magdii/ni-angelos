@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/helper_functions.dart';
 import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_divider.dart';
@@ -15,7 +16,7 @@ import 'package:ni_angelos/models/tune_model.dart';
 class TuneDetailsView extends StatefulWidget {
   const TuneDetailsView({super.key});
   static List<String> arabicText = [
-    'بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا',
+    StringsManager.quarterArabic,
     'بشفاعات مبوق القيامة ميخائيـل رئيس السمائيين ، يا رب انعم لنا بمغفرة خطايانا',
     'بشفاعات السبعة رؤساء الملائكة والطغمات السمائيـة . يا رب انعم لنا بمغفرة خطايانا',
   ];
@@ -49,7 +50,10 @@ class TuneDetailsView extends StatefulWidget {
     ),
     TuneContainerModel(
       title: StringsManager.pdf,
-      icon: SvgPicture.asset(ImageAssets.documentIcon,color: ColorManager.secondaryColor,),
+      icon: SvgPicture.asset(
+        ImageAssets.documentIcon,
+        color: ColorManager.secondaryColor,
+      ),
       onTap: () {},
     ),
   ];
@@ -72,22 +76,50 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         MyCustomScaffold(
           withBackArrow: true,
           appBarTitle: args.title,
-          leading: isAdmin()?Row(
-            children: [
-              SvgPicture.asset(ImageAssets.addIcon),
-              SizedBox(width: 4.w,),
-              SvgPicture.asset(ImageAssets.deleteIcon),
-            ],
-          ):SizedBox.shrink(),
+          leading:
+              isAdmin()
+                  ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            RoutesManager.newTune,
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          ImageAssets.addIcon,
+                          width: 24.w,
+                          height: 24.h,
+                        ),
+                      ),
+                      SizedBox(width: 2.w),
+                      InkWell(
+                        onTap: () {
+                          deleteTune();
+                        },
+                        child: SvgPicture.asset(
+                          ImageAssets.deleteIcon,
+                          width: 24.w,
+                          height: 24.w,
+                        ),
+                      ),
+                    ],
+                  )
+                  : SizedBox.shrink(),
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 options(),
                 Padding(
-                  padding:REdgeInsets.symmetric(horizontal: 8.0),
+                  padding: REdgeInsets.symmetric(horizontal: 8.0),
                   child: Row(
                     children: [
+                      isAdmin()
+                          ? SvgPicture.asset(ImageAssets.editIcon)
+                          : SizedBox.shrink(),
                       toggleLanguage(),
                       Expanded(child: CustomDivider()),
                     ],
@@ -96,6 +128,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                 Padding(
                   padding: REdgeInsets.all(16.0),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (showCoptic)
                         CustomTuneQuarter(
@@ -113,77 +146,85 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
             ),
           ),
         ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              boxShadow: ColorManager.shadow,
-              color: ColorManager.containerColor,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(15.r),
-                topLeft: Radius.circular(15.r),
-              ),
-            ),
-            child: Padding(
-              padding: REdgeInsets.only(top: 8, left: 16, right: 16),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Material(
-                    color: Colors.transparent,
-                    child: Slider(
-                      padding: REdgeInsets.all(0),
-                      value: 40,
-                      onChanged: (v) {},
-                      min: 0,
-                      max: 100,
-                      activeColor: ColorManager.secondaryColor,
-                      inactiveColor: ColorManager.inActiveColor,
-                    ),
+        isAdmin()
+            ? SizedBox.shrink()
+            : Positioned(
+              bottom: 0,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  boxShadow: ColorManager.shadow,
+                  color: ColorManager.containerColor,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(15.r),
+                    topLeft: Radius.circular(15.r),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                ),
+                child: Padding(
+                  padding: REdgeInsets.only(top: 8, left: 16, right: 16),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        "06:54",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                      Text(
-                        "15:54",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(ImageAssets.backSecIcon),
-                      Padding(
-                        padding: REdgeInsets.symmetric(
-                            horizontal: 64.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isPlaying = !isPlaying;
-                            });
-                          },
-                          child:
-                              isPlaying
-                                  ? Icon(Icons.play_arrow_rounded,color: ColorManager.secondaryColor,size: 35,)
-                                  : Icon(Icons.pause,
-                              color: ColorManager.secondaryColor,size: 35,),
+                      Material(
+                        color: Colors.transparent,
+                        child: Slider(
+                          padding: REdgeInsets.all(0),
+                          value: 40,
+                          onChanged: (v) {},
+                          min: 0,
+                          max: 100,
+                          activeColor: ColorManager.secondaryColor,
+                          inactiveColor: ColorManager.inActiveColor,
                         ),
                       ),
-                      SvgPicture.asset(ImageAssets.forwardSecIcon),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "06:54",
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                          Text(
+                            "15:54",
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(ImageAssets.backSecIcon),
+                          Padding(
+                            padding: REdgeInsets.symmetric(horizontal: 64.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isPlaying = !isPlaying;
+                                });
+                              },
+                              child:
+                                  isPlaying
+                                      ? Icon(
+                                        Icons.play_arrow_rounded,
+                                        color: ColorManager.secondaryColor,
+                                        size: 35,
+                                      )
+                                      : Icon(
+                                        Icons.pause,
+                                        color: ColorManager.secondaryColor,
+                                        size: 35,
+                                      ),
+                            ),
+                          ),
+                          SvgPicture.asset(ImageAssets.forwardSecIcon),
+                        ],
+                      ),
+                      SizedBox(height: 50.h),
                     ],
                   ),
-                  SizedBox(height: 50.h),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
       ],
     );
   }
@@ -203,11 +244,11 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                 Text(StringsManager.inCoptic),
                 showCoptic
                     ? Padding(
-                  padding: REdgeInsets.only(top: 4.0),
+                      padding: REdgeInsets.only(top: 4.0),
                       child: SvgPicture.asset(ImageAssets.darkCheckIcon),
                     )
                     : Padding(
-                  padding: REdgeInsets.only(top: 4.0),
+                      padding: REdgeInsets.only(top: 4.0),
                       child: Icon(
                         Icons.circle_rounded,
                         color: ColorManager.secondaryColor,
@@ -225,14 +266,14 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
             },
             child: Row(
               children: [
-                Text(StringsManager.moaarab),
+                Text(StringsManager.m),
                 showMoaarab
                     ? Padding(
                       padding: REdgeInsets.only(top: 4.0),
                       child: SvgPicture.asset(ImageAssets.darkCheckIcon),
                     )
                     : Padding(
-                  padding: REdgeInsets.only(top: 4.0),
+                      padding: REdgeInsets.only(top: 4.0),
                       child: Icon(
                         Icons.circle_rounded,
                         color: ColorManager.secondaryColor,
@@ -250,14 +291,14 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
             },
             child: Row(
               children: [
-                Text(StringsManager.arabic),
+                Text(StringsManager.a),
                 showArabic
                     ? Padding(
-                  padding: REdgeInsets.only(top: 4.0),
+                      padding: REdgeInsets.only(top: 4.0),
                       child: SvgPicture.asset(ImageAssets.darkCheckIcon),
                     )
                     : Padding(
-                  padding: REdgeInsets.only(top: 4.0),
+                      padding: REdgeInsets.only(top: 4.0),
                       child: Icon(
                         Icons.circle_rounded,
                         color: ColorManager.secondaryColor,
@@ -274,7 +315,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
 
   options() {
     return Padding(
-      padding:REdgeInsets.symmetric(horizontal: 8.0),
+      padding: REdgeInsets.symmetric(horizontal: 8.0),
       child: SizedBox(
         height: 100.h,
         child: ListView.builder(
@@ -288,9 +329,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    child: TuneDetailsView.options[index].icon,
-                  ),
+                  SizedBox(child: TuneDetailsView.options[index].icon),
                   Text(TuneDetailsView.options[index].title),
                 ],
               ),
@@ -298,6 +337,43 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           },
         ),
       ),
+    );
+  }
+
+  deleteTune() {
+    return showDialog(
+      useSafeArea: false,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          actionsAlignment: MainAxisAlignment.spaceBetween,
+          alignment: Alignment.bottomCenter,
+          backgroundColor: ColorManager.containerColor,
+          title: Center(child: Text(StringsManager.deleteTune)),
+          titleTextStyle: Theme.of(context).textTheme.titleMedium,
+          actions: [
+            CustomContainer(
+              child: Padding(
+                padding: REdgeInsets.symmetric(horizontal: 32.0),
+                child: Text(
+                  StringsManager.cancel,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ),
+            CustomContainer(
+              color: ColorManager.redContainer,
+              child: Padding(
+                padding: REdgeInsets.symmetric(horizontal: 32.0),
+                child: Text(
+                  StringsManager.delete,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

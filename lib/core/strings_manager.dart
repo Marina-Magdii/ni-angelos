@@ -41,8 +41,10 @@ class StringsManager {
   static const String share = "لينك";
   static const String pdfFile = "ملف الهزات";
   static const String pdf = "PDF";
-  static const String arabic = "ع";
-  static const String moaarab = "م";
+  static const String a = "ع";
+  static const String m = "م";
+  static const String arabic = "عربي";
+  static const String moaarab = "معرب";
   static const String inCoptic = "ق";
   static const String manhag = "المنهج";
   static const String sharh = "الشروحات";
@@ -54,6 +56,17 @@ class StringsManager {
   static const String teachers = "الخدام";
   static const String teachersCheck = "إفتقاد الخدام";
   static const String age = "اولي ابتدائي";
+  static const String deleteTune = "هل متأكد من إلغاء المرفق؟";
+  static const String cancel = "إلغاء";
+  static const String delete = "حذف";
+  static const String newTune = "لحن جديد";
+  static const String quarter1 = "ربع ١";
+  static const String quarter2 = "ربع ٢";
+  static const String save = "حفظ";
+  static const String addNewQuarter = "إضافة ربع جديد";
+  static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";
+  static const String quarterMooarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
+  static const String quarterCoptic = "Hiten ni`precbia `nte 50e`otokoc =e=0=v maria : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi";
   static const String policyEng = """
  Privacy Policy
 

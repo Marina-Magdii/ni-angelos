@@ -14,16 +14,20 @@ class CustomTuneQuarter extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
           itemBuilder: (context,index){
-            return SizedBox(
-              height: 240.h,
+            return Padding(
+              padding: REdgeInsets.symmetric(vertical: 16.0),
+              child: SizedBox(
+                height: 250.h,
                 child: Text(texts[index],
                 textDirection: isCoptic
                     ?TextDirection.ltr
                 :TextDirection.rtl,
+                textAlign: TextAlign.start,
                 style: TextStyle(
                   fontFamily: isCoptic?StringsManager.copticFont
                       :StringsManager.fontFamily
                 ),),
+              ),
             );
       }, itemCount: texts.length,),
     );
