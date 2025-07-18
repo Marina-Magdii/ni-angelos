@@ -40,15 +40,25 @@ class ChildHome extends StatelessWidget {
         Stack(
           children: [
             // church image
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: ColorManager.shadow,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(ImageAssets.church, fit: BoxFit.fitHeight),
+            GestureDetector(
+              onTap: (){
+                try {
+                   SvgPicture.asset(ImageAssets.notificationsOn);
+                } catch (e) {
+                  print('SVG failed: $e');
+                  // fallback
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: ColorManager.shadow,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(ImageAssets.church, fit: BoxFit.fitHeight),
+                ),
               ),
             ),
 

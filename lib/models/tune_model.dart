@@ -2,5 +2,6 @@ class TuneModel {
   String title;
   String date;
   int number;
-  TuneModel({required this.title,required this.date,required this.number});
+  String? teacher;
+  TuneModel({required this.title,required this.date,required this.number,this.teacher});
 }

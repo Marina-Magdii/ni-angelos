@@ -109,10 +109,8 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                             texts: TuneDetailsView.copticText,
                             isCoptic: true,
                           ),
-                        Divider(),
                         if (showMoaarab)
                           CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
-                        Divider(),
                         if (showArabic)
                           CustomTuneQuarter(texts: TuneDetailsView.arabicText),
                       ],
@@ -296,10 +294,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           itemBuilder: (context, index) {
             return CustomContainer(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 24.h,
-                    width: 24.h,
                     child: TuneDetailsView.options[index].icon,
                   ),
                   Text(TuneDetailsView.options[index].title),
