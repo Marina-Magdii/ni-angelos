@@ -12,7 +12,7 @@ class ChildHome extends StatelessWidget {
   const ChildHome({super.key});
   static List<SectionModel> sections = [
     SectionModel(
-      RoutesManager.tunes,
+      RoutesManager.coptic,
       StringsManager.coptic,
       ImageAssets.copticIcon,
     ),

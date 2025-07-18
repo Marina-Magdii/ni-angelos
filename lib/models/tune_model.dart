@@ -1,6 +1,6 @@
 class TuneModel {
   String title;
   String date;
-  String number;
+  int number;
   TuneModel({required this.title,required this.date,required this.number});
 }

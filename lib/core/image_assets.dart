@@ -45,6 +45,7 @@ class ImageAssets {
   static const String forwardSecIcon = "assets/images/icons/forward_seconds.svg";
   static const String pauseIcon = "assets/images/icons/pause.svg";
   static const String playIcon = "assets/images/icons/play.svg";
+  static const String awIcon = "assets/images/icons/aw.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";

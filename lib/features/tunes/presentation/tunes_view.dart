@@ -10,7 +10,7 @@ import 'package:ni_angelos/models/tune_model.dart';
 class TunesView extends StatelessWidget {
   const TunesView({super.key});
   static TuneModel tuneModel=TuneModel(
-      title: "طاي شوري", date: "22 مايو 2025", number: "1");
+      title: "طاي شوري", date: "22 مايو 2025", number: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,9 @@ class TunesView extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 10,
                     itemBuilder: (context,index){
-                      return CustomTuneContainer(tuneModel: tuneModel);
+                      return CustomTuneContainer(
+                          tuneModel: tuneModel,
+                      number: index+1,);
                     }),
               ],
             ),

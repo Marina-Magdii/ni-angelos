@@ -5,8 +5,9 @@ import 'package:ni_angelos/custom/custom_red_container.dart';
 import 'package:ni_angelos/models/tune_model.dart';
 
 class CustomTuneContainer extends StatelessWidget {
-  const CustomTuneContainer({super.key,required this.tuneModel});
+  const CustomTuneContainer({super.key,required this.tuneModel,required this.number});
   final TuneModel tuneModel;
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomTuneContainer extends StatelessWidget {
                 ],
               ),
               CustomRedContainer(
-                  child: Text(tuneModel.number,
+                  child: Text("$number",
                   style: Theme.of(context).textTheme.bodyLarge,))
             ],
           )),

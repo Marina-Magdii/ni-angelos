@@ -39,10 +39,14 @@ class StringsManager {
   static const String recorder1 = "تسجيل مستر مينا";
   static const String recorder2 = "تسجيل مستر جون";
   static const String share = "لينك";
-  static const String pdf = "ملف الهزات";
+  static const String pdfFile = "ملف الهزات";
+  static const String pdf = "PDF";
   static const String arabic = "ع";
   static const String moaarab = "م";
   static const String inCoptic = "ق";
+  static const String manhag = "المنهج";
+  static const String sharh = "الشروحات";
+  static const String firstStage = "المستوي  الأول - الحصة الاولي";
   static const String policyEng = """
  Privacy Policy
 
