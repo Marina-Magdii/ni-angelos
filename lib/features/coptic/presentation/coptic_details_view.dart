@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
@@ -12,10 +13,22 @@ import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_textfield.dart';
 import 'package:ni_angelos/models/chat_message_model.dart';
 import 'package:ni_angelos/models/tune_model.dart';
+import 'package:record/record.dart';
 
-class CopticDetailsView extends StatelessWidget {
-  CopticDetailsView({super.key});
+class CopticDetailsView extends StatefulWidget {
+  const CopticDetailsView({super.key});
+
+  @override
+  State<CopticDetailsView> createState() => _CopticDetailsViewState();
+}
+
+class _CopticDetailsViewState extends State<CopticDetailsView> {
   final TextEditingController controller = TextEditingController();
+  final record = RecordPlatform.instance;
+  final audioPlayer = AudioPlayer();
+  String? recordedPath;
+  bool isRecording = false;
+  bool isPlaying = false;
   final List<ChatMessageModel> messages = [
     ChatMessageModel(msgType: MessageType.text, content: "content"),
     ChatMessageModel(msgType: MessageType.text, content: "content"),
@@ -32,12 +45,20 @@ class CopticDetailsView extends StatelessWidget {
   ];
 
   @override
+  void dispose() {
+    record.dispose;
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as TuneModel;
     return SafeArea(
       child: MyCustomScaffold(
         withBackArrow: true,
         appBarTitle: args.title,
+        leading: SvgPicture.asset(ImageAssets.deleteIcon),
         body: Padding(
           padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
           child: Column(
@@ -98,33 +119,29 @@ class CopticDetailsView extends StatelessWidget {
     }
   }
 
-   messageTypeInput() {
+  messageTypeInput() {
     return Row(
       children: [
-        IconButton(
-          icon: Icon(Icons.image),
-          onPressed: pickImage,
-        ),
-        IconButton(
-          icon: Icon(Icons.attach_file),
-          onPressed: pickFile,
-        ),
+        SvgPicture.asset(ImageAssets.recordIcon),
+        IconButton(icon:SvgPicture.asset(ImageAssets.imageIcon), onPressed: pickImage),
+        IconButton(icon: Icon(Icons.attach_file,color: ColorManager.secondaryColor,), onPressed: pickFile),
         Expanded(
           child: CustomTextField(
-            hintText: "Type a message",
+            hintText: "اكتب رسالة",
             controller: controller,
             validator: (v) => null,
           ),
         ),
         IconButton(
-          icon: controller.text.trim().isEmpty
-              ? SvgPicture.asset(ImageAssets.recordIcon)
-         : Icon(Icons.send,color: ColorManager.secondaryColor),
+          icon: Icon(Icons.send_rounded, color: ColorManager.secondaryColor),
           onPressed: () {
             if (controller.text.trim().isNotEmpty) {
               messages.insert(
                 0,
-                ChatMessageModel(msgType: MessageType.text, content: controller.text),
+                ChatMessageModel(
+                  msgType: MessageType.text,
+                  content: controller.text,
+                ),
               );
               controller.clear();
               // setState() to update
@@ -152,7 +169,10 @@ class CopticDetailsView extends StatelessWidget {
     if (result != null && result.files.single.path != null) {
       messages.insert(
         0,
-        ChatMessageModel(msgType: MessageType.file, content: result.files.single.path!),
+        ChatMessageModel(
+          msgType: MessageType.file,
+          content: result.files.single.path!,
+        ),
       );
       // setState()
     }
