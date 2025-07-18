@@ -48,7 +48,7 @@ class TuneDetailsView extends StatefulWidget {
     ),
     TuneContainerModel(
       title: StringsManager.pdf,
-      icon: SvgPicture.asset(ImageAssets.pdfIcon),
+      icon: SvgPicture.asset(ImageAssets.documentIcon,color: ColorManager.secondaryColor,),
       onTap: () {},
     ),
   ];
@@ -91,11 +91,14 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   options(),
-                  Row(
-                    children: [
-                      toggleLanguage(),
-                      Expanded(child: CustomDivider()),
-                    ],
+                  Padding(
+                    padding:REdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      children: [
+                        toggleLanguage(),
+                        Expanded(child: CustomDivider()),
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: REdgeInsets.all(16.0),
@@ -168,7 +171,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       SvgPicture.asset(ImageAssets.backSecIcon),
                       Padding(
                         padding: REdgeInsets.symmetric(
-                            horizontal: 32.0),
+                            horizontal: 64.0),
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -177,9 +180,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                           },
                           child:
                               isPlaying
-                                  ? Icon(Icons.play_arrow_rounded,color: ColorManager.secondaryColor,size: 25,)
+                                  ? Icon(Icons.play_arrow_rounded,color: ColorManager.secondaryColor,size: 35,)
                                   : Icon(Icons.pause,
-                              color: ColorManager.secondaryColor,size: 25,),
+                              color: ColorManager.secondaryColor,size: 35,),
                         ),
                       ),
                       SvgPicture.asset(ImageAssets.forwardSecIcon),
@@ -280,28 +283,31 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   }
 
   options() {
-    return SizedBox(
-      height: 100.h,
-      child: ListView.builder(
-        physics: AlwaysScrollableScrollPhysics(),
-        reverse: true,
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: TuneDetailsView.options.length,
-        itemBuilder: (context, index) {
-          return CustomContainer(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 24.h,
-                  width: 24.h,
-                  child: TuneDetailsView.options[index].icon,
-                ),
-                Text(TuneDetailsView.options[index].title),
-              ],
-            ),
-          );
-        },
+    return Padding(
+      padding:REdgeInsets.symmetric(horizontal: 8.0),
+      child: SizedBox(
+        height: 100.h,
+        child: ListView.builder(
+          physics: AlwaysScrollableScrollPhysics(),
+          reverse: true,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: TuneDetailsView.options.length,
+          itemBuilder: (context, index) {
+            return CustomContainer(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 24.h,
+                    width: 24.h,
+                    child: TuneDetailsView.options[index].icon,
+                  ),
+                  Text(TuneDetailsView.options[index].title),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

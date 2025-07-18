@@ -27,7 +27,6 @@ class ImageAssets {
   static const String deleteIcon = "assets/images/icons/delete.svg";
   static const String shareIcon = "assets/images/icons/share.svg";
   static const String recordIcon = "assets/images/icons/record.svg";
-  static const String pdfIcon = "assets/images/icons/pdf.svg";
   static const String moneyIcon = "assets/images/icons/money_tick.svg";
   static const String minusIcon = "assets/images/icons/minus.svg";
   static const String menuEmptyIcon = "assets/images/icons/menu_empty.svg";
@@ -43,8 +42,6 @@ class ImageAssets {
   static const String addIcon = "assets/images/icons/add.svg";
   static const String backSecIcon = "assets/images/icons/back_seconds.svg";
   static const String forwardSecIcon = "assets/images/icons/forward_seconds.svg";
-  static const String pauseIcon = "assets/images/icons/pause.svg";
-  static const String playIcon = "assets/images/icons/play.svg";
   static const String awIcon = "assets/images/icons/aw.svg";
 
   // animations
