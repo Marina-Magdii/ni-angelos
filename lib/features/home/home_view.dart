@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/helper_functions.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
@@ -19,7 +21,51 @@ class HomeView extends StatelessWidget {
       actions: [
         Lottie.asset(ImageAssets.helloAnimation, width: 40.w, height: 40.h),
       ],
-      body: isAdmin() ? AdminHome() : ChildHome(),
+      body:
+          isAdmin()
+              ? AdminHome()
+              : Column(
+                children: [
+                  Stack(
+                    children: [
+                      // church image
+                      GestureDetector(
+                        onTap: () {
+                          SvgPicture.asset(ImageAssets.notificationsOn);
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16.r),
+                            boxShadow: ColorManager.shadow,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16.r),
+                            child: Image.asset(
+                              ImageAssets.church,
+                              fit: BoxFit.fitHeight,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // child image
+                      Positioned(
+                        bottom: 0,
+                        left: 30.sp,
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.17,
+                          child: Image.asset(ImageAssets.childLogo),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  // just space
+                  SizedBox(height: 20.h),
+                  ChildHome(),
+                ],
+              ),
     );
   }
 }

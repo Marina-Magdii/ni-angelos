@@ -53,6 +53,7 @@ class StringsManager {
   static const String childrenCheck = "إفتقاد المخدمين";
   static const String teachers = "الخدام";
   static const String teachersCheck = "إفتقاد الخدام";
+  static const String age = "اولي ابتدائي";
   static const String policyEng = """
  Privacy Policy
 

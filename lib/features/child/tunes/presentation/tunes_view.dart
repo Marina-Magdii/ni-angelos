@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ni_angelos/core/helper_functions.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
@@ -24,7 +25,15 @@ class TunesView extends StatelessWidget {
             children: [
               Padding(
                 padding: REdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(StringsManager.firstSemester,),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    isAdmin()
+                        ?SvgPicture.asset(ImageAssets.addIcon,width: 24.w,height: 24.h,)
+                        :SizedBox.shrink(),
+                    Text(StringsManager.firstSemester,),
+                  ],
+                ),
               ),
               ListView.builder(
                 shrinkWrap: true,

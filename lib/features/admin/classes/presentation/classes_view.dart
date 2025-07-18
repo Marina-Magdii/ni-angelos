@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_class_container.dart';
+import 'package:ni_angelos/custom/custom_scaffold.dart';
 
 class ClassesView extends StatelessWidget {
   const ClassesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MyCustomScaffold(
+      appBarTitle: StringsManager.classes,
+      leading: InkWell(
+        onTap: (){},
+        child: Padding(
+          padding: REdgeInsets.all(8.0),
+          child: SvgPicture.asset(ImageAssets.addIcon,width: 24.w,height: 24.h,),
+        ),
+      ),
+      withBackArrow: true,
+      body: ListView.builder(
+        itemBuilder: (context, index) {
+          return CustomClassContainer();
+        },
+      ),
+    );
   }
 }

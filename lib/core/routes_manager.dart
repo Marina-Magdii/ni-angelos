@@ -16,6 +16,7 @@ class RoutesManager {
   static const String mahfozat = "Mahfozat/";
   static const String mahfozatDetails = "MahfozatDetails/";
   static const String classes = "Classes/";
+  static const String classDetails = "ClassDetails/";
   static const String attendance = "Attendance/";
   static const String teachers = "Teachers/";
   static const String children = "Children/";

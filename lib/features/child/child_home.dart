@@ -37,46 +37,6 @@ class ChildHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Stack(
-          children: [
-            // church image
-            GestureDetector(
-              onTap: () {
-                try {
-                  SvgPicture.asset(ImageAssets.notificationsOn);
-                } catch (e) {
-                  print('SVG failed: $e');
-                  // fallback
-                }
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: ColorManager.shadow,
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(ImageAssets.church, fit: BoxFit.fitHeight),
-                ),
-              ),
-            ),
-
-            // child image
-            Positioned(
-              bottom: 0,
-              left: 30.sp,
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.17,
-                child: Image.asset(ImageAssets.childLogo),
-              ),
-            ),
-          ],
-        ),
-
-        // just space
-        SizedBox(height: 20.h),
-
         // sections
         Stack(
           children: [

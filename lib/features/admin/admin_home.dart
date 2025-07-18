@@ -43,15 +43,17 @@ class AdminHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Stack(
       children: [
-        GridView.builder(
-          shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+        Center(
+          child: GridView.builder(
+            shrinkWrap: true,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            itemCount: sections.length,
+            itemBuilder: (context, index) {
+              return CustomSectionContainer(sectionModel: sections[index]);
+            },
           ),
-          itemCount: sections.length,
-          itemBuilder: (context, index) {
-            return CustomSectionContainer(sectionModel: sections[index]);
-          },
         ),
 
         // background glowing

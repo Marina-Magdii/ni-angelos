@@ -32,6 +32,12 @@ class MyCustomScaffold extends StatelessWidget {
           ),
           Scaffold(
             appBar:appBarTitle!=null? AppBar(
+              leading: Padding(
+                padding:REdgeInsets.symmetric(horizontal: 8.0),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: leading),
+              ),
               scrolledUnderElevation: 0,
               backgroundColor: Colors.transparent,
               automaticallyImplyLeading: false,

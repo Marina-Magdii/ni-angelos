@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
+import 'package:ni_angelos/core/helper_functions.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
@@ -71,6 +72,13 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         MyCustomScaffold(
           withBackArrow: true,
           appBarTitle: args.title,
+          leading: isAdmin()?Row(
+            children: [
+              SvgPicture.asset(ImageAssets.addIcon),
+              SizedBox(width: 4.w,),
+              SvgPicture.asset(ImageAssets.deleteIcon),
+            ],
+          ):SizedBox.shrink(),
           body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,

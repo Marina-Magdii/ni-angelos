@@ -6,6 +6,7 @@ import 'package:ni_angelos/features/admin/admin_home.dart';
 import 'package:ni_angelos/features/admin/attendance/presentation/attendance_view.dart';
 import 'package:ni_angelos/features/admin/children/presentation/children_view.dart';
 import 'package:ni_angelos/features/admin/children_check/presentation/children_check_view.dart';
+import 'package:ni_angelos/features/admin/classes/presentation/class_details_view.dart';
 import 'package:ni_angelos/features/admin/classes/presentation/classes_view.dart';
 import 'package:ni_angelos/features/admin/teachers/presentation/teachers_view.dart';
 import 'package:ni_angelos/features/admin/teachers_check/presentation/teachers_check_view.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
             RoutesManager.children :(_)=> ChildrenView(),
             RoutesManager.childrenCheck :(_)=> ChildrenCheckView(),
             RoutesManager.classes :(_)=> ClassesView(),
+            RoutesManager.classDetails :(_)=> ClassDetailsView(),
             RoutesManager.teachers :(_)=> TeachersView(),
             RoutesManager.teachersCheck :(_)=> TeachersCheckView(),
           },
