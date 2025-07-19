@@ -25,7 +25,6 @@ class CustomTitleContainer extends StatelessWidget {
         ),
         CustomContainer(
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.216,
             height: MediaQuery.of(context).size.height*0.35,
             child: Text(
               description,

@@ -43,19 +43,25 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               ),
               Row(
                 children: [
-                  CustomTitleContainer(
-                    showCoptic: true,
-                    title: StringsManager.coptic,
-                    description: StringsManager.quarterCoptic,
-                  ),
-                  CustomTitleContainer(
-                    title: StringsManager.moaarab,
-                    description: StringsManager.quarterMooarab,
-                  ),
-                  CustomTitleContainer(
-                    title: StringsManager.arabic,
-                    description: StringsManager.quarterArabic,
-                  ),
+                  showCoptic
+                      ? CustomTitleContainer(
+                        showCoptic: true,
+                        title: StringsManager.coptic,
+                        description: StringsManager.quarterCoptic,
+                      )
+                      : SizedBox.shrink(),
+                  showMoaarab
+                      ? CustomTitleContainer(
+                        title: StringsManager.moaarab,
+                        description: StringsManager.quarterMooarab,
+                      )
+                      : SizedBox.shrink(),
+                  showArabic
+                      ? CustomTitleContainer(
+                        title: StringsManager.arabic,
+                        description: StringsManager.quarterArabic,
+                      )
+                      : SizedBox.shrink(),
                 ],
               ),
               Row(
@@ -67,19 +73,25 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               ),
               Row(
                 children: [
-                  CustomTitleContainer(
-                    showCoptic: true,
-                    title: StringsManager.coptic,
-                    description: StringsManager.quarterCoptic,
-                  ),
-                  CustomTitleContainer(
-                    title: StringsManager.moaarab,
-                    description: StringsManager.quarterMooarab,
-                  ),
-                  CustomTitleContainer(
-                    title: StringsManager.arabic,
-                    description: StringsManager.quarterArabic,
-                  ),
+                  showCoptic
+                      ? CustomTitleContainer(
+                        showCoptic: true,
+                        title: StringsManager.coptic,
+                        description: StringsManager.quarterCoptic,
+                      )
+                      : SizedBox.shrink(),
+                  showMoaarab
+                      ? CustomTitleContainer(
+                        title: StringsManager.moaarab,
+                        description: StringsManager.quarterMooarab,
+                      )
+                      : SizedBox.shrink(),
+                  showArabic
+                      ? CustomTitleContainer(
+                        title: StringsManager.arabic,
+                        description: StringsManager.quarterArabic,
+                      )
+                      : SizedBox.shrink(),
                 ],
               ),
               Row(
@@ -102,10 +114,19 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                 ],
               ),
               SizedBox(height: 50.h),
-              CustomContainer(
-                child: Padding(
-                  padding: REdgeInsets.only(bottom: 6.0),
-                  child: Text(StringsManager.save),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: CustomContainer(
+                  color: ColorManager.secondaryColor,
+                  child: Padding(
+                    padding: REdgeInsets.only(bottom: 6.0),
+                    child: Center(
+                      child: Text(
+                        StringsManager.save,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
