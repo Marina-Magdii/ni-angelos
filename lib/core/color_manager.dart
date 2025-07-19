@@ -17,6 +17,7 @@ class ColorManager {
   static const Color bottomNavigationColor = Color(0xffffefcc);
   static const Color containerColor = Color(0xfffdedd3);
   static const Color containerBorderColor = Color(0xffdbc68c);
+  static const Color orangeColor = Color(0xffbda277);
 
   // shadows
   static const List<BoxShadow> shadow = [

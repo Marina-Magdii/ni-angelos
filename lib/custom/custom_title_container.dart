@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 
-class CustomTitleContainer extends StatelessWidget {
+class CustomTitleContainer extends StatefulWidget {
   const CustomTitleContainer({
     super.key,
     required this.title,
@@ -15,28 +15,53 @@ class CustomTitleContainer extends StatelessWidget {
   final bool showCoptic;
 
   @override
+  State<CustomTitleContainer> createState() => _CustomTitleContainerState();
+}
+
+class _CustomTitleContainerState extends State<CustomTitleContainer> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Padding(
           padding: REdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(title),
+          child: Text(widget.title),
         ),
-        CustomContainer(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height*0.35,
-            child: Text(
-              description,
-              maxLines: 20,
-              textDirection: showCoptic ? TextDirection.ltr : TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: showCoptic?StringsManager.copticFont:StringsManager.fontFamily
+        InkWell(
+          onTap: (){
+
+          },
+          child: CustomContainer(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.216,
+              height: MediaQuery.of(context).size.height*0.15,
+              child: Text(
+                widget.description,
+                maxLines: 6,
+                overflow: TextOverflow.ellipsis,
+                textDirection: widget.showCoptic ? TextDirection.ltr : TextDirection.rtl,
+                style: TextStyle(
+                  fontSize:14 ,
+                  fontFamily: widget.showCoptic?StringsManager.copticFont:StringsManager.fontFamily
+                ),
               ),
             ),
           ),
         ),
       ],
     );
+  }
+
+  editQuarterText ()async{
+    final controller = TextEditingController(text: "text");
+    final result = await
+     showDialog(
+        context: context,
+         builder: (context){
+          return AlertDialog(
+            title: Text("Edit text"),
+          );
+    });
   }
 }

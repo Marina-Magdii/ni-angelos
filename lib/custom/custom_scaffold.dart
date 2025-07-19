@@ -32,6 +32,7 @@ class MyCustomScaffold extends StatelessWidget {
           ),
           Scaffold(
             appBar:appBarTitle!=null? AppBar(
+              leadingWidth: 90.w,
               leading:leading!=null? FittedBox(
                 child: Container(
                   padding:REdgeInsets.only(left: 8.0),

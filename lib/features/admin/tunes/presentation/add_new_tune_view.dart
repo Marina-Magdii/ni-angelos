@@ -26,7 +26,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
       appBarTitle: StringsManager.newTune,
       withBackArrow: true,
       body: Padding(
-        padding: REdgeInsets.symmetric(horizontal: 16.0),
+        padding: REdgeInsets.symmetric(horizontal: 8.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -44,22 +44,28 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               Row(
                 children: [
                   showCoptic
-                      ? CustomTitleContainer(
-                        showCoptic: true,
-                        title: StringsManager.coptic,
-                        description: StringsManager.quarterCoptic,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          showCoptic: true,
+                          title: StringsManager.coptic,
+                          description: StringsManager.quarterCoptic,
+                        ),
                       )
                       : SizedBox.shrink(),
                   showMoaarab
-                      ? CustomTitleContainer(
-                        title: StringsManager.moaarab,
-                        description: StringsManager.quarterMooarab,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          title: StringsManager.moaarab,
+                          description: StringsManager.quarterMooarab,
+                        ),
                       )
                       : SizedBox.shrink(),
                   showArabic
-                      ? CustomTitleContainer(
-                        title: StringsManager.arabic,
-                        description: StringsManager.quarterArabic,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          title: StringsManager.arabic,
+                          description: StringsManager.quarterArabic,
+                        ),
                       )
                       : SizedBox.shrink(),
                 ],
@@ -74,22 +80,28 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               Row(
                 children: [
                   showCoptic
-                      ? CustomTitleContainer(
-                        showCoptic: true,
-                        title: StringsManager.coptic,
-                        description: StringsManager.quarterCoptic,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          showCoptic: true,
+                          title: StringsManager.coptic,
+                          description: StringsManager.dots,
+                        ),
                       )
                       : SizedBox.shrink(),
                   showMoaarab
-                      ? CustomTitleContainer(
-                        title: StringsManager.moaarab,
-                        description: StringsManager.quarterMooarab,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          title: StringsManager.moaarab,
+                          description: StringsManager.dots,
+                        ),
                       )
                       : SizedBox.shrink(),
                   showArabic
-                      ? CustomTitleContainer(
-                        title: StringsManager.arabic,
-                        description: StringsManager.quarterArabic,
+                      ? Expanded(
+                        child: CustomTitleContainer(
+                          title: StringsManager.arabic,
+                          description: StringsManager.dots,
+                        ),
                       )
                       : SizedBox.shrink(),
                 ],

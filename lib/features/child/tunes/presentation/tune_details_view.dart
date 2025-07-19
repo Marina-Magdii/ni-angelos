@@ -32,7 +32,17 @@ class TuneDetailsView extends StatefulWidget {
     'Hiten ni`precbva `nte picalpict3c `n5anactacic Mixa3l `parxwn `nnanif3ov`i : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi',
     'Hiten ni`precbia `nte pi2a24 `narx3ajjeloc nem nitajma `nepovranion : Psoic ari `hmot nan `mpixw `ebol `nte nennobi',
   ];
-  static List<TuneContainerModel> options = [
+
+  @override
+  State<TuneDetailsView> createState() => _TuneDetailsViewState();
+}
+
+class _TuneDetailsViewState extends State<TuneDetailsView> {
+  bool showArabic = true;
+  bool showMoaarab = true;
+  bool showCoptic = true;
+  bool isPlaying = false;
+  static List<TuneContainerModel> optionsList = [
     TuneContainerModel(
       title: StringsManager.recorder1,
       icon: SvgPicture.asset(ImageAssets.recordIcon),
@@ -59,16 +69,6 @@ class TuneDetailsView extends StatefulWidget {
   ];
 
   @override
-  State<TuneDetailsView> createState() => _TuneDetailsViewState();
-}
-
-class _TuneDetailsViewState extends State<TuneDetailsView> {
-  bool showArabic = true;
-  bool showMoaarab = true;
-  bool showCoptic = true;
-  bool isPlaying = false;
-
-  @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as TuneModel;
     return Stack(
@@ -79,14 +79,11 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           leading:
               isAdmin()
                   ? Row(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            RoutesManager.newTune,
-                          );
+                          Navigator.pushNamed(context, RoutesManager.newTune);
                         },
                         child: SvgPicture.asset(
                           ImageAssets.addIcon,
@@ -94,7 +91,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                           height: 24.h,
                         ),
                       ),
-                      SizedBox(width: 2.w),
+                      SizedBox(width: 4.w),
                       InkWell(
                         onTap: () {
                           deleteTune();
@@ -105,44 +102,52 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                           height: 24.w,
                         ),
                       ),
+                      SizedBox(width: 4.w),
+
+                      InkWell(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          ImageAssets.editIcon,
+                          width: 22.w,
+                          height: 22.h,
+                          color: ColorManager.secondaryColor,
+                        ),
+                      ),
                     ],
                   )
                   : SizedBox.shrink(),
           body: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                options(),
-                Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 8.0),
-                  child: Row(
+            child: Padding(
+              padding: REdgeInsets.symmetric(horizontal: 8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  options(),
+                  Row(
                     children: [
-                      isAdmin()
-                          ? SvgPicture.asset(ImageAssets.editIcon)
-                          : SizedBox.shrink(),
                       toggleLanguage(),
                       Expanded(child: CustomDivider()),
                     ],
                   ),
-                ),
-                Padding(
-                  padding: REdgeInsets.all(16.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (showCoptic)
-                        CustomTuneQuarter(
-                          texts: TuneDetailsView.copticText,
-                          isCoptic: true,
-                        ),
-                      if (showMoaarab)
-                        CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
-                      if (showArabic)
-                        CustomTuneQuarter(texts: TuneDetailsView.arabicText),
-                    ],
+                  Padding(
+                    padding: REdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (showCoptic)
+                          CustomTuneQuarter(
+                            texts: TuneDetailsView.copticText,
+                            isCoptic: true,
+                          ),
+                        if (showMoaarab)
+                          CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
+                        if (showArabic)
+                          CustomTuneQuarter(texts: TuneDetailsView.arabicText),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -304,7 +309,6 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                         color: ColorManager.secondaryColor,
                       ),
                     ),
-                SizedBox(width: 6.w),
               ],
             ),
           ),
@@ -314,28 +318,32 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   }
 
   options() {
-    return Padding(
-      padding: REdgeInsets.symmetric(horizontal: 8.0),
-      child: SizedBox(
-        height: 100.h,
-        child: ListView.builder(
-          physics: AlwaysScrollableScrollPhysics(),
-          reverse: true,
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: TuneDetailsView.options.length,
-          itemBuilder: (context, index) {
-            return CustomContainer(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(child: TuneDetailsView.options[index].icon),
-                  Text(TuneDetailsView.options[index].title),
-                ],
-              ),
-            );
-          },
-        ),
+    isAdmin() ? optionsList.length==4?
+    optionsList.insert(0,
+        TuneContainerModel(
+          title: StringsManager.addNewFile,
+          icon: Icon(Icons.file_copy_rounded,color: ColorManager.secondaryColor,),
+          onTap: () {},))
+        :null:null;
+    return SizedBox(
+      height: 100.h,
+      child: ListView.builder(
+        physics: AlwaysScrollableScrollPhysics(),
+        reverse: true,
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: optionsList.length,
+        itemBuilder: (context, index) {
+          return CustomContainer(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(child: optionsList[index].icon),
+                Text(optionsList[index].title),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

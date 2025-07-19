@@ -1,8 +1,8 @@
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
 
 class TuneContainerModel {
   String title;
-  SvgPicture icon;
+  Widget icon;
   Function onTap;
   TuneContainerModel({required this.title,required this.icon,required this.onTap});
 }

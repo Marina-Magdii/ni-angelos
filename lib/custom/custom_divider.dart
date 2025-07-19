@@ -8,29 +8,29 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: REdgeInsets.symmetric(horizontal: 16.0,vertical: 16),
+      padding: REdgeInsets.symmetric(horizontal: 8.0,vertical: 8),
       child: Row(
         children: [
           Transform.rotate(
             angle: 0.785398, // 45 degrees in radians
             child: Container(
-              width: 10.w,
-              height: 10.h,
-              color:  ColorManager.secondaryColor,
+              width: 8.w,
+              height: 8.h,
+              color:  ColorManager.orangeColor,
             ),
           ),
           Expanded(
             child: Divider(
-              color: ColorManager.secondaryColor,
-              thickness: 4.sp,
+              color: ColorManager.orangeColor,
+              thickness: 2.sp,
             ),
           ),
           Transform.rotate(
             angle: 0.785398, // 45 degrees in radians
             child: Container(
-              width: 10.w,
-              height: 10.h,
-              color:  ColorManager.secondaryColor,
+              width: 8.w,
+              height: 8.h,
+              color:  ColorManager.orangeColor,
             ),
           ),
         ],

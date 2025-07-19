@@ -43,6 +43,7 @@ class StringsManager {
   static const String pdf = "PDF";
   static const String a = "ع";
   static const String m = "م";
+  static const String dots = ".....";
   static const String arabic = "عربي";
   static const String moaarab = "معرب";
   static const String inCoptic = "ق";
@@ -64,6 +65,7 @@ class StringsManager {
   static const String quarter2 = "ربع ٢";
   static const String save = "حفظ";
   static const String addNewQuarter = "إضافة ربع جديد";
+  static const String addNewFile = "إضافة ملف جديد";
   static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";
   static const String quarterMooarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
   static const String quarterCoptic = "Hiten ni`precbia `nte 50e`otokoc =e=0=v maria : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi";
