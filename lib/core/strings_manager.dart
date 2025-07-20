@@ -72,6 +72,8 @@ class StringsManager {
   static const String attachment = "المرفق";
   static const String link = "رابط";
   static const String tuneRecord = "تسجيل اللحن";
+  static const String image = "صورة";
+  static const String attachFile = "اضغط هنا لاختيار المرفق";
   static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";
   static const String quarterMooarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
   static const String quarterCoptic = "Hiten ni`precbia `nte 50e`otokoc =e=0=v maria : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi";

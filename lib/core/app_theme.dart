@@ -61,8 +61,8 @@ class AppTheme {
         fontSize: 16.sp,
       ),
       bodySmall: TextStyle(
-        color: ColorManager.textFieldColor,
-        fontSize: 20.sp,
+        color: ColorManager.secondaryColor,
+        fontSize: 16.sp,
         fontWeight: FontWeight.w500,
       ),
     ),

@@ -45,6 +45,7 @@ class ImageAssets {
   static const String awIcon = "assets/images/icons/aw.svg";
   static const String taks = "assets/images/icons/taks.svg";
   static const String bibleIcon = "assets/images/icons/bible.svg";
+  static const String attachIcon = "assets/images/icons/attach.svg";
 
   // animations
 static const String helloAnimation = "assets/animations/hello.json";

@@ -11,6 +11,7 @@ class CustomTextField extends StatefulWidget {
     required this.controller,
     this.isPass = false,
      this.withIcon =false,
+     this.borderRadius,
   });
   final String hintText;
   bool obscure;
@@ -18,6 +19,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool isPass;
   final bool withIcon;
+  final BorderRadius? borderRadius;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -28,7 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(32.r),
+        borderRadius: widget.borderRadius ?? BorderRadius.circular(32.r),
         boxShadow: ColorManager.shadow,
       ),
       child: TextFormField(
@@ -67,19 +69,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   : null,
           hintText: widget.hintText,
           hintTextDirection: TextDirection.rtl,
-          hintStyle: TextStyle(color: ColorManager.secondaryColor),
+          hintStyle: Theme.of(context).textTheme.bodySmall,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32.r),
+            borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
             borderSide: BorderSide(color: Colors.transparent, width: 2.w),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32.r),
+            borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
             borderSide: BorderSide(color: Colors.transparent, width: 2.w),
           ),
           filled: true,
           fillColor: ColorManager.containerColor,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(32.r),
+            borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
             borderSide: BorderSide(color: Colors.transparent, width: 2.w),
           ),
         ),
