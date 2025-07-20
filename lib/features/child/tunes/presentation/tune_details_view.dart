@@ -62,7 +62,6 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
       title: StringsManager.pdf,
       icon: SvgPicture.asset(
         ImageAssets.documentIcon,
-        color: ColorManager.secondaryColor,
       ),
       onTap: () {},
     ),
@@ -110,7 +109,6 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                           ImageAssets.editIcon,
                           width: 22.w,
                           height: 22.h,
-                          color: ColorManager.secondaryColor,
                         ),
                       ),
                     ],
@@ -321,9 +319,11 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
     isAdmin() ? optionsList.length==4?
     optionsList.insert(0,
         TuneContainerModel(
-          title: StringsManager.addNewFile,
+          title: StringsManager.addNewAttachment,
           icon: Icon(Icons.file_copy_rounded,color: ColorManager.secondaryColor,),
-          onTap: () {},))
+          onTap: () {
+            Navigator.pushNamed(context, RoutesManager.newFile);
+          },))
         :null:null;
     return SizedBox(
       height: 100.h,
@@ -335,6 +335,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         itemCount: optionsList.length,
         itemBuilder: (context, index) {
           return CustomContainer(
+            onTap: optionsList[index].onTap??(){},
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

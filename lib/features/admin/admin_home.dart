@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lottie/lottie.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_section_container.dart';
 import 'package:ni_angelos/models/section_model.dart';
 
@@ -80,8 +78,8 @@ class AdminHome extends StatelessWidget {
         Positioned(
           top: 2.sp,
           bottom: 180.sp,
-          right: 90.sp,
-          left: 90.sp,
+          right: 100.sp,
+          left: 100.sp,
           child: SvgPicture.asset(
             ImageAssets.crossLogo,
             fit: BoxFit.contain,
@@ -111,8 +109,8 @@ class AdminHome extends StatelessWidget {
         Positioned(
           top: 200.sp,
           bottom: 2.sp,
-          right: 90.sp,
-          left: 90.sp,
+          right: 100.sp,
+          left: 100.sp,
           child: SvgPicture.asset(
             ImageAssets.crossLogo,
             fit: BoxFit.contain,

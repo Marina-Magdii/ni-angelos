@@ -10,6 +10,7 @@ import 'package:ni_angelos/features/admin/classes/presentation/class_details_vie
 import 'package:ni_angelos/features/admin/classes/presentation/classes_view.dart';
 import 'package:ni_angelos/features/admin/teachers/presentation/teachers_view.dart';
 import 'package:ni_angelos/features/admin/teachers_check/presentation/teachers_check_view.dart';
+import 'package:ni_angelos/features/admin/tunes/presentation/add_new_attachment_view.dart';
 import 'package:ni_angelos/features/admin/tunes/presentation/add_new_tune_view.dart';
 import 'package:ni_angelos/features/authentication/sign_in_view.dart';
 import 'package:ni_angelos/features/child/child_home.dart';
@@ -71,7 +72,8 @@ class MyApp extends StatelessWidget {
             RoutesManager.classDetails :(_)=> ClassDetailsView(),
             RoutesManager.teachers :(_)=> TeachersView(),
             RoutesManager.teachersCheck :(_)=> TeachersCheckView(),
-            RoutesManager.newTune :(_)=> AddNewTuneView()
+            RoutesManager.newTune :(_)=> AddNewTuneView(),
+            RoutesManager.newFile :(_)=> AddNewAttachmentView(),
           },
         );
       },
