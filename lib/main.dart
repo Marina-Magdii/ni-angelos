@@ -4,6 +4,7 @@ import 'package:ni_angelos/core/app_theme.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/features/admin/admin_home.dart';
 import 'package:ni_angelos/features/admin/attendance/presentation/attendance_view.dart';
+import 'package:ni_angelos/features/admin/children/presentation/child_details_view.dart';
 import 'package:ni_angelos/features/admin/children/presentation/children_view.dart';
 import 'package:ni_angelos/features/admin/children_check/presentation/children_check_view.dart';
 import 'package:ni_angelos/features/admin/classes/presentation/class_details_view.dart';
@@ -74,6 +75,7 @@ class MyApp extends StatelessWidget {
             RoutesManager.teachersCheck :(_)=> TeachersCheckView(),
             RoutesManager.newTune :(_)=> AddNewTuneView(),
             RoutesManager.newFile :(_)=> AddNewAttachmentView(),
+            RoutesManager.childDetails :(_)=> ChildDetailsView(),
           },
         );
       },

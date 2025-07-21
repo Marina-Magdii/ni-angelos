@@ -30,6 +30,8 @@ class StringsManager {
   static const String hour = "ساعة";
   static const String userId = "00023";
   static const String editProfile = "تعديل الحساب";
+  static const String profileId = "رقم الحساب";
+  static const String profilePass = "باسورد الحساب";
   static const String logOut = "تسجيل خروج";
   static const String nextSession = "مواعيد الحصة الأسبوع القادم";
   static const String nextSessionDescription = "الخميس من كل اسبوع - الساعة 6:30  مساءاً بعد العشية (مبني الخدمات - الدور الاول)";
@@ -73,9 +75,19 @@ class StringsManager {
   static const String link = "رابط";
   static const String tuneRecord = "تسجيل اللحن";
   static const String image = "صورة";
+  static const String search = "بحث ..";
+  static const String annualPay = "هل تم  دفع الرسوم السنوية";
+  static const String bookPay = "هل تم  دفع الرسوم الكتب";
+  static const String boyName = "شنودة روماني";
+  static const String childName = "اسم المخدوم";
+  static const String childImage = "صورة المخدوم";
+  static const String childNumber = "رقم تليفون المخدوم أو ولي الأمر";
+  static const String deacon = "شماس";
+  static const String year = "السنة الدراسية";
   static const String attachFile = "اضغط هنا لاختيار المرفق";
+  static const String chooseImage = "اضغط هنا لاختيار الصورة";
   static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";
-  static const String quarterMooarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
+  static const String quarterMoaarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
   static const String quarterCoptic = "Hiten ni`precbia `nte 50e`otokoc =e=0=v maria : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi";
   static const String policyEng = """
  Privacy Policy

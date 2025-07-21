@@ -3,15 +3,27 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key,required this.child,this.color,this.onTap});
+  const CustomContainer({
+    super.key,
+    required this.child,
+    this.color,
+    this.onTap,
+    this.horizontalPadding,
+    this.verticalPadding,
+  });
   final Widget child;
   final Color? color;
   final void Function()? onTap;
+  final double? horizontalPadding;
+  final double? verticalPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+      padding: REdgeInsets.symmetric(
+        horizontal: horizontalPadding ?? 8,
+        vertical: verticalPadding ?? 8,
+      ),
       child: InkWell(
         onTap: onTap,
         child: Container(

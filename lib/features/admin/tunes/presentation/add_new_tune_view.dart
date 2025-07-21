@@ -56,7 +56,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                       ? Expanded(
                         child: CustomTitleContainer(
                           title: StringsManager.moaarab,
-                          description: StringsManager.quarterMooarab,
+                          description: StringsManager.quarterMoaarab,
                         ),
                       )
                       : SizedBox.shrink(),

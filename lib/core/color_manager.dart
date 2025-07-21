@@ -10,6 +10,7 @@ class ColorManager {
   static const Color redContainer = Color(0xff931f27);
   static const Color titleSmall = Color(0xffA96D74);
   static const Color inActiveColor = Color(0xffc4999e);
+  static const Color inActiveTrackColor = Color(0xffe0c4c7);
   static const Color darkGrey = Color(0xff444444);
   static const Color greyColor = Color(0xff666666);
   static const Color textFieldColor = Color(0xfffcf0f1);
