@@ -29,74 +29,95 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
       appBarTitle: args.name,
       withBackArrow: true,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            annualPayment(),
-            bookPayment(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
-                  child: Text(StringsManager.childName),
-                ),
-                CustomContainer(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.close_rounded,
-                        color: ColorManager.secondaryColor,
-                      ),
-                      Text(StringsManager.chooseImage),
-                      CustomContainer(
-                        verticalPadding: 0,
-                        horizontalPadding: 0,
-                        child: Image.asset(ImageAssets.childLogo, width: 50.w),
-                      ),
-        
-                    ],
+        child: Padding(
+          padding: REdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            children: [
+              annualPayment(),
+              bookPayment(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(StringsManager.childImage),
+                  CustomContainer(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.close_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
+                        Text(StringsManager.chooseImage),
+                        CustomContainer(
+                          verticalPadding: 0,
+                          horizontalPadding: 0,
+                          child: Image.asset(ImageAssets.childLogo, width: 50.w),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Text(StringsManager.year),
-                CustomDropFormField(),
-                Text(StringsManager.deacon),
-                CustomDropFormField(),
-                Text(StringsManager.childNumber),
-                CustomTextField(
-                    hintText: "", validator: (v){     return null;},
-                    controller: TextEditingController()),
-                Text(StringsManager.profileId),
-                CustomTextField(
-                    hintText: "", validator: (v){     return null;},
-                    controller: TextEditingController()),
-                Text(StringsManager.profilePass),
-                CustomTextField(
-                    hintText: "", validator: (v){
+                  Text(StringsManager.childName),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: "",
+                    validator: (v) {
                       return null;
-                },
-                    controller: TextEditingController()),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomContainer(
-                    onTap: (){
-                      Navigator.pop(context);
                     },
-                    color: ColorManager.secondaryColor,
-                    child: Padding(
-                      padding: REdgeInsets.only(bottom: 6.0),
-                      child: Center(
-                        child: Text(
-                          StringsManager.save,
-                          style: Theme.of(context).textTheme.bodyLarge,
+                    controller: TextEditingController(),
+                  ),
+                  Text(StringsManager.year),
+                  CustomDropFormField(),
+                  Text(StringsManager.deacon),
+                  CustomDropFormField(),
+                  Text(StringsManager.childNumber),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: "",
+                    validator: (v) {
+                      return null;
+                    },
+                    controller: TextEditingController(),
+                  ),
+                  Text(StringsManager.profileId),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: "",
+                    validator: (v) {
+                      return null;
+                    },
+                    controller: TextEditingController(),
+                  ),
+                  Text(StringsManager.profilePass),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: "",
+                    validator: (v) {
+                      return null;
+                    },
+                    controller: TextEditingController(),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomContainer(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      color: ColorManager.secondaryColor,
+                      child: Padding(
+                        padding: REdgeInsets.only(bottom: 6.0),
+                        child: Center(
+                          child: Text(
+                            StringsManager.save,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

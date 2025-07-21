@@ -21,7 +21,6 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: REdgeInsets.symmetric(
-        horizontal: horizontalPadding ?? 8,
         vertical: verticalPadding ?? 8,
       ),
       child: InkWell(
