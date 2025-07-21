@@ -14,10 +14,8 @@ class ClassesView extends StatelessWidget {
     return MyCustomScaffold(
       appBarTitle: StringsManager.classes,
       leading: InkWell(
-        onTap: (){},
-        child: SizedBox(
-            width: 10.w,height: 10.h,
-            child: SvgPicture.asset(ImageAssets.addIcon,)),
+        onTap: () {},
+        child: SvgPicture.asset(ImageAssets.addIcon, height: 24.h, width: 24.w),
       ),
       withBackArrow: true,
       body: ListView.builder(

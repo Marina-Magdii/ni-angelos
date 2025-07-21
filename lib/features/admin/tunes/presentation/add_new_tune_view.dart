@@ -129,6 +129,9 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: CustomContainer(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
                   color: ColorManager.secondaryColor,
                   child: Padding(
                     padding: REdgeInsets.only(bottom: 6.0),

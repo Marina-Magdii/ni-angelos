@@ -9,9 +9,21 @@ import 'package:ni_angelos/custom/custom_drop_form_field.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_textfield.dart';
 
-class AddNewAttachmentView extends StatelessWidget {
+class AddNewAttachmentView extends StatefulWidget {
   AddNewAttachmentView({super.key});
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
+  State<AddNewAttachmentView> createState() => _AddNewAttachmentViewState();
+}
+
+class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController titleController = TextEditingController();
+  @override
+  void dispose() {
+    titleController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +50,7 @@ class AddNewAttachmentView extends StatelessWidget {
                     }
                     return null;
                   },
-                  controller: TextEditingController(),
+                  controller: titleController,
                 ),
               ),
               SizedBox(height: 20.h),

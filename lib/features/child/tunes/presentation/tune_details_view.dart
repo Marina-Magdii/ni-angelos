@@ -60,9 +60,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
     ),
     TuneContainerModel(
       title: StringsManager.pdf,
-      icon: SvgPicture.asset(
-        ImageAssets.documentIcon,
-      ),
+      icon: SvgPicture.asset(ImageAssets.documentIcon),
       onTap: () {},
     ),
   ];
@@ -316,15 +314,23 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   }
 
   options() {
-    isAdmin() ? optionsList.length==4?
-    optionsList.insert(0,
-        TuneContainerModel(
-          title: StringsManager.addNewAttachment,
-          icon: Icon(Icons.file_copy_rounded,color: ColorManager.secondaryColor,),
-          onTap: () {
-            Navigator.pushNamed(context, RoutesManager.newFile);
-          },))
-        :null:null;
+    isAdmin()
+        ? optionsList.length == 4
+            ? optionsList.insert(
+              0,
+              TuneContainerModel(
+                title: StringsManager.addNewAttachment,
+                icon: Icon(
+                  Icons.file_copy_rounded,
+                  color: ColorManager.secondaryColor,
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, RoutesManager.newFile);
+                },
+              ),
+            )
+            : null
+        : null;
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
@@ -335,7 +341,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         itemCount: optionsList.length,
         itemBuilder: (context, index) {
           return CustomContainer(
-            onTap: optionsList[index].onTap??(){},
+            onTap: optionsList[index].onTap ?? () {},
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -362,6 +368,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           titleTextStyle: Theme.of(context).textTheme.titleMedium,
           actions: [
             CustomContainer(
+              onTap: (){
+                Navigator.pop(context);
+              },
               child: Padding(
                 padding: REdgeInsets.symmetric(horizontal: 32.0),
                 child: Text(
@@ -371,6 +380,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
               ),
             ),
             CustomContainer(
+              onTap: (){
+                Navigator.pop(context);
+              },
               color: ColorManager.redContainer,
               child: Padding(
                 padding: REdgeInsets.symmetric(horizontal: 32.0),
