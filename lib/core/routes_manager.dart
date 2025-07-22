@@ -25,4 +25,5 @@ class RoutesManager {
   static const String newTune = "NewTune/";
   static const String newFile = "NewFile/";
   static const String childDetails = "ChildDetails/";
+  static const String teacherDetails = "TeacherDetails/";
 }

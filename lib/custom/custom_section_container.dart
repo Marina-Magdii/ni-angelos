@@ -15,7 +15,7 @@ class CustomSectionContainer extends StatelessWidget {
         Navigator.of(context).pushNamed(sectionModel.screenName);
       },
       child: Padding(
-        padding:REdgeInsets.symmetric(vertical: 6,horizontal: 10),
+        padding:REdgeInsets.symmetric(vertical: 6,horizontal: 8),
         child: Container(
           decoration: BoxDecoration(
             color: ColorManager.containerColor,
@@ -24,20 +24,21 @@ class CustomSectionContainer extends StatelessWidget {
                 color: ColorManager.containerBorderColor),
             // boxShadow: ColorManager.shadow
           ),
-          child: FittedBox(
-            child: Padding(
-              padding: REdgeInsets.symmetric(vertical: 16.0,horizontal: 8),
+          child: Padding(
+            padding: REdgeInsets.symmetric(horizontal: 28),
+            child: Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   sectionModel.icon != null
                       ? SvgPicture.asset(
                         sectionModel.icon!,
-                        width: 85.w,
                         height: 85.h,
                       )
                       : SizedBox.shrink(),
                   Center(
                     child: Text(
+                      textAlign: TextAlign.center,
                       sectionModel.title,
                       maxLines: 2,
                       style: Theme.of(context).textTheme.labelLarge,

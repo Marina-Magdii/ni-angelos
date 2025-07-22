@@ -125,20 +125,69 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       Expanded(child: CustomDivider()),
                     ],
                   ),
+
                   Padding(
                     padding: REdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         if (showCoptic)
-                          CustomTuneQuarter(
-                            texts: TuneDetailsView.copticText,
-                            isCoptic: true,
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CustomTuneQuarter(
+                                  languages: languagesCount(),
+                                  isCoptic: true,
+                                  texts: TuneDetailsView.copticText,
+                                ),
+                                Padding(
+                                  padding: REdgeInsets.symmetric(
+                                    horizontal: 4.0,
+                                  ),
+                                  child: Container(
+                                    width: 1,
+                                    color: ColorManager.containerBorderColor,
+                                    height: MediaQuery.of(context).size.height*dividerHeight(),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         if (showMoaarab)
-                          CustomTuneQuarter(texts: TuneDetailsView.moaarabText),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                              children: [
+                                CustomTuneQuarter(
+                                  languages: languagesCount(),
+                                  texts: TuneDetailsView.moaarabText,
+                                ),
+                                showArabic? Padding(
+                                  padding: REdgeInsets.symmetric(horizontal: 4),
+                                  child: Container(
+                                    width: 1,
+                                    color: ColorManager.containerBorderColor,
+                                    height: MediaQuery.of(context).size.height,
+                                  ),
+                                ):SizedBox(),
+                              ],
+                            ),
+                          ),
                         if (showArabic)
-                          CustomTuneQuarter(texts: TuneDetailsView.arabicText),
+                          Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                              children: [
+                                CustomTuneQuarter(
+                                  languages: languagesCount(),
+                                  texts: TuneDetailsView.arabicText,
+                                ),
+                              ],
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -232,83 +281,88 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
 
   toggleLanguage() {
     return CustomContainer(
-      child: Row(
-        children: [
-          InkWell(
-            onTap: () {
-              setState(() {
-                showCoptic = !showCoptic;
-              });
-            },
-            child: Row(
-              children: [
-                Text(StringsManager.inCoptic),
-                showCoptic
-                    ? Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
-                    )
-                    : Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: Icon(
-                        Icons.circle_rounded,
-                        color: ColorManager.secondaryColor,
+      child: Padding(
+        padding: REdgeInsets.only(bottom: 4.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: () {
+                setState(() {
+                  showCoptic = !showCoptic;
+                });
+              },
+              child: Row(
+                children: [
+                  Text(StringsManager.inCoptic),
+                  showCoptic
+                      ? Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                      )
+                      : Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: Icon(
+                          Icons.circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       ),
-                    ),
-                SizedBox(width: 6.w),
-              ],
+                  SizedBox(width: 6.w),
+                ],
+              ),
             ),
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                showMoaarab = !showMoaarab;
-              });
-            },
-            child: Row(
-              children: [
-                Text(StringsManager.m),
-                showMoaarab
-                    ? Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
-                    )
-                    : Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: Icon(
-                        Icons.circle_rounded,
-                        color: ColorManager.secondaryColor,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  showMoaarab = !showMoaarab;
+                });
+              },
+              child: Row(
+                children: [
+                  Text(StringsManager.m),
+                  showMoaarab
+                      ? Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                      )
+                      : Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: Icon(
+                          Icons.circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       ),
-                    ),
-                SizedBox(width: 6.w),
-              ],
+                  SizedBox(width: 6.w),
+                ],
+              ),
             ),
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                showArabic = !showArabic;
-              });
-            },
-            child: Row(
-              children: [
-                Text(StringsManager.a),
-                showArabic
-                    ? Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
-                    )
-                    : Padding(
-                      padding: REdgeInsets.only(top: 4.0),
-                      child: Icon(
-                        Icons.circle_rounded,
-                        color: ColorManager.secondaryColor,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  showArabic = !showArabic;
+                });
+              },
+              child: Row(
+                children: [
+                  Text(StringsManager.a),
+                  showArabic
+                      ? Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                      )
+                      : Padding(
+                        padding: REdgeInsets.only(top: 4.0),
+                        child: Icon(
+                          Icons.circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       ),
-                    ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -340,14 +394,17 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         scrollDirection: Axis.horizontal,
         itemCount: optionsList.length,
         itemBuilder: (context, index) {
-          return CustomContainer(
-            onTap: optionsList[index].onTap ?? () {},
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(child: optionsList[index].icon),
-                Text(optionsList[index].title),
-              ],
+          return Padding(
+            padding: REdgeInsets.symmetric(horizontal: 4.0),
+            child: CustomContainer(
+              onTap: optionsList[index].onTap ?? () {},
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(child: optionsList[index].icon),
+                  Text(optionsList[index].title),
+                ],
+              ),
             ),
           );
         },
@@ -368,7 +425,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           titleTextStyle: Theme.of(context).textTheme.titleMedium,
           actions: [
             CustomContainer(
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
               },
               child: Padding(
@@ -380,7 +437,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
               ),
             ),
             CustomContainer(
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
               },
               color: ColorManager.redContainer,
@@ -396,5 +453,28 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
         );
       },
     );
+  }
+
+  languagesCount() {
+    if (showMoaarab && showCoptic && showArabic) {
+      return 3;
+    } else if (showArabic && showCoptic ||
+        showArabic && showMoaarab ||
+        showCoptic && showMoaarab) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+  dividerHeight(){
+    if(languagesCount()==3){
+      return 1;
+    }
+    else if (languagesCount()==2){
+      return 0.7;
+    }
+    else {
+      return 0;
+    }
   }
 }

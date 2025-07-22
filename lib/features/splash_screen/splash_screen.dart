@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
       ).animate().scale(
         begin: Offset(0.1, 0.1), // Start small
         end: Offset(1, 1), // End at full size
-        duration: 2.seconds,
+        duration: 3.seconds,
         curve: Curves.easeOut,
       ),
     );

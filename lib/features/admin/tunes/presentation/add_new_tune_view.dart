@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_divider.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
@@ -126,24 +127,8 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                 ],
               ),
               SizedBox(height: 50.h),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: CustomContainer(
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                  color: ColorManager.secondaryColor,
-                  child: Padding(
-                    padding: REdgeInsets.only(bottom: 6.0),
-                    child: Center(
-                      child: Text(
-                        StringsManager.save,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              CustomButton(title:  StringsManager.save,
+              onTap: (){},),
             ],
           ),
         ),

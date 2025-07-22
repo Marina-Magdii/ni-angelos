@@ -17,7 +17,7 @@ class CustomTextField extends StatefulWidget {
   bool obscure;
   final TextEditingController controller;
   final String? Function(String?)? validator;
-  final bool isPass;
+   bool isPass;
   final bool withIcon;
   final BorderRadius? borderRadius;
 
@@ -35,56 +35,60 @@ class _CustomTextFieldState extends State<CustomTextField> {
           borderRadius: widget.borderRadius ?? BorderRadius.circular(32.r),
           boxShadow: ColorManager.shadow,
         ),
-        child: TextFormField(
+        child: Directionality(
           textDirection: TextDirection.rtl,
-          controller: widget.controller,
-          obscureText: widget.obscure,
-          validator: widget.validator,
-          decoration: InputDecoration(
-            suffixIcon: widget.withIcon?
-                widget.isPass
-                    ? Icon(Icons.lock, color: ColorManager.primaryColor)
-                    : Icon(
-                      Icons.person_rounded,
-                      color: ColorManager.primaryColor,
-                    )
-            :null,
-            prefixIcon:
-                widget.isPass
-                    ? IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.obscure = !widget.obscure;
-                        });
-                      },
-                      icon:
-                          widget.obscure
-                              ? Icon(
-                                Icons.visibility_off,
-                                color: ColorManager.primaryColor,
-                              )
-                              : Icon(
-                                Icons.visibility,
-                                color: ColorManager.primaryColor,
-                              ),
-                    )
-                    : null,
-            hintText: widget.hintText,
-            hintTextDirection: TextDirection.rtl,
-            hintStyle: Theme.of(context).textTheme.bodySmall,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
-            ),
-            filled: true,
-            fillColor: ColorManager.containerColor,
-            border: OutlineInputBorder(
-              borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
-              borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+          child: TextFormField(
+            controller: widget.controller,
+            obscureText: widget.obscure,
+            validator: widget.validator,
+            decoration: InputDecoration(
+              prefixIcon: widget.withIcon?
+                  widget.isPass
+                      ? Icon(Icons.lock, color: ColorManager.primaryColor)
+                      : Icon(
+                        Icons.person_rounded,
+                        color: ColorManager.secondaryColor,
+                      )
+              :null,
+              suffixIcon:
+                  widget.isPass
+                      ? Padding(
+                        padding: REdgeInsets.symmetric(horizontal: 8.0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              widget.obscure = !widget.obscure;
+                            });
+                          },
+                          icon:
+                              widget.obscure
+                                  ? Icon(
+                                    Icons.visibility_off,
+                                    color: ColorManager.primaryColor,
+                                  )
+                                  : Icon(
+                                    Icons.visibility,
+                                    color: ColorManager.primaryColor,
+                                  ),
+                        ),
+                      )
+                      : null,
+              hintText: widget.hintText,
+              hintStyle: Theme.of(context).textTheme.bodySmall,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+              ),
+              filled: true,
+              fillColor: ColorManager.containerColor,
+              border: OutlineInputBorder(
+                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderSide: BorderSide(color: Colors.transparent, width: 2.w),
+              ),
             ),
           ),
         ),

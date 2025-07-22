@@ -10,22 +10,22 @@ import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_drop_form_field.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_textfield.dart';
-import 'package:ni_angelos/models/child_model.dart';
+import 'package:ni_angelos/models/teacher_model.dart';
 
-class ChildDetailsView extends StatefulWidget {
-  const ChildDetailsView({super.key});
+class TeacherDetailsView extends StatefulWidget {
+  const TeacherDetailsView({super.key});
 
   @override
-  State<ChildDetailsView> createState() => _ChildDetailsViewState();
+  State<TeacherDetailsView> createState() => _TeacherDetailsViewState();
 }
 
-class _ChildDetailsViewState extends State<ChildDetailsView> {
+class _TeacherDetailsViewState extends State<TeacherDetailsView>{
   bool booksPayed = false;
   bool yearPayed = false;
 
   @override
   Widget build(BuildContext context) {
-    ChildModel args = ModalRoute.of(context)?.settings.arguments as ChildModel;
+    TeacherModel args = ModalRoute.of(context)?.settings.arguments as TeacherModel;
     return MyCustomScaffold(
       appBarTitle: args.name,
       withBackArrow: true,

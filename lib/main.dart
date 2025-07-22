@@ -9,6 +9,7 @@ import 'package:ni_angelos/features/admin/children/presentation/children_view.da
 import 'package:ni_angelos/features/admin/children_check/presentation/children_check_view.dart';
 import 'package:ni_angelos/features/admin/classes/presentation/class_details_view.dart';
 import 'package:ni_angelos/features/admin/classes/presentation/classes_view.dart';
+import 'package:ni_angelos/features/admin/teachers/presentation/teacher_details_view.dart';
 import 'package:ni_angelos/features/admin/teachers/presentation/teachers_view.dart';
 import 'package:ni_angelos/features/admin/teachers_check/presentation/teachers_check_view.dart';
 import 'package:ni_angelos/features/admin/tunes/presentation/add_new_attachment_view.dart';
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
             RoutesManager.newTune :(_)=> AddNewTuneView(),
             RoutesManager.newFile :(_)=> AddNewAttachmentView(),
             RoutesManager.childDetails :(_)=> ChildDetailsView(),
+            RoutesManager.teacherDetails :(_)=> TeacherDetailsView(),
           },
         );
       },

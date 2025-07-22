@@ -32,44 +32,47 @@ class CustomTuneContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  tuneModel.title,
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
-                Row(
-                  children: [
-                    teacher
-                        ? Row(
-                          children: [
-                            Text(
-                              tuneModel.teacher!,
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8.0,
-                                right: 8,
-                                top: 5,
+            Padding(
+              padding: REdgeInsets.only(bottom: 4.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    tuneModel.title,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  Row(
+                    children: [
+                      teacher
+                          ? Row(
+                            children: [
+                              Text(
+                                tuneModel.teacher!,
+                                style: Theme.of(context).textTheme.titleSmall,
                               ),
-                              child: Icon(
-                                Icons.circle_rounded,
-                                size: 5.sp,
-                                color: ColorManager.titleSmall,
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 8.0,
+                                  right: 8,
+                                  top: 5,
+                                ),
+                                child: Icon(
+                                  Icons.circle_rounded,
+                                  size: 5.sp,
+                                  color: ColorManager.titleSmall,
+                                ),
                               ),
-                            ),
-                          ],
-                        )
-                        : SizedBox.shrink(),
-                    Text(
-                      tuneModel.date,
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                  ],
-                ),
-              ],
+                            ],
+                          )
+                          : SizedBox.shrink(),
+                      Text(
+                        tuneModel.date,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             CustomRedContainer(
               child: Text(

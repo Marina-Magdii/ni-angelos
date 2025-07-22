@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_drop_form_field.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_textfield.dart';
 
 class AddNewAttachmentView extends StatefulWidget {
-  AddNewAttachmentView({super.key});
+  const AddNewAttachmentView({super.key});
 
   @override
   State<AddNewAttachmentView> createState() => _AddNewAttachmentViewState();
@@ -19,6 +19,12 @@ class AddNewAttachmentView extends StatefulWidget {
 class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController titleController = TextEditingController();
+  final List<Map<String, String>> items = [
+    {'label': StringsManager.tuneRecord, 'icon': ImageAssets.recordIcon},
+    {'label': StringsManager.link, 'icon': ImageAssets.shareIcon},
+    {'label': StringsManager.image, 'icon': ImageAssets.imageIcon},
+    {'label': StringsManager.pdfFile, 'icon': ImageAssets.documentIcon},
+  ];
   @override
   void dispose() {
     titleController.dispose();
@@ -37,10 +43,12 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              CustomDropFormField(),
+              CustomDropFormField(
+                labelText: StringsManager.attachmentType,
+              items: items,),
               SizedBox(height: 20.h),
               Padding(
-                padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+                padding: REdgeInsets.symmetric(vertical: 8),
                 child: CustomTextField(
                   borderRadius: BorderRadius.circular(8.r),
                   hintText: StringsManager.attachmentTitle,
@@ -61,9 +69,12 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        StringsManager.attachFile,
-                        style: Theme.of(context).textTheme.bodySmall,
+                      Padding(
+                        padding: REdgeInsets.only(bottom: 4.0),
+                        child: Text(
+                          StringsManager.attachFile,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
                       ),
                       SizedBox(width: 4.w),
                       SvgPicture.asset(ImageAssets.attachIcon),
@@ -71,26 +82,11 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
                   ),
                 ),
               ),
-              Padding(
-                padding: REdgeInsets.symmetric(vertical: 16.0),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomContainer(
-                    onTap: () {
-                      add();
-                    },
-                    color: ColorManager.secondaryColor,
-                    child: Padding(
-                      padding: REdgeInsets.all(8.0),
-                      child: Center(
-                        child: Text(
-                          StringsManager.add,
-                          style: Theme.of(context).textTheme.bodyLarge,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+              CustomButton(
+                title:   StringsManager.add,
+                onTap: (){
+                  add();
+                },
               ),
             ],
           ),
@@ -99,9 +95,11 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
     );
   }
 
-  add() {
+  add() async {
     if (formKey.currentState?.validate() ?? false) {
-      return;
+      await Future.delayed(Duration(seconds: 1)); // simulate work
+      if (!mounted) return; // Safe usage of context
+      Navigator.pop(context);
     }
   }
 }
