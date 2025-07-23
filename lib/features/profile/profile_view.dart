@@ -152,7 +152,7 @@ class ProfileView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              StringsManager.attendanceDate,
+              StringsManager.attendance63,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Padding(

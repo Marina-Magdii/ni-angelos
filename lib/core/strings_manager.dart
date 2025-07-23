@@ -15,6 +15,7 @@ class StringsManager {
   static const String wrongPass = "الباسورد غلط!";
   static const String home = "الرئيسية";
   static const String notifications = "الإشعارات";
+  static const String start = "البدء";
   static const String profile = "حسابي";
   static const String tunes = "ألحان";
   static const String coptic = "قبطي";
@@ -35,7 +36,7 @@ class StringsManager {
   static const String logOut = "تسجيل خروج";
   static const String nextSession = "مواعيد الحصة الأسبوع القادم";
   static const String nextSessionDescription = "الخميس من كل اسبوع - الساعة 6:30  مساءاً بعد العشية (مبني الخدمات - الدور الاول)";
-  static const String attendanceDate = "الحضور (6/3)";
+  static const String attendance63 = "الحضور (6/3)";
   static const String attendDate = "الخميس 29 مايو 2025";
   static const String firstSemester = "الترم الأول";
   static const String recorder1 = "تسجيل مستر مينا";
@@ -84,6 +85,9 @@ class StringsManager {
   static const String childNumber = "رقم تليفون المخدوم أو ولي الأمر";
   static const String deacon = "شماس";
   static const String year = "السنة الدراسية";
+  static const String todayAttendance = "حضور اليوم";
+  static const String attendanceDate = "تاريخ الحضور";
+  static const String myClass = "الفصل";
   static const String attachFile = "اضغط هنا لاختيار المرفق";
   static const String chooseImage = "اضغط هنا لاختيار الصورة";
   static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";

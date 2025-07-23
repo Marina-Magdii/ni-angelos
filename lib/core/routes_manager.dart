@@ -26,4 +26,5 @@ class RoutesManager {
   static const String newFile = "NewFile/";
   static const String childDetails = "ChildDetails/";
   static const String teacherDetails = "TeacherDetails/";
+  static const String classAttendance = "ClassAttendance/";
 }
