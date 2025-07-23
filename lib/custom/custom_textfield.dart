@@ -32,7 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: REdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: widget.borderRadius ?? BorderRadius.circular(32.r),
+          borderRadius: widget.borderRadius ?? BorderRadius.circular(8.r),
           boxShadow: ColorManager.shadow,
         ),
         child: Directionality(
@@ -76,17 +76,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
               hintText: widget.hintText,
               hintStyle: Theme.of(context).textTheme.bodySmall,
               enabledBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderRadius: widget.borderRadius??BorderRadius.circular(8.r),
                 borderSide: BorderSide(color: Colors.transparent, width: 2.w),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderRadius: widget.borderRadius??BorderRadius.circular(8.r),
                 borderSide: BorderSide(color: Colors.transparent, width: 2.w),
               ),
               filled: true,
               fillColor: ColorManager.containerColor,
               border: OutlineInputBorder(
-                borderRadius: widget.borderRadius??BorderRadius.circular(32.r),
+                borderRadius: widget.borderRadius??BorderRadius.circular(8.r),
                 borderSide: BorderSide(color: Colors.transparent, width: 2.w),
               ),
             ),
