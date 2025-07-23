@@ -65,7 +65,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [Text("data"), Text("data"), Text("data")]),
                   CustomButton(title: StringsManager.save),
                 ],
