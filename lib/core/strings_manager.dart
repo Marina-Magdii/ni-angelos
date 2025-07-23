@@ -86,6 +86,7 @@ class StringsManager {
   static const String deacon = "شماس";
   static const String year = "السنة الدراسية";
   static const String todayAttendance = "حضور اليوم";
+  static const String todayDate = "تاريخ اليوم";
   static const String attendanceDate = "تاريخ الحضور";
   static const String myClass = "الفصل";
   static const String attachFile = "اضغط هنا لاختيار المرفق";
