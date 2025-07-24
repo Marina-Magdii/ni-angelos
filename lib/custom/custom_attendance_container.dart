@@ -6,7 +6,10 @@ import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 
 class CustomAttendanceContainer extends StatefulWidget {
-  const CustomAttendanceContainer({super.key});
+  const CustomAttendanceContainer({super.key, this.onTap,    required this.isSelected,
+  });
+  final void Function()? onTap;
+  final bool isSelected;
 
   @override
   State<CustomAttendanceContainer> createState() =>
@@ -15,17 +18,16 @@ class CustomAttendanceContainer extends StatefulWidget {
 
 class _CustomAttendanceContainerState extends State<CustomAttendanceContainer> {
   bool isSelected = false;
-  int count=0;
 
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      borderColor: isSelected?ColorManager.secondaryColor:null,
+      borderColor: isSelected ? ColorManager.secondaryColor : null,
       onTap: () {
         setState(() {
           isSelected = !isSelected;
-          count++;
         });
+        widget.onTap?.call();
       },
       color:
           isSelected

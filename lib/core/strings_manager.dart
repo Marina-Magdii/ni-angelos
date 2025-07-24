@@ -91,6 +91,9 @@ class StringsManager {
   static const String myClass = "الفصل";
   static const String attachFile = "اضغط هنا لاختيار المرفق";
   static const String chooseImage = "اضغط هنا لاختيار الصورة";
+  static const String absenceCount = "عدد الغياب ";
+  static const String attendanceCount = "عدد الحضور";
+  static const String classCount = "عدد الفصل ";
   static const String quarterArabic = "بشفاعات والدة الإله القديسة مريم ، يارب انعم لنا بمغفرة خطايانا";
   static const String quarterMoaarab = "هيتين ني ابريسفيا انتى تي ثيؤطوكوس اثؤواب ماريا : ابتشويس اري اهموت نان : ام بيكو ايفول انتى نين نوفي";
   static const String quarterCoptic = "Hiten ni`precbia `nte 50e`otokoc =e=0=v maria : Pu `ari`hmot nan : `mpixw `ebol `nte nennobi";

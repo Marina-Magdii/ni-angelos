@@ -14,11 +14,17 @@ class ClassAttendanceView extends StatefulWidget {
 }
 
 class _ClassAttendanceViewState extends State<ClassAttendanceView> {
-  int classCount=15;
+  late List<bool> selectedList;
+  int classCount = 15;
   int attendance = 0;
   @override
+  void initState() {
+    super.initState();
+    selectedList = List.generate(classCount, (_) => false);
+  }
+  @override
   Widget build(BuildContext context) {
-    int absence = classCount-attendance;
+    int absence = classCount - attendance;
     return MyCustomScaffold(
       appBarTitle: StringsManager.age,
       withBackArrow: true,
@@ -30,7 +36,10 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text(dateOfToday()), Text(StringsManager.todayDate)],
+                  children: [
+                    Text(dateOfToday()),
+                    Text(StringsManager.todayDate),
+                  ],
                 ),
                 SizedBox(height: 20.h),
                 SingleChildScrollView(
@@ -45,12 +54,19 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
                       childAspectRatio: 0.55,
                     ),
                     itemBuilder: (context, index) {
-                      return CustomAttendanceContainer();
+                      return CustomAttendanceContainer(
+                        isSelected: selectedList[index],
+                        onTap: (){
+                          setState(() {
+                            selectedList[index] = !selectedList[index];
+                            attendance += selectedList[index] ? 1 : -1;
+                          });
+                        },
+                      );
                     },
                   ),
                 ),
                 SizedBox(height: 20.h),
-
               ],
             ),
           ),
@@ -61,14 +77,31 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(color: ColorManager.containerColor),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [Text("$absence"), Text("$attendance"), Text("$classCount")]),
-                  CustomButton(title: StringsManager.save),
-                ],
+              child: Padding(
+                padding: REdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "$absence : ${StringsManager.absenceCount}",
+                          style: TextStyle(
+                            fontFamily: StringsManager.fontFamily,
+                            color: Colors.red,
+                          ),
+                        ),
+                        Text(
+                          "$attendance : ${StringsManager.attendanceCount}",
+                          style: TextStyle(color: Colors.green),
+                        ),
+                        Text("$classCount : ${StringsManager.classCount}"),
+                      ],
+                    ),
+                    CustomButton(onTap: () {}, title: StringsManager.save),
+                  ],
+                ),
               ),
             ),
           ),
