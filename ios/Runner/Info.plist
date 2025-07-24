@@ -4,6 +4,8 @@
 <dict>
     <key>NSMicrophoneUsageDescription</key>
     <string>This app needs access to your microphone to record voice notes.</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>This app needs access to the local network for debugging.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

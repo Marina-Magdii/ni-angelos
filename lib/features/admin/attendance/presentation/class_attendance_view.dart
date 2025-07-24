@@ -66,7 +66,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
                 children: [
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [Text("data"), Text("data"), Text("data")]),
+                      children: [Text("$absence"), Text("$attendance"), Text("$classCount")]),
                   CustomButton(title: StringsManager.save),
                 ],
               ),

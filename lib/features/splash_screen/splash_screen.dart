@@ -5,19 +5,31 @@ import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/features/authentication/sign_in_view.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        PageRouteBuilder(
-            pageBuilder: (_, __, ___) =>SignInView(),
-          transitionDuration: Duration.zero,
-          reverseTransitionDuration: Duration.zero,
-      ));
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(seconds: 3), () {
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+            PageRouteBuilder(
+              pageBuilder: (_, __, ___) =>SignInView(),
+              transitionDuration: Duration.zero,
+              reverseTransitionDuration: Duration.zero,
+            ));
+      }
     });
+  }
+  @override
+  Widget build(BuildContext context) {
     return MyCustomScaffold(
       body: Center(
         child: SvgPicture.asset(ImageAssets.logoIcon),
