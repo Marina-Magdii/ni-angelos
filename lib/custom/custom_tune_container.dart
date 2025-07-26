@@ -22,16 +22,17 @@ class CustomTuneContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          screenName,
-          arguments: tuneModel,
-        );
+        Navigator.pushNamed(context, screenName, arguments: tuneModel);
       },
       child: CustomContainer(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
+            teacher?IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.delete_forever_rounded,size: 25.sp,),
+            ):SizedBox(),
+            Spacer(),
             Padding(
               padding: REdgeInsets.only(bottom: 4.0),
               child: Column(

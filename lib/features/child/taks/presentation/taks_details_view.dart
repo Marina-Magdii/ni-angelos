@@ -57,7 +57,7 @@ class _TaksDetailsViewState extends State<TaksDetailsView>{
     return MyCustomScaffold(
       withBackArrow: true,
       appBarTitle: args.title,
-      leading: SvgPicture.asset(ImageAssets.deleteIcon),
+      leading: IconButton(onPressed: (){}, icon: Icon(Icons.delete_forever_rounded)),
       body: Padding(
         padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
         child: Column(

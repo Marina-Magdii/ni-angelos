@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/helper_functions.dart';
@@ -29,22 +28,17 @@ class HomeView extends StatelessWidget {
                   Stack(
                     children: [
                       // church image
-                      GestureDetector(
-                        onTap: () {
-                          SvgPicture.asset(ImageAssets.notificationsOn);
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.r),
-                            boxShadow: ColorManager.shadow,
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16.r),
-                            child: Image.asset(
-                              ImageAssets.church,
-                              fit: BoxFit.fitHeight,
-                            ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16.r),
+                          boxShadow: ColorManager.shadow,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16.r),
+                          child: Image.asset(
+                            ImageAssets.church,
+                            fit: BoxFit.fitHeight,
                           ),
                         ),
                       ),

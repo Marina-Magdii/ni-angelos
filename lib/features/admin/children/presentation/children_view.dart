@@ -21,8 +21,8 @@ class ChildrenView extends StatelessWidget {
       leading: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(ImageAssets.addIcon),
-          SvgPicture.asset(ImageAssets.editIcon),
+          IconButton(onPressed: (){}, icon: Icon(Icons.add_box_rounded,size: 25.sp,)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.edit_rounded,size: 25.sp,)),
           SvgPicture.asset(ImageAssets.excelIcon),
         ],
       ),
