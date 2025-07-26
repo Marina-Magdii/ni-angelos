@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/features/home/home_view.dart';
@@ -35,25 +34,25 @@ class _MainScreenState extends State<MainScreen> {
 
           // notifications tab
           BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(ImageAssets.notificationsOn),
-            backgroundColor: ColorManager.bottomNavigationColor,
-            icon: SvgPicture.asset(ImageAssets.notificationsOff),
+            activeIcon:Icon(Icons.notifications_rounded,color: ColorManager.redContainer,),
+            backgroundColor: ColorManager.secondaryColor,
+            icon: Icon(Icons.notifications_rounded,color: ColorManager.secondaryColor,),
             label: StringsManager.notifications,
           ),
 
           // home tab
           BottomNavigationBarItem(
             backgroundColor:  ColorManager.bottomNavigationColor,
-            activeIcon: SvgPicture.asset(ImageAssets.homeOn),
-            icon: SvgPicture.asset(ImageAssets.homeOff),
+            activeIcon:Icon(Icons.home_rounded,color: ColorManager.redContainer,),
+            icon:Icon(Icons.home_rounded,color: ColorManager.secondaryColor,),
             label: StringsManager.home,
           ),
 
           // profile tab
           BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(ImageAssets.profileOn),
+            activeIcon: Icon(Icons.person_rounded,color: ColorManager.redContainer,size: 25.sp,),
             backgroundColor: ColorManager.bottomNavigationColor,
-            icon: SvgPicture.asset(ImageAssets.profileOff),
+            icon: Icon(Icons.person_rounded,color: ColorManager.secondaryColor,size: 25.sp,),
             label: StringsManager.profile,
           ),
         ],
