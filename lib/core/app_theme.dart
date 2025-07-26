@@ -5,6 +5,19 @@ import 'package:ni_angelos/core/strings_manager.dart';
 
 class AppTheme {
   static ThemeData appTheme = ThemeData(
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          minimumSize: WidgetStateProperty.all(Size.zero),
+          padding: WidgetStateProperty.all(EdgeInsets.zero),
+          iconColor: WidgetStateProperty.all(ColorManager.secondaryColor),
+        iconSize: WidgetStateProperty.all(20.sp)
+      )
+    ),
+    iconTheme: IconThemeData(
+      color: ColorManager.secondaryColor,
+      size: 23.sp
+    ),
     appBarTheme: AppBarTheme(
       actionsPadding: REdgeInsets.only(right: 16),
       centerTitle: false,

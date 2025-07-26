@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
@@ -40,7 +39,6 @@ class CopticView extends StatelessWidget {
                   ),
                   SvgPicture.asset(
                     ImageAssets.awIcon,
-                    color: ColorManager.secondaryColor,
                   ),
                 ],
               ),
@@ -51,19 +49,10 @@ class CopticView extends StatelessWidget {
                   child: CustomContainer(
                     child: Column(
                       children: [
-                        SvgPicture.asset(
-                          ImageAssets.documentIcon,
-                          color: ColorManager.secondaryColor,
-                          width: 35,
-                        ),
-                        Text(
-                          StringsManager.pdf,
-                          style: TextStyle(
-                            color: ColorManager.secondaryColor,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                      Padding(
+                        padding: REdgeInsets.symmetric(vertical: 8.0),
+                        child: Icon(Icons.picture_as_pdf_rounded,size: 35.sp,),
+                      ),
                       ],
                     ),
                   ),
@@ -80,13 +69,15 @@ class CopticView extends StatelessWidget {
                   SizedBox(width: 5.w),
                   SvgPicture.asset(
                     ImageAssets.menuFillIcon,
-                    color: ColorManager.secondaryColor,
                   ),
                 ],
               ),
               Padding(
                 padding: REdgeInsets.symmetric(vertical: 16.0),
-                child: ListView.builder(
+                child: ListView.separated(
+                  separatorBuilder: (context,index){
+                    return SizedBox(height: 8.h);
+                  },
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: 3,

@@ -45,22 +45,22 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   static List<TuneContainerModel> optionsList = [
     TuneContainerModel(
       title: StringsManager.recorder1,
-      icon: SvgPicture.asset(ImageAssets.recordIcon),
+      icon: Icon(Icons.mic_rounded, size: 25.sp),
       onTap: () {},
     ),
     TuneContainerModel(
       title: StringsManager.recorder2,
-      icon: SvgPicture.asset(ImageAssets.recordIcon),
+      icon: Icon(Icons.mic_rounded, size: 25.sp),
       onTap: () {},
     ),
     TuneContainerModel(
       title: StringsManager.share,
-      icon: SvgPicture.asset(ImageAssets.shareIcon),
+      icon: Icon(Icons.link_rounded, size: 25.sp),
       onTap: () {},
     ),
     TuneContainerModel(
       title: StringsManager.pdf,
-      icon: SvgPicture.asset(ImageAssets.documentIcon),
+      icon: Icon(Icons.picture_as_pdf_rounded, size: 25.sp),
       onTap: () {},
     ),
   ];
@@ -76,38 +76,24 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           leading:
               isAdmin()
                   ? Row(
-                    mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      InkWell(
-                        onTap: () {
+                      IconButton(
+                        onPressed: () {
                           Navigator.pushNamed(context, RoutesManager.newTune);
                         },
-                        child: SvgPicture.asset(
-                          ImageAssets.addIcon,
-                          width: 24.w,
-                          height: 24.h,
-                        ),
+                        icon: Icon(Icons.add_box_rounded),
                       ),
-                      SizedBox(width: 4.w),
-                      InkWell(
-                        onTap: () {
+                      IconButton(
+                        onPressed: () {
                           deleteTune();
                         },
-                        child: SvgPicture.asset(
-                          ImageAssets.deleteIcon,
-                          width: 24.w,
-                          height: 24.w,
-                        ),
+                        icon: Icon(Icons.delete_forever_rounded, size: 25),
                       ),
-                      SizedBox(width: 4.w),
 
-                      InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          ImageAssets.editIcon,
-                          width: 22.w,
-                          height: 22.h,
-                        ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.edit_rounded),
                       ),
                     ],
                   )
@@ -148,7 +134,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                                   child: Container(
                                     width: 1,
                                     color: ColorManager.containerBorderColor,
-                                    height: MediaQuery.of(context).size.height*dividerHeight(),
+                                    height:
+                                        MediaQuery.of(context).size.height *
+                                        dividerHeight(),
                                   ),
                                 ),
                               ],
@@ -164,14 +152,20 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                                   languages: languagesCount(),
                                   texts: TuneDetailsView.moaarabText,
                                 ),
-                                showArabic? Padding(
-                                  padding: REdgeInsets.symmetric(horizontal: 4),
-                                  child: Container(
-                                    width: 1,
-                                    color: ColorManager.containerBorderColor,
-                                    height: MediaQuery.of(context).size.height,
-                                  ),
-                                ):SizedBox(),
+                                showArabic
+                                    ? Padding(
+                                      padding: REdgeInsets.symmetric(
+                                        horizontal: 4,
+                                      ),
+                                      child: Container(
+                                        width: 1,
+                                        color:
+                                            ColorManager.containerBorderColor,
+                                        height:
+                                            MediaQuery.of(context).size.height,
+                                      ),
+                                    )
+                                    : SizedBox(),
                               ],
                             ),
                           ),
@@ -299,7 +293,10 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                   showCoptic
                       ? Padding(
                         padding: REdgeInsets.only(top: 4.0),
-                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        child: Icon(
+                          Icons.check_circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       )
                       : Padding(
                         padding: REdgeInsets.only(top: 4.0),
@@ -324,7 +321,10 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                   showMoaarab
                       ? Padding(
                         padding: REdgeInsets.only(top: 4.0),
-                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        child: Icon(
+                          Icons.check_circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       )
                       : Padding(
                         padding: REdgeInsets.only(top: 4.0),
@@ -349,7 +349,10 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                   showArabic
                       ? Padding(
                         padding: REdgeInsets.only(top: 4.0),
-                        child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                        child: Icon(
+                          Icons.check_circle_rounded,
+                          color: ColorManager.secondaryColor,
+                        ),
                       )
                       : Padding(
                         padding: REdgeInsets.only(top: 4.0),
@@ -469,14 +472,13 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
       return 1;
     }
   }
-  dividerHeight(){
-    if(languagesCount()==3){
+
+  dividerHeight() {
+    if (languagesCount() == 3) {
       return 1;
-    }
-    else if (languagesCount()==2){
-      return showCoptic?0.7:0.5;
-    }
-    else {
+    } else if (languagesCount() == 2) {
+      return showCoptic ? 0.7 : 0.5;
+    } else {
       return 0;
     }
   }

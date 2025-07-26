@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ni_angelos/core/image_assets.dart';
+import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
@@ -66,14 +65,14 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: REdgeInsets.only(bottom: 4.0),
+                        padding: REdgeInsets.only(bottom: 6.0),
                         child: Text(
                           StringsManager.attachFile,
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ),
                       SizedBox(width: 4.w),
-                      SvgPicture.asset(ImageAssets.attachIcon),
+                      Icon(Icons.attachment_rounded,color: ColorManager.secondaryColor,),
                     ],
                   ),
                 ),
@@ -100,26 +99,26 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
   }
 
   attachTypes() {
-    final List<Map<String, String>> items = [
+    final List<Map<dynamic, dynamic>> items = [
       {
         'label': StringsManager.tuneRecord,
         'value': StringsManager.tuneRecord,
-        'icon': ImageAssets.recordIcon,
+        'icon': Icons.mic_rounded,
       },
       {
         'label': StringsManager.link,
         'value': StringsManager.link,
-        'icon': ImageAssets.shareIcon,
+        'icon': Icons.link_rounded,
       },
       {
         'label': StringsManager.image,
         'value': StringsManager.image,
-        'icon': ImageAssets.imageIcon,
+        'icon': Icons.image_outlined,
       },
       {
         'label': StringsManager.pdfFile,
         'value': StringsManager.pdfFile,
-        'icon': ImageAssets.documentIcon,
+        'icon':Icons.file_open_outlined,
       },
     ];
     return items;

@@ -12,6 +12,7 @@ class MyCustomScaffold extends StatelessWidget {
     this.actions,
     this.leading,
     this.withBackArrow = false,
+    this.leadingWidth,
   });
   final Widget body;
   final Widget? bottomNavigationBar;
@@ -19,6 +20,7 @@ class MyCustomScaffold extends StatelessWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final bool withBackArrow;
+  final double? leadingWidth;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,39 +33,47 @@ class MyCustomScaffold extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Scaffold(
-            appBar:appBarTitle!=null? AppBar(
-              leadingWidth: 87.w,
-              leading:leading!=null? Container(
-                padding:REdgeInsets.only(left: 8.0,top: 4),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                    child: leading),
-              ):null,
-              scrolledUnderElevation: 0,
-              backgroundColor: Colors.transparent,
-              automaticallyImplyLeading: false,
-              title: Align(
-                alignment: Alignment.centerRight,
-                  child: Text(appBarTitle ?? "")),
-              actions:
-                  withBackArrow
-                      ? [
-                        InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: REdgeInsets.only(top: 10.0),
-                            child: SvgPicture.asset(
-                              ImageAssets.arrowBack,
-                              width: 24.w,
-                              height: 24.h,
-                            ),
-                          ),
-                        ),
-                      ]
-                      : actions,
-            ):null,
+            appBar:
+                appBarTitle != null
+                    ? AppBar(
+                      leadingWidth: leading != null ? leadingWidth??90.w : 10.w,
+                      leading:
+                          leading != null
+                              ? Padding(
+                                padding: REdgeInsets.only(left: 8.0),
+                                child: Container(
+                                  padding: REdgeInsets.only(top: 4),
+                                  child: leading,
+                                ),
+                              )
+                              : null,
+                      scrolledUnderElevation: 0,
+                      backgroundColor: Colors.transparent,
+                      automaticallyImplyLeading: false,
+                      title: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(appBarTitle ?? ""),
+                      ),
+                      actions:
+                          withBackArrow
+                              ? [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Padding(
+                                    padding: REdgeInsets.only(top: 10.0),
+                                    child: SvgPicture.asset(
+                                      ImageAssets.arrowBack,
+                                      width: 24.w,
+                                      height: 24.h,
+                                    ),
+                                  ),
+                                ),
+                              ]
+                              : actions,
+                    )
+                    : null,
             resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             body: body,

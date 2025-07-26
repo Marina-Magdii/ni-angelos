@@ -2,12 +2,10 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/helper_functions.dart';
-import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_textfield.dart';
@@ -55,9 +53,13 @@ class _CopticDetailsViewState extends State<CopticDetailsView> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as TuneModel;
     return MyCustomScaffold(
+      leadingWidth: 20.w,
       withBackArrow: true,
       appBarTitle: args.title,
-      leading: SvgPicture.asset(ImageAssets.deleteIcon),
+      leading: IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.delete_forever_rounded, size: 25.sp),
+      ),
       body: Padding(
         padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
         child: Column(
@@ -79,7 +81,10 @@ class _CopticDetailsViewState extends State<CopticDetailsView> {
   }
 
   chatMessages() {
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) {
+        return SizedBox(height: 8.h);
+      },
       reverse: true,
       shrinkWrap: true,
       physics: AlwaysScrollableScrollPhysics(),
@@ -123,23 +128,30 @@ class _CopticDetailsViewState extends State<CopticDetailsView> {
   messageTypeInput() {
     return Row(
       children: [
-        InkWell(child: SvgPicture.asset(ImageAssets.recordIcon)),
+        IconButton(onPressed: () {}, icon: Icon(Icons.mic_rounded)),
         Padding(
           padding: REdgeInsets.symmetric(horizontal: 8.0),
-          child: InkWell(
-            onTap: pickImage,
-            child: SvgPicture.asset(ImageAssets.imageIcon),
+          child: IconButton(
+            onPressed: () {
+              pickImage();
+            },
+            icon: Icon(Icons.mic_rounded),
           ),
         ),
-        InkWell(
-          onTap: pickFile,
-          child: Icon(Icons.attach_file, color: ColorManager.secondaryColor),
+        IconButton(
+          onPressed: () {
+            pickFile;
+          },
+          icon: Icon(Icons.attach_file, color: ColorManager.secondaryColor),
         ),
         Expanded(
-          child: CustomTextField(
-            hintText: "اكتب رسالة",
-            controller: controller,
-            validator: (v) => null,
+          child: Padding(
+            padding: REdgeInsets.symmetric(horizontal: 8.0),
+            child: CustomTextField(
+              hintText: "اكتب رسالة",
+              controller: controller,
+              validator: (v) => null,
+            ),
           ),
         ),
         IconButton(

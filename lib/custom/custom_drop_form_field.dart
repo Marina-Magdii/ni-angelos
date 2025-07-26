@@ -11,7 +11,7 @@ class CustomDropFormField extends StatefulWidget {
     required this.labelText,
     required this.items,
     this.onChanged,
-     this.value,
+    this.value,
   });
   final String labelText;
   final List<Map<dynamic, dynamic>> items;
@@ -59,8 +59,14 @@ class _CustomDropFormFieldState extends State<CustomDropFormField> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         item["icon"] != null
-                            ? SvgPicture.asset(item["icon"]!)
-                            : const SizedBox(),
+                            ?   item['icon']is IconData
+                     ?   Icon(
+                              item["icon"] as IconData,
+                              size: 20.sp,
+                              color: ColorManager.secondaryColor,
+                            )
+                            : const SizedBox()
+                        : const SizedBox(),
                         SizedBox(width: 4.w),
                         Expanded(
                           child: Text(

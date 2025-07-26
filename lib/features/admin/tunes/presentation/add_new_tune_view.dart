@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
@@ -37,7 +35,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               ),
               Row(
                 children: [
-                  SvgPicture.asset(ImageAssets.minusIcon),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.remove_circle_rounded)),
                   Expanded(child: CustomDivider()),
                   Text(StringsManager.quarter1),
                 ],
@@ -73,7 +71,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               ),
               Row(
                 children: [
-                  SvgPicture.asset(ImageAssets.minusIcon),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.remove_circle_rounded)),
                   Expanded(child: CustomDivider()),
                   Text(StringsManager.quarter2),
                 ],
@@ -155,7 +153,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                 showCoptic
                     ? Padding(
                       padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                  child: Icon(Icons.check_circle_rounded),
                     )
                     : Padding(
                       padding: REdgeInsets.only(top: 4.0),
@@ -180,7 +178,7 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                 showMoaarab
                     ? Padding(
                       padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                  child: Icon(Icons.check_circle_rounded),
                     )
                     : Padding(
                       padding: REdgeInsets.only(top: 4.0),
@@ -205,13 +203,12 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
                 showArabic
                     ? Padding(
                       padding: REdgeInsets.only(top: 4.0),
-                      child: SvgPicture.asset(ImageAssets.darkCheckIcon),
+                      child: Icon(Icons.check_circle_rounded),
                     )
                     : Padding(
                       padding: REdgeInsets.only(top: 4.0),
                       child: Icon(
                         Icons.circle_rounded,
-                        color: ColorManager.secondaryColor,
                       ),
                     ),
                 SizedBox(width: 6.w),
