@@ -185,6 +185,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 90.h,
+                  )
                 ],
               ),
             ),
@@ -249,12 +252,12 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                               child:
                                   isPlaying
                                       ? Icon(
-                                        Icons.play_arrow_rounded,
+                                        Icons.play_circle_fill_rounded,
                                         color: ColorManager.secondaryColor,
                                         size: 35,
                                       )
                                       : Icon(
-                                        Icons.pause,
+                                        Icons.pause_circle_filled_rounded,
                                         color: ColorManager.secondaryColor,
                                         size: 35,
                                       ),
