@@ -69,6 +69,7 @@ class StringsManager {
   static const String quarter1 = "ربع ١";
   static const String quarter2 = "ربع ٢";
   static const String save = "حفظ";
+  static const String send = "ارسال";
   static const String addNewQuarter = "إضافة ربع جديد";
   static const String addNewAttachment = "إضافة مرفق مع اللحن";
   static const String add = "إضافة";

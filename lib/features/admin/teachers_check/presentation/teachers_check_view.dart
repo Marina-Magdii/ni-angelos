@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
+import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_child_container.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
 import 'package:ni_angelos/custom/custom_search_container.dart';
@@ -39,6 +40,7 @@ class TeachersCheckView extends StatelessWidget {
                   );
                 },
               ),
+              CustomButton(title: StringsManager.send,onTap: (){},)
             ],
           ),
         ),
