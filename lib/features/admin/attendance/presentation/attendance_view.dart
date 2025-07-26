@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_button.dart';
@@ -80,7 +81,10 @@ class _AttendanceViewState extends State<AttendanceView> {
             SizedBox(height: 30.h),
 
             // class age
-            CustomDropFormField(labelText: StringsManager.myClass, items: []),
+            CustomDropFormField(
+              labelText: StringsManager.myClass,
+              items: getClass(),
+            ),
 
             // just space
             Spacer(),
@@ -97,7 +101,12 @@ class _AttendanceViewState extends State<AttendanceView> {
                   );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("يرجى اختيار التاريخ أولاً")),
+                    SnackBar(
+                      backgroundColor: ColorManager.titleSmall,
+                      content: Center(
+                        child: Text(StringsManager.pleaseChooseDate),
+                      ),
+                    ),
                   );
                 }
               },
@@ -140,5 +149,16 @@ class _AttendanceViewState extends State<AttendanceView> {
       }
       return {};
     }).where((item) => item.isNotEmpty).toList();
+  }
+
+  getClass() {
+    return List.generate(3, (index) {
+      var classes = [
+        StringsManager.age,
+        StringsManager.age,
+        StringsManager.age,
+      ];
+      return {"label": classes[index], "value": classes[index], "icon": null};
+    });
   }
 }
