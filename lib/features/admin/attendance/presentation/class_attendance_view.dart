@@ -26,6 +26,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)?.settings.arguments;
     return MyCustomScaffold(
       // app bar
       appBarTitle: StringsManager.age,
@@ -37,7 +38,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
             child: Column(
               children: [
                 // date
-                date(),
+                date("$args"),
 
                 // just space
                 SizedBox(height: 20.h),
@@ -76,10 +77,10 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
     );
   }
 
-  date() {
+  date(String date) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [Text(dateOfToday()), Text(StringsManager.todayDate)],
+      children: [Text(date), Text(StringsManager.todayDate)],
     );
   }
 

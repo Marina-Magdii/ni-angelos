@@ -6,9 +6,15 @@ import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/custom/custom_container.dart';
 
 class CustomDropFormField extends StatefulWidget {
-  const CustomDropFormField({super.key,required this.labelText,required this.items});
+  const CustomDropFormField({
+    super.key,
+    required this.labelText,
+    required this.items,
+    this.onChanged,
+  });
   final String labelText;
-  final List<Map<String, String>> items;
+  final List<Map<dynamic, dynamic>> items;
+  final Function(String?)? onChanged;
 
   @override
   State<CustomDropFormField> createState() => _CustomDropFormFieldState();
@@ -24,53 +30,56 @@ class _CustomDropFormFieldState extends State<CustomDropFormField> {
       horizontalPadding: 0,
       child: Directionality(
         textDirection: TextDirection.rtl,
-        child: DropdownButtonFormField(
+        child: DropdownButtonFormField<String>(
           isExpanded: true,
-          isDense: true,
-          value: selectedValue,
+          isDense: false,
+          value: selectedValue, // ✅ Fix: use string value
           dropdownColor: ColorManager.containerColor,
           decoration: InputDecoration(
-            contentPadding: REdgeInsets.symmetric(horizontal: 4),
+            contentPadding: REdgeInsets.symmetric(horizontal: 8),
             border: InputBorder.none,
             label: Text(widget.labelText),
             labelStyle: Theme.of(context).textTheme.bodySmall,
             fillColor: ColorManager.containerColor,
             filled: true,
           ),
-          elevation: 0,
           alignment: AlignmentDirectional.centerEnd,
           icon: Padding(
-            padding: REdgeInsetsDirectional.only(start:8.0),
+            padding: REdgeInsetsDirectional.only(start: 8.0),
             child: SvgPicture.asset(ImageAssets.arrowDown),
           ),
-          items:
-              widget.items.map((item) {
-                return DropdownMenuItem<String>(
-                  alignment: AlignmentDirectional.centerEnd,
-                  value: item["label"],
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        item["icon"]!=null
-                            ?SvgPicture.asset(item["icon"]!):SizedBox(),
-                        SizedBox(width: 4.w),
-                        Expanded(
-                          child: Text(
-                              item["label"]!,
-                            textDirection: TextDirection.rtl,),
-                        ),
-                      ],
+          items: widget.items.map<DropdownMenuItem<String>>((item) {
+            return DropdownMenuItem<String>(
+              alignment: AlignmentDirectional.centerEnd,
+              value: item["value"], // ✅ Fix: use "value" here
+              child: Directionality(
+                textDirection: TextDirection.rtl,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    item["icon"] != null
+                        ? SvgPicture.asset(item["icon"]!)
+                        : const SizedBox(),
+                    SizedBox(width: 4.w),
+                    Expanded(
+                      child: Text(
+                        "${item["label"]}",
+                        textDirection: TextDirection.rtl,
+                      ),
                     ),
-                  ),
-                );
-              }).toList(),
+                  ],
+                ),
+              ),
+            );
+          }).toList(),
           onChanged: (value) {
             if (!mounted) return;
             setState(() {
               selectedValue = value;
             });
+            if (widget.onChanged != null) {
+              widget.onChanged!(value);
+            }
           },
         ),
       ),

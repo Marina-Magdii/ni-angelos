@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/app_theme.dart';
 import 'package:ni_angelos/core/routes_manager.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:ni_angelos/features/admin/admin_home.dart';
 import 'package:ni_angelos/features/admin/attendance/presentation/attendance_view.dart';
 import 'package:ni_angelos/features/admin/attendance/presentation/class_attendance_view.dart';
@@ -31,7 +32,10 @@ import 'package:ni_angelos/features/notifications/notifications_view.dart';
 import 'package:ni_angelos/features/profile/profile_view.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('ar');
+  await initializeDateFormatting('en');
   runApp(const MyApp());
 }
 

@@ -84,8 +84,30 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                     child: Text(StringsManager.deacon),
                   ),
                   CustomDropFormField(
-                    items: [{"label":"yes"},{ "label":"no"}],
-                    labelText: "",
+                    // widget.items.map((item) {
+                    //   return DropdownMenuItem<String>(
+                    //     alignment: AlignmentDirectional.centerEnd,
+                    //     value: item["label"],
+                    //     child: Directionality(
+                    //       textDirection: TextDirection.rtl,
+                    //       child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.end,
+                    //         children: [
+                    //           item["icon"]!=null
+                    //               ?SvgPicture.asset(item["icon"]!):SizedBox(),
+                    //           SizedBox(width: 4.w),
+                    //           Expanded(
+                    //             child: Text(
+                    //               item["label"]!,
+                    //               textDirection: TextDirection.rtl,),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   );
+                    // }).toList(),
+                    // items: [{"label":"yes"},{ "label":"no"}],
+                    labelText: "", items: [],
                   ),                  SizedBox(height: 8.h,),
 
                   Padding(
