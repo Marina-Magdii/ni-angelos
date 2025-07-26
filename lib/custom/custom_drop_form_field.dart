@@ -16,7 +16,7 @@ class CustomDropFormField extends StatefulWidget {
   final String labelText;
   final List<Map<dynamic, dynamic>> items;
   final Function(String?)? onChanged;
-  final String value;
+  final String? value;
 
   @override
   State<CustomDropFormField> createState() => _CustomDropFormFieldState();

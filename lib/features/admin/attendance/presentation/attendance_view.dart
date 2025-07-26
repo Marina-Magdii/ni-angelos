@@ -19,7 +19,7 @@ class AttendanceView extends StatefulWidget {
 
 class _AttendanceViewState extends State<AttendanceView> {
   String? selectedDate;
-  String selectedMonth = DateTime.now().month.toString();
+  String? selectedMonth;
   String? selectedClass;
 
   @override
@@ -70,9 +70,9 @@ class _AttendanceViewState extends State<AttendanceView> {
 
             // choose attendance date
             CustomDropFormField(
-              value: selectedDate??"",
+              value: selectedDate,
               labelText: StringsManager.attendanceDate,
-              items: getThursdays(selectedMonth),
+              items: getThursdays(selectedMonth??DateTime.now().month.toString()),
               onChanged: (value) {
                 setState(() {
                   selectedDate = value.toString();
@@ -85,7 +85,7 @@ class _AttendanceViewState extends State<AttendanceView> {
 
             // class age
             CustomDropFormField(
-              value: selectedClass??"",
+              value: selectedClass,
               labelText: StringsManager.myClass,
               items: getClass(),
               onChanged: (value){
