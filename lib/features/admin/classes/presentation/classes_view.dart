@@ -18,10 +18,16 @@ class ClassesView extends StatelessWidget {
         child: SvgPicture.asset(ImageAssets.addIcon, height: 24.h, width: 24.w),
       ),
       withBackArrow: true,
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          return CustomClassContainer();
-        },
+      body: Padding(
+        padding: REdgeInsets.all(8.0),
+        child: ListView.separated(
+          separatorBuilder: (context,index){
+            return SizedBox(height: 8.h);
+          },
+          itemBuilder: (context, index) {
+            return CustomClassContainer();
+          }, itemCount: 15,
+        ),
       ),
     );
   }

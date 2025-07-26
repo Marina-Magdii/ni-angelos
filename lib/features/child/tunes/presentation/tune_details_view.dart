@@ -385,29 +385,32 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
             )
             : null
         : null;
-    return SizedBox(
-      height: 100.h,
-      child: ListView.builder(
-        physics: AlwaysScrollableScrollPhysics(),
-        reverse: true,
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: optionsList.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: REdgeInsets.symmetric(horizontal: 4.0),
-            child: CustomContainer(
-              onTap: optionsList[index].onTap ?? () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(child: optionsList[index].icon),
-                  Text(optionsList[index].title),
-                ],
+    return Padding(
+      padding: REdgeInsets.symmetric(vertical: 8.0),
+      child: SizedBox(
+        height: 90.h,
+        child: ListView.builder(
+          physics: AlwaysScrollableScrollPhysics(),
+          reverse: true,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: optionsList.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: REdgeInsets.symmetric(horizontal: 4.0),
+              child: CustomContainer(
+                onTap: optionsList[index].onTap ?? () {},
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(child: optionsList[index].icon),
+                    Text(optionsList[index].title),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
@@ -471,7 +474,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
       return 1;
     }
     else if (languagesCount()==2){
-      return 0.7;
+      return showCoptic?0.7:0.5;
     }
     else {
       return 0;

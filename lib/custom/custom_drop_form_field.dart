@@ -11,7 +11,7 @@ class CustomDropFormField extends StatefulWidget {
     required this.labelText,
     required this.items,
     this.onChanged,
-    required this.value,
+     this.value,
   });
   final String labelText;
   final List<Map<dynamic, dynamic>> items;

@@ -110,18 +110,21 @@ class _AddNewTuneViewState extends State<AddNewTuneView> {
               Row(
                 children: [
                   Expanded(child: CustomDivider()),
-                  CustomContainer(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: REdgeInsets.only(bottom: 6.0),
-                          child: Text(StringsManager.addNewQuarter),
-                        ),
-                        Icon(
-                          Icons.add_rounded,
-                          color: ColorManager.secondaryColor,
-                        ),
-                      ],
+                  Padding(
+                    padding: REdgeInsets.symmetric(vertical: 16.0),
+                    child: CustomContainer(
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: REdgeInsets.only(bottom: 6.0),
+                            child: Text(StringsManager.addNewQuarter),
+                          ),
+                          Icon(
+                            Icons.add_rounded,
+                            color: ColorManager.secondaryColor,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

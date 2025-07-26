@@ -19,13 +19,7 @@ class AddNewAttachmentView extends StatefulWidget {
 class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController titleController = TextEditingController();
-  final List<Map<String, String>> items = [
-    {'label': StringsManager.tuneRecord, 'icon': ImageAssets.recordIcon},
-    {'label': StringsManager.link, 'icon': ImageAssets.shareIcon},
-    {'label': StringsManager.image, 'icon': ImageAssets.imageIcon},
-    {'label': StringsManager.pdfFile, 'icon': ImageAssets.documentIcon},
-  ];
-  String? selectedItem;
+
   @override
   void dispose() {
     titleController.dispose();
@@ -45,13 +39,8 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustomDropFormField(
-                value: selectedItem ?? "",
                 labelText: StringsManager.attachmentType,
-                items: items,
-                onChanged: (value) {
-                  selectedItem = value;
-                  setState(() {});
-                },
+                items: attachTypes(),
               ),
               SizedBox(height: 20.h),
               Padding(
@@ -108,5 +97,31 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
       if (!mounted) return; // Safe usage of context
       Navigator.pop(context);
     }
+  }
+
+  attachTypes() {
+    final List<Map<String, String>> items = [
+      {
+        'label': StringsManager.tuneRecord,
+        'value': StringsManager.tuneRecord,
+        'icon': ImageAssets.recordIcon,
+      },
+      {
+        'label': StringsManager.link,
+        'value': StringsManager.link,
+        'icon': ImageAssets.shareIcon,
+      },
+      {
+        'label': StringsManager.image,
+        'value': StringsManager.image,
+        'icon': ImageAssets.imageIcon,
+      },
+      {
+        'label': StringsManager.pdfFile,
+        'value': StringsManager.pdfFile,
+        'icon': ImageAssets.documentIcon,
+      },
+    ];
+    return items;
   }
 }

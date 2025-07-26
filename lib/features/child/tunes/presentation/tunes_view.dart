@@ -35,16 +35,22 @@ class TunesView extends StatelessWidget {
                   ],
                 ),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 10,
-                  itemBuilder: (context,index){
-                    return CustomTuneContainer(
-                      screenName: RoutesManager.tuneDetails,
-                        tuneModel: tuneModel,
-                    number: index+1,);
-                  }),
+              Padding(
+                padding: REdgeInsets.all(8.0),
+                child: ListView.separated(
+                    separatorBuilder: (context,index){
+                      return SizedBox(height: 8.h);
+                    },
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 10,
+                    itemBuilder: (context,index){
+                      return CustomTuneContainer(
+                        screenName: RoutesManager.tuneDetails,
+                          tuneModel: tuneModel,
+                      number: index+1,);
+                    }),
+              ),
             ],
           ),
         ) );

@@ -35,11 +35,14 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
           child: Column(
             children: [
               annualPayment(),
+              SizedBox(height: 8.h,),
               bookPayment(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text(StringsManager.childImage),
+
+                  // child image
+                  titleText(StringsManager.childImage),
                   CustomContainer(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,6 +61,8 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                     ),
                   ),
                   SizedBox(height: 8.h,),
+
+                  // child name
                   Text(StringsManager.childName),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(8.r),
@@ -69,10 +74,7 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                   ),
                   SizedBox(height: 8.h,),
 
-                  Padding(
-                    padding: REdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(StringsManager.year),
-                  ),
+                 titleText(StringsManager.year),
                   CustomDropFormField(
                     labelText: StringsManager.primaryAge,
                     items: [],
@@ -80,10 +82,7 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                   ),
                   SizedBox(height: 8.h,),
 
-                  Padding(
-                    padding: REdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(StringsManager.deacon),
-                  ),
+                 titleText(StringsManager.deacon),
                   CustomDropFormField(
                     value: "",
                     // widget.items.map((item) {
@@ -112,10 +111,7 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                     labelText: "", items: [],
                   ),                  SizedBox(height: 8.h,),
 
-                  Padding(
-                    padding: REdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(StringsManager.childNumber),
-                  ),
+                  Text(StringsManager.childNumber),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(8.r),
                     hintText: "",
@@ -125,10 +121,7 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                     controller: TextEditingController(),
                   ),                  SizedBox(height: 8.h,),
 
-                  Padding(
-                    padding: REdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(StringsManager.profileId),
-                  ),
+                  Text(StringsManager.profileId),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(8.r),
                     hintText: "",
@@ -138,10 +131,7 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
                     controller: TextEditingController(),
                   ),                  SizedBox(height: 8.h,),
 
-                  Padding(
-                    padding: REdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(StringsManager.profilePass),
-                  ),
+                  Text(StringsManager.profilePass),
                   CustomTextField(
                     obscure: true,
                     borderRadius: BorderRadius.circular(8.r),
@@ -211,6 +201,12 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
           SvgPicture.asset(ImageAssets.bookIcon),
         ],
       ),
+    );
+  }
+  titleText (String title){
+    return   Padding(
+      padding: REdgeInsets.symmetric(vertical: 8.0),
+      child: Text(title),
     );
   }
 }

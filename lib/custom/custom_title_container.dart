@@ -29,21 +29,22 @@ class _CustomTitleContainerState extends State<CustomTitleContainer> {
           child: Text(widget.title),
         ),
         InkWell(
-          onTap: (){
-
-          },
-          child: CustomContainer(
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.216,
-              height: MediaQuery.of(context).size.height*0.15,
-              child: Text(
-                widget.description,
-                maxLines: 6,
-                overflow: TextOverflow.ellipsis,
-                textDirection: widget.showCoptic ? TextDirection.ltr : TextDirection.rtl,
-                style: TextStyle(
-                  fontSize:14 ,
-                  fontFamily: widget.showCoptic?StringsManager.copticFont:StringsManager.fontFamily
+          onTap: (){},
+          child: Padding(
+            padding: REdgeInsets.symmetric(vertical: 8.0),
+            child: CustomContainer(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.216,
+                height: MediaQuery.of(context).size.height*0.15,
+                child: Text(
+                  widget.description,
+                  maxLines: 6,
+                  overflow: TextOverflow.ellipsis,
+                  textDirection: widget.showCoptic ? TextDirection.ltr : TextDirection.rtl,
+                  style: TextStyle(
+                    fontSize:14 ,
+                    fontFamily: widget.showCoptic?StringsManager.copticFont:StringsManager.fontFamily
+                  ),
                 ),
               ),
             ),
