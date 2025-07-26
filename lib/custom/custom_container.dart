@@ -33,7 +33,7 @@ class CustomContainer extends StatelessWidget {
 
         // container content
         child: Padding(
-          padding: REdgeInsets.symmetric(vertical: 8, horizontal: 8),
+          padding: REdgeInsets.symmetric(vertical:verticalPadding?? 8, horizontal:horizontalPadding?? 8),
           child: child,
         ),
       ),

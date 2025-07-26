@@ -32,7 +32,11 @@ class ChildrenView extends StatelessWidget {
           child: Column(
             children: [
               CustomSearchContainer(),
-              ListView.builder(
+              SizedBox(height: 20.h,),
+              ListView.separated(
+                separatorBuilder: (context,index){
+                  return SizedBox(height: 8.h,);
+                },
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: 15,
