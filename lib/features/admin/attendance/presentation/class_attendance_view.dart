@@ -5,6 +5,7 @@ import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_attendance_container.dart';
 import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/models/attendance_model.dart';
 
 class ClassAttendanceView extends StatefulWidget {
   const ClassAttendanceView({super.key});
@@ -26,10 +27,11 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
 
   @override
   Widget build(BuildContext context) {
-    var args = ModalRoute.of(context)?.settings.arguments;
+    AttendanceModel args =
+        ModalRoute.of(context)?.settings.arguments as AttendanceModel;
     return MyCustomScaffold(
       // app bar
-      appBarTitle: StringsManager.age,
+      appBarTitle:args.age,
       withBackArrow: true,
       body: Stack(
         children: [
@@ -38,7 +40,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
             child: Column(
               children: [
                 // date
-                date("$args"),
+                date(args.date??""),
 
                 // just space
                 SizedBox(height: 20.h),
@@ -47,7 +49,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
                 classList(),
 
                 // just space
-                SizedBox(height: 180.h),
+                SizedBox(height: 150.h),
               ],
             ),
           ),
@@ -61,7 +63,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
               width: double.infinity,
               decoration: BoxDecoration(color: ColorManager.containerColor),
               child: Padding(
-                padding: REdgeInsets.all(16.0),
+                padding: REdgeInsets.symmetric(vertical: 16,horizontal: 16),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

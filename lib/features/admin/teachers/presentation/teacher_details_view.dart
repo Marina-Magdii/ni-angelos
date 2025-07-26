@@ -74,8 +74,9 @@ class _TeacherDetailsViewState extends State<TeacherDetailsView>{
                     child: Text(StringsManager.year),
                   ),
                   CustomDropFormField(
-                    labelText: StringsManager.age,
+                    labelText: StringsManager.primaryAge,
                     items: [],
+                    value: "",
                   ),
                   SizedBox(height: 8.h,),
 
@@ -84,6 +85,7 @@ class _TeacherDetailsViewState extends State<TeacherDetailsView>{
                     child: Text(StringsManager.deacon),
                   ),
                   CustomDropFormField(
+                    value: "",
                     // widget.items.map((item) {
                     //   return DropdownMenuItem<String>(
                     //     alignment: AlignmentDirectional.centerEnd,

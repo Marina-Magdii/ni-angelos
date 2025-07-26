@@ -11,7 +11,7 @@ class TeachersView extends StatelessWidget {
   const TeachersView({super.key});
   static TeacherModel teacherModel = TeacherModel(
     name: StringsManager.boyName,
-    childrenAge: StringsManager.age,
+    childrenAge: StringsManager.primaryAge,
   );
 
   @override

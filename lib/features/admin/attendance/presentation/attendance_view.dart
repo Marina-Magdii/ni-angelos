@@ -8,6 +8,7 @@ import 'package:ni_angelos/core/strings_manager.dart';
 import 'package:ni_angelos/custom/custom_button.dart';
 import 'package:ni_angelos/custom/custom_drop_form_field.dart';
 import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/models/attendance_model.dart';
 
 class AttendanceView extends StatefulWidget {
   const AttendanceView({super.key});
@@ -19,6 +20,7 @@ class AttendanceView extends StatefulWidget {
 class _AttendanceViewState extends State<AttendanceView> {
   String? selectedDate;
   String selectedMonth = DateTime.now().month.toString();
+  String? selectedClass;
 
   @override
   void initState() {
@@ -52,14 +54,14 @@ class _AttendanceViewState extends State<AttendanceView> {
 
             // Month dropdown
             CustomDropFormField(
+              value: selectedMonth,
               labelText: StringsManager.month,
               items: getMonth(),
               onChanged: (value) {
-                value == null
-                    ? value = DateTime.now().month.toString()
-                    : selectedMonth = value;
-                selectedDate = null;
-                setState(() {});
+                setState(() {
+                  selectedDate = null;
+                  selectedMonth = value ?? DateTime.now().month.toString();
+                });
               },
             ),
 
@@ -68,6 +70,7 @@ class _AttendanceViewState extends State<AttendanceView> {
 
             // choose attendance date
             CustomDropFormField(
+              value: selectedDate??"",
               labelText: StringsManager.attendanceDate,
               items: getThursdays(selectedMonth),
               onChanged: (value) {
@@ -82,8 +85,12 @@ class _AttendanceViewState extends State<AttendanceView> {
 
             // class age
             CustomDropFormField(
+              value: selectedClass??"",
               labelText: StringsManager.myClass,
               items: getClass(),
+              onChanged: (value){
+                selectedClass=value;
+              },
             ),
 
             // just space
@@ -93,18 +100,21 @@ class _AttendanceViewState extends State<AttendanceView> {
             CustomButton(
               title: StringsManager.start,
               onTap: () {
-                if (selectedDate != null) {
+                final AttendanceModel attendanceModel = AttendanceModel(age: selectedClass,
+                date: selectedDate);
+                if (selectedDate != null && selectedClass !=null) {
                   Navigator.pushNamed(
                     context,
                     RoutesManager.classAttendance,
-                    arguments: selectedDate,
+                    arguments: attendanceModel,
                   );
-                } else {
+                }
+                else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       backgroundColor: ColorManager.titleSmall,
                       content: Center(
-                        child: Text(StringsManager.pleaseChooseDate),
+                        child: Text(StringsManager.pleaseChooseDateAndClass),
                       ),
                     ),
                   );
@@ -154,9 +164,9 @@ class _AttendanceViewState extends State<AttendanceView> {
   getClass() {
     return List.generate(3, (index) {
       var classes = [
-        StringsManager.age,
-        StringsManager.age,
-        StringsManager.age,
+        StringsManager.kgAge,
+        StringsManager.primaryAge,
+        StringsManager.secondaryAge,
       ];
       return {"label": classes[index], "value": classes[index], "icon": null};
     });

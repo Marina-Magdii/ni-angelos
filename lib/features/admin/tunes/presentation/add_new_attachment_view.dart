@@ -25,6 +25,7 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
     {'label': StringsManager.image, 'icon': ImageAssets.imageIcon},
     {'label': StringsManager.pdfFile, 'icon': ImageAssets.documentIcon},
   ];
+  String? selectedItem;
   @override
   void dispose() {
     titleController.dispose();
@@ -44,8 +45,14 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustomDropFormField(
+                value: selectedItem ?? "",
                 labelText: StringsManager.attachmentType,
-              items: items,),
+                items: items,
+                onChanged: (value) {
+                  selectedItem = value;
+                  setState(() {});
+                },
+              ),
               SizedBox(height: 20.h),
               Padding(
                 padding: REdgeInsets.symmetric(vertical: 8),
@@ -83,8 +90,8 @@ class _AddNewAttachmentViewState extends State<AddNewAttachmentView> {
                 ),
               ),
               CustomButton(
-                title:   StringsManager.add,
-                onTap: (){
+                title: StringsManager.add,
+                onTap: () {
                   add();
                 },
               ),

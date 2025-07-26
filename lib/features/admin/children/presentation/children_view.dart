@@ -11,7 +11,7 @@ import 'package:ni_angelos/models/child_model.dart';
 class ChildrenView extends StatelessWidget {
   const ChildrenView({super.key});
   static ChildModel childModel = ChildModel(name: StringsManager.boyName,
-      age:  StringsManager.age,);
+      age:  StringsManager.primaryAge,);
 
   @override
   Widget build(BuildContext context) {

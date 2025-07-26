@@ -10,7 +10,7 @@ class ChildrenCheckView extends StatelessWidget {
   const ChildrenCheckView({super.key});
   static TeacherModel teacherModel = TeacherModel(
     name: StringsManager.boyName,
-    childrenAge: StringsManager.age,
+    childrenAge: StringsManager.primaryAge,
   );
 
   @override

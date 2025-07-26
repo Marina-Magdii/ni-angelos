@@ -9,7 +9,7 @@ import 'package:ni_angelos/models/class_model.dart';
 
 class CustomClassContainer extends StatelessWidget {
   const CustomClassContainer({super.key});
-  static ClassModel classModel = ClassModel(age: StringsManager.age);
+  static ClassModel classModel = ClassModel(age: StringsManager.primaryAge);
 
   @override
   Widget build(BuildContext context) {
