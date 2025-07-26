@@ -135,7 +135,7 @@ class _CopticDetailsViewState extends State<CopticDetailsView> {
             onPressed: () {
               pickImage();
             },
-            icon: Icon(Icons.mic_rounded),
+            icon: Icon(Icons.image_rounded),
           ),
         ),
         IconButton(

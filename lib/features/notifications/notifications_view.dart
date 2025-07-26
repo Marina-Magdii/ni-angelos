@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ni_angelos/core/image_assets.dart';
 import 'package:ni_angelos/core/strings_manager.dart';
@@ -36,19 +37,25 @@ class NotificationsView extends StatelessWidget {
     return MyCustomScaffold(
       appBarTitle: StringsManager.notifications,
       actions: [Lottie.asset(ImageAssets.notificationAnimation)],
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              physics: AlwaysScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: models.length,
-              itemBuilder: (context, index) {
-                return CustomNotification(model: models[index]);
-              },
+      body: Padding(
+        padding: REdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 8.h);
+                },
+                physics: AlwaysScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: models.length,
+                itemBuilder: (context, index) {
+                  return CustomNotification(model: models[index]);
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

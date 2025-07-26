@@ -14,26 +14,24 @@ class CustomClassContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.pushNamed(
-            context,
-            RoutesManager.classDetails,
-            arguments: classModel);
+          context,
+          RoutesManager.classDetails,
+          arguments: classModel,
+        );
       },
       child: CustomContainer(
         child: Row(
           children: [
             Row(
               children: [
-                InkWell(
-                  onTap: () {},
-                  child: SvgPicture.asset(ImageAssets.deleteIcon),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.delete_forever_outlined, size: 25.sp),
                 ),
                 SizedBox(width: 4.w),
-                InkWell(
-                  onTap: () {},
-                  child: SvgPicture.asset(ImageAssets.editIcon),
-                ),
+                IconButton(onPressed: () {}, icon: Icon(Icons.edit_rounded)),
               ],
             ),
             Spacer(),

@@ -47,13 +47,9 @@ class CopticView extends StatelessWidget {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: CustomContainer(
-                    child: Column(
-                      children: [
-                      Padding(
-                        padding: REdgeInsets.symmetric(vertical: 8.0),
-                        child: Icon(Icons.picture_as_pdf_rounded,size: 35.sp,),
-                      ),
-                      ],
+                    child: Padding(
+                      padding: REdgeInsets.symmetric(vertical: 8.0),
+                      child: Icon(Icons.picture_as_pdf_rounded,size: 35.sp,),
                     ),
                   ),
                 ),

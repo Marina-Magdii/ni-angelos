@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ni_angelos/core/color_manager.dart';
 import 'package:ni_angelos/core/image_assets.dart';
@@ -21,43 +20,49 @@ class ProfileView extends StatelessWidget {
 
       // profile content
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // profile image
-            profilePicAndName(context),
+        child: Padding(
+          padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // profile image
+              profilePicAndName(context),
 
-            // edit and log out
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // log out
-                logOut(context),
+              // edit and log out
+              Padding(
+                padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // log out
+                    logOut(context),
 
-                // dot
-                Padding(
-                  padding: REdgeInsets.only(left: 8.0, right: 8, top: 5),
-                  child: Icon(
-                    Icons.circle_rounded,
-                    size: 5.sp,
-                    color: ColorManager.redRoseColor,
-                  ),
+                    // dot
+                    Padding(
+                      padding: REdgeInsets.only(left: 8.0, right: 8, top: 2),
+                      child: Icon(
+                        Icons.circle_rounded,
+                        size: 5.sp,
+                        color: ColorManager.redRoseColor,
+                      ),
+                    ),
+
+                    // edit profile
+                    editProfile(context),
+                  ],
                 ),
+              ),
 
-                // edit profile
-                editProfile(context),
-              ],
-            ),
+              // divider
+              CustomDivider(),
 
-            // divider
-            CustomDivider(),
+              // next session
+              nextSession(context),
 
-            // next session
-            nextSession(context),
-
-            // attendance
-            attendance(context),
-          ],
+              // attendance
+              attendance(context),
+            ],
+          ),
         ),
       ),
     );
@@ -89,11 +94,13 @@ class ProfileView extends StatelessWidget {
       onTap: () {},
       child: Row(
         children: [
-          Text(
-            " ${StringsManager.editProfile} ",
-            style: Theme.of(context).textTheme.titleSmall,
+          Padding(
+            padding: REdgeInsets.only(bottom: 6.0),
+            child: Text(
+              " ${StringsManager.editProfile} ",
+            ),
           ),
-          SvgPicture.asset(ImageAssets.editIcon, width: 25.w),
+        Icon(Icons.edit_rounded),
         ],
       ),
     );
@@ -104,11 +111,13 @@ class ProfileView extends StatelessWidget {
       onTap: () {},
       child: Row(
         children: [
-          Text(
-            " ${StringsManager.logOut} ",
-            style: Theme.of(context).textTheme.titleSmall,
+          Padding(
+            padding: REdgeInsets.only(bottom: 6.0),
+            child: Text(
+              " ${StringsManager.logOut} ",
+            ),
           ),
-          SvgPicture.asset(ImageAssets.logOutIcon, width: 25.w),
+          Icon(Icons.logout_rounded)
         ],
       ),
     );
@@ -126,16 +135,15 @@ class ProfileView extends StatelessWidget {
             ),
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 8.0),
-              child: SvgPicture.asset(ImageAssets.calenderIcon),
+              child: Icon(Icons.calendar_month_rounded)
             ),
           ],
         ),
         Padding(
-          padding: REdgeInsets.only(top: 8.0),
+          padding: REdgeInsets.symmetric(vertical: 8.0),
           child: CustomContainer(
             child: Text(
               StringsManager.nextSessionDescription,
-              style: Theme.of(context).textTheme.labelSmall,
               textAlign: TextAlign.center,
             ),
           ),
@@ -157,23 +165,29 @@ class ProfileView extends StatelessWidget {
             ),
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 8.0),
-              child: SvgPicture.asset(ImageAssets.attendIcon),
+              child: Icon(Icons.event_note_rounded)
             ),
           ],
         ),
         Padding(
           padding: REdgeInsets.symmetric(vertical: 8.0),
-          child: ListView.builder(
+          child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 8.h);
+            },
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             itemCount: 6,
             itemBuilder: (context, index) {
               return CustomContainer(
+                verticalPadding: 16,
+                horizontalPadding: 16,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(StringsManager.attendDate),
-                    SvgPicture.asset(ImageAssets.checkIcon),
+                    SizedBox(width: 4.w,),
+                    Icon(Icons.check_box_rounded)
                   ],
                 ),
               );
