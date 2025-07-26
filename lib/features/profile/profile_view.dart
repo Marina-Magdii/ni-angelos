@@ -39,7 +39,7 @@ class ProfileView extends StatelessWidget {
 
                     // dot
                     Padding(
-                      padding: REdgeInsets.only(left: 8.0, right: 8, top: 2),
+                      padding: REdgeInsets.only(left: 8.0, right: 8, top: 5),
                       child: Icon(
                         Icons.circle_rounded,
                         size: 5.sp,
