@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ni_angelos/core/helper_functions.dart';
-import 'package:ni_angelos/core/routes_manager.dart';
-import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
-import 'package:ni_angelos/custom/custom_tune_container.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_tune_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
+import 'package:ni_angelos/core/utils/routes_manager.dart';
+import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/models/tune_model.dart';
 
 class TunesView extends StatelessWidget {

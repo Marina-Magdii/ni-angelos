@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/image_assets.dart';
-import 'package:ni_angelos/core/routes_manager.dart';
-import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_section_container.dart';
+import 'package:ni_angelos/core/custom/custom_section_container.dart';
+import 'package:ni_angelos/core/utils/color_manager.dart';
+import 'package:ni_angelos/core/utils/image_assets.dart';
+import 'package:ni_angelos/core/utils/routes_manager.dart';
+import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/models/section_model.dart';
 
 class AdminHome extends StatelessWidget {
@@ -39,7 +39,7 @@ class AdminHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
       children: [
         Center(
           child: GridView.builder(
@@ -80,10 +80,7 @@ class AdminHome extends StatelessWidget {
           bottom: 180.sp,
           right: 100.sp,
           left: 100.sp,
-          child: SvgPicture.asset(
-            ImageAssets.crossLogo,
-            fit: BoxFit.contain,
-          ),
+          child: SvgPicture.asset(ImageAssets.crossLogo, fit: BoxFit.contain),
         ),
         // background glowing
         Positioned(
@@ -111,10 +108,7 @@ class AdminHome extends StatelessWidget {
           bottom: 2.sp,
           right: 100.sp,
           left: 100.sp,
-          child: SvgPicture.asset(
-            ImageAssets.crossLogo,
-            fit: BoxFit.contain,
-          ),
+          child: SvgPicture.asset(ImageAssets.crossLogo, fit: BoxFit.contain),
         ),
       ],
     );

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_button.dart';
-import 'package:ni_angelos/custom/custom_container.dart';
-import 'package:ni_angelos/custom/custom_divider.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
-import 'package:ni_angelos/custom/custom_title_container.dart';
+import 'package:ni_angelos/core/custom/custom_button.dart';
+import 'package:ni_angelos/core/custom/custom_container.dart';
+import 'package:ni_angelos/core/custom/custom_divider.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_title_container.dart';
+import 'package:ni_angelos/core/utils/color_manager.dart';
+import 'package:ni_angelos/core/utils/strings_manager.dart';
 
 class AddNewTuneView extends StatefulWidget {
   const AddNewTuneView({super.key});

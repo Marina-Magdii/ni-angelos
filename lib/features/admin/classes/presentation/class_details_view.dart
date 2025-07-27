@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/features/child/child_home.dart';
 import 'package:ni_angelos/models/class_model.dart';
 

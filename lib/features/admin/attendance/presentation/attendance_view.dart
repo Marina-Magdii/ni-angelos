@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:ni_angelos/core/color_manager.dart';
-import 'package:ni_angelos/core/routes_manager.dart';
-import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_button.dart';
-import 'package:ni_angelos/custom/custom_drop_form_field.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_button.dart';
+import 'package:ni_angelos/core/custom/custom_drop_form_field.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/utils/color_manager.dart';
+import 'package:ni_angelos/core/utils/routes_manager.dart';
+import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/models/attendance_model.dart';
 
 class AttendanceView extends StatefulWidget {

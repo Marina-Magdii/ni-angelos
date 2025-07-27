@@ -1,3 +1,0 @@
-bool isAdmin() {
-  return true;
-}

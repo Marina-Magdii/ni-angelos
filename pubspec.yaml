@@ -25,6 +25,11 @@ dependencies:
   permission_handler: ^12.0.1
   intl: ^0.20.2
   dio: ^5.8.0+1
+  http: ^1.4.0
+  dartz: ^0.10.1
+  connectivity_plus: ^6.1.4
+  injectable: ^2.5.0
+  get_it: ^8.0.3
 
 dev_dependencies:
   flutter_test:

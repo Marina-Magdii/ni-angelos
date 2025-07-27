@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ni_angelos/core/app_theme.dart';
-import 'package:ni_angelos/core/routes_manager.dart';
+import 'package:ni_angelos/core/utils/app_theme.dart';
+import 'package:ni_angelos/core/utils/routes_manager.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:ni_angelos/features/admin/admin_home.dart';
 import 'package:ni_angelos/features/admin/attendance/presentation/attendance_view.dart';
@@ -22,14 +22,14 @@ import 'package:ni_angelos/features/child/coptic/presentation/coptic_details_vie
 import 'package:ni_angelos/features/child/coptic/presentation/coptic_view.dart';
 import 'package:ni_angelos/features/child/mahfozat/presentation/mahfozat_details_view.dart';
 import 'package:ni_angelos/features/child/mahfozat/presentation/mahfozat_view.dart';
+import 'package:ni_angelos/features/child/notifications/notifications_view.dart';
+import 'package:ni_angelos/features/child/profile/profile_view.dart';
 import 'package:ni_angelos/features/child/taks/presentation/taks_details_view.dart';
 import 'package:ni_angelos/features/child/taks/presentation/taks_view.dart';
 import 'package:ni_angelos/features/child/tunes/presentation/tune_details_view.dart';
 import 'package:ni_angelos/features/child/tunes/presentation/tunes_view.dart';
 import 'package:ni_angelos/features/home/home_view.dart';
 import 'package:ni_angelos/features/home/main_screen.dart';
-import 'package:ni_angelos/features/notifications/notifications_view.dart';
-import 'package:ni_angelos/features/profile/profile_view.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
 
 Future<void> main() async {

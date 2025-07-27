@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ni_angelos/core/image_assets.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/features/authentication/sign_in_view.dart';
 
 class SplashScreen extends StatefulWidget {

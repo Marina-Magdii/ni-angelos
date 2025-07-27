@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ni_angelos/core/strings_manager.dart';
-import 'package:ni_angelos/custom/custom_class_container.dart';
-import 'package:ni_angelos/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/custom/custom_class_container.dart';
+import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/utils/strings_manager.dart';
 
 class ClassesView extends StatelessWidget {
   const ClassesView({super.key});
