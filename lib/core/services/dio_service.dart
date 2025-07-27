@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:ni_angelos/core/utils/end_points.dart';
 
+@singleton
 class DioService {
   static final Dio _dio = Dio(
     BaseOptions(

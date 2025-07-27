@@ -12,11 +12,7 @@ class ImageAssets {
   static const String childLogo = "assets/images/logo/child.png";
   static const String goldCross = "assets/images/icons/cross.png";
   static const String arrowBack = "assets/images/icons/arrow_back.svg";
-  static const String showIcon = "assets/images/icons/show.svg";
-  static const String shareIcon = "assets/images/icons/share.svg";
-  static const String recordIcon = "assets/images/icons/record.svg";
   static const String moneyIcon = "assets/images/icons/money_tick.svg";
-  static const String minusIcon = "assets/images/icons/minus.svg";
   static const String menuEmptyIcon = "assets/images/icons/menu_empty.svg";
   static const String menuFillIcon = "assets/images/icons/menu_selected.svg";
   static const String imageIcon = "assets/images/icons/image.svg";

@@ -3,6 +3,8 @@ PODS:
     - Flutter
   - audio_waveforms (0.0.1):
     - Flutter
+  - connectivity_plus (0.0.1):
+    - Flutter
   - DKImagePickerController/Core (4.3.9):
     - DKImagePickerController/ImageDataManager
     - DKImagePickerController/Resource
@@ -58,6 +60,7 @@ PODS:
 DEPENDENCIES:
   - audio_session (from `.symlinks/plugins/audio_session/ios`)
   - audio_waveforms (from `.symlinks/plugins/audio_waveforms/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - file_picker (from `.symlinks/plugins/file_picker/ios`)
   - Flutter (from `Flutter`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
@@ -78,6 +81,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/audio_session/ios"
   audio_waveforms:
     :path: ".symlinks/plugins/audio_waveforms/ios"
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   file_picker:
     :path: ".symlinks/plugins/file_picker/ios"
   Flutter:
@@ -96,6 +101,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   audio_session: 19e9480dbdd4e5f6c4543826b2e8b0e4ab6145fe
   audio_waveforms: cd736909ebc6b6a164eb74701d8c705ce3241e1c
+  connectivity_plus: 2a701ffec2c0ae28a48cf7540e279787e77c447d
   DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
   DKPhotoGallery: b3834fecb755ee09a593d7c9e389d8b5d6deed60
   file_picker: b159e0c068aef54932bb15dc9fd1571818edaf49
