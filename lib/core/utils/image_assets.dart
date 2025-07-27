@@ -1,4 +1,9 @@
 class ImageAssets {
+  // animations
+  static const String helloAnimation = "assets/animations/hello.json";
+  static const String notificationAnimation =
+      "assets/animations/notifications.json";
+  static const String profileAnimation = "assets/animations/profile.json";
 
   // app images
   static const String logoIcon = "assets/images/logo/splash.svg";
@@ -15,25 +20,14 @@ class ImageAssets {
   static const String moneyIcon = "assets/images/icons/money_tick.svg";
   static const String menuEmptyIcon = "assets/images/icons/menu_empty.svg";
   static const String menuFillIcon = "assets/images/icons/menu_selected.svg";
-  static const String imageIcon = "assets/images/icons/image.svg";
-  static const String hideIcon = "assets/images/icons/hide.svg";
   static const String excelIcon = "assets/images/icons/excel.svg";
-  static const String darkEditIcon = "assets/images/icons/dark_edit.svg";
-  static const String darkCheckIcon = "assets/images/icons/dark_check.svg";
   static const String bookIcon = "assets/images/icons/book.svg";
-  static const String documentIcon = "assets/images/icons/document-text.svg";
   static const String arrowDown = "assets/images/icons/arrow_down.svg";
-  static const String addIcon = "assets/images/icons/add.svg";
   static const String backSecIcon = "assets/images/icons/back_seconds.svg";
-  static const String forwardSecIcon = "assets/images/icons/forward_seconds.svg";
+  static const String forwardSecIcon =
+      "assets/images/icons/forward_seconds.svg";
   static const String awIcon = "assets/images/icons/aw.svg";
   static const String taks = "assets/images/icons/taks.svg";
   static const String bibleIcon = "assets/images/icons/bible.svg";
-  static const String attachIcon = "assets/images/icons/attach.svg";
   static const String boyImage = "assets/images/icons/boy.svg";
-
-  // animations
-static const String helloAnimation = "assets/animations/hello.json";
-static const String notificationAnimation = "assets/animations/notifications.json";
-static const String profileAnimation = "assets/animations/profile.json";
 }
