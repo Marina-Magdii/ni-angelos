@@ -19,17 +19,21 @@ class ChildrenView extends StatelessWidget {
   Widget build(BuildContext context) {
     final UsersBloc bloc = GetIt.I.get<UsersBloc>()..add(UsersDataEvent());
     return BlocProvider(
-      create: (context){
-        return bloc;
-      },
+      create: (context) => bloc,
       child: MyCustomScaffold(
         withBackArrow: true,
         appBarTitle: "${StringsManager.children} (225)",
         leading: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.add_box_rounded,size: 25.sp,)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.edit_rounded,size: 25.sp,)),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add_box_rounded, size: 25.sp),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.edit_rounded, size: 25.sp),
+            ),
             SvgPicture.asset(ImageAssets.excelIcon),
           ],
         ),
@@ -39,42 +43,32 @@ class ChildrenView extends StatelessWidget {
             child: Column(
               children: [
                 CustomSearchContainer(),
-                SizedBox(height: 20.h,),
-                BlocBuilder<UsersBloc,UsersState>(
+                SizedBox(height: 20.h),
+                BlocBuilder<UsersBloc, UsersState>(
                   bloc: bloc,
-                  builder: (context,state) {
-                    if (state is UsersLoadingState){
-                      return Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    else if (state is UsersErrorState) {
+                  builder: (context, state) {
+                    if (state is UsersLoadingState) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (state is UsersErrorState) {
                       return Column(
-                        children: [
-                          Center(
-                            child: Text(state.errorMessage),
-                          )
-                        ],
+                        children: [Center(child: Text(state.errorMessage))],
                       );
-                    }
-                    else if (state is UsersSuccessState){
+                    } else if (state is UsersSuccessState) {
                       var users = state.users;
                       return ListView.separated(
-                        separatorBuilder: (context,index){
-                          return SizedBox(height: 8.h,);
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: 8.h);
                         },
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount:users.length,
+                        itemCount: users.length,
                         itemBuilder: (context, index) {
-                          return CustomChildContainer(
-                            user: users[index],
-                          );
+                          return CustomChildContainer(user: users[index]);
                         },
                       );
                     }
-                return Container();
-                  }
+                    return Container();
+                  },
                 ),
               ],
             ),
