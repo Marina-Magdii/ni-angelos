@@ -11,12 +11,9 @@ import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_bloc.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_event.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_state.dart';
-import 'package:ni_angelos/models/child_model.dart';
 
 class ChildrenView extends StatelessWidget {
   const ChildrenView({super.key});
-  static ChildModel childModel = ChildModel(name: StringsManager.boyName,
-      age:  StringsManager.primaryAge,);
 
   @override
   Widget build(BuildContext context) {

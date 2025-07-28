@@ -10,6 +10,8 @@ class UsersBloc extends Bloc<UsersEvent,UsersState> {
   @factoryMethod
   UsersBloc(this.usersRepo):super(UsersInitState()){
     on<UsersDataEvent>(getAllUsers);
+    on<UsersSelectEvent>(selectUser);
+    final bool isSelected = false;
   }
   UsersRepoContract usersRepo;
 
@@ -30,5 +32,9 @@ class UsersBloc extends Bloc<UsersEvent,UsersState> {
     catch (e){
       emit(UsersErrorState(e.toString()));
     }
+  }
+
+  selectUser (UsersSelectEvent event , Emitter<UsersState> emit){
+
   }
 }

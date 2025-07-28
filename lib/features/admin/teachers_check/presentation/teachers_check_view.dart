@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import 'package:ni_angelos/core/custom/custom_button.dart';
 import 'package:ni_angelos/core/custom/custom_child_container.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/core/custom/custom_search_container.dart';
+import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
-import 'package:ni_angelos/models/child_model.dart';
+import 'package:ni_angelos/features/users/presentation/manager/users_bloc.dart';
+import 'package:ni_angelos/features/users/presentation/manager/users_event.dart';
+import 'package:ni_angelos/features/users/presentation/manager/users_state.dart';
 
 class TeachersCheckView extends StatelessWidget {
   const TeachersCheckView({super.key});
-  static ChildModel childModel = ChildModel(
-    name: StringsManager.boyName,
-    age:  StringsManager.primaryAge,);
 
   @override
   Widget build(BuildContext context) {
+    final UsersBloc bloc = GetIt.I.get<UsersBloc>()..add(UsersDataEvent());
     return MyCustomScaffold(
       withBackArrow: true,
       appBarTitle:StringsManager.teachersCheck,
@@ -24,21 +27,52 @@ class TeachersCheckView extends StatelessWidget {
           child: Column(
             children: [
               CustomSearchContainer(),
-              SizedBox(height: 20.h,),
-              ListView.separated(
-                separatorBuilder: (context,index){
-                  return SizedBox(height: 8.h,);
-                },
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return CustomChildContainer(
-                    onCheck: (){},
-                    check: true,
-                    childModel: childModel,
-                  );
-                },
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(onPressed: (){}, child: Text(StringsManager.selectAll,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(decoration: TextDecoration.underline))),
+              ),              BlocBuilder(
+                bloc: bloc,
+                builder: (context,state) {
+                  if (state is UsersLoadingState){
+                    return SizedBox(
+                      height: 500.h,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: ColorManager.secondaryColor,
+                        ),
+                      ),
+                    );
+                  }
+                  else if (state is UsersErrorState) {
+                    return Column(
+                      children: [
+                        Center(
+                          child: Text(state.errorMessage),
+                        )
+                      ],
+                    );
+                  }
+                  if(state is UsersSuccessState){
+                    var users =state.users;
+                    return ListView.separated(
+                      separatorBuilder: (context,index){
+                        return SizedBox(height: 8.h,);
+                      },
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: users.length,
+                      itemBuilder: (context, index) {
+                        return CustomChildContainer(
+                          onCheck: (){},
+                          check: true,
+                          user: users[index],
+                        );
+                      },
+                    );
+                  }
+               return Container();
+                }
               ),
               CustomButton(title: StringsManager.send,onTap: (){},)
             ],

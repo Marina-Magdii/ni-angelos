@@ -6,7 +6,6 @@ import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/core/utils/routes_manager.dart';
 import 'package:ni_angelos/features/users/data/models/users_model.dart';
-import 'package:ni_angelos/models/child_model.dart';
 import 'package:ni_angelos/models/teacher_model.dart';
 
 class CustomChildContainer extends StatefulWidget {
@@ -16,11 +15,9 @@ class CustomChildContainer extends StatefulWidget {
     this.user,
     this.teacherModel,
     this.onCheck,
-    this.childModel,
   });
   final User? user;
   final TeacherModel? teacherModel;
-  final ChildModel? childModel;
   final bool check;
   final void Function()? onCheck;
 
