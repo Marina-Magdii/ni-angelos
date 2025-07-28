@@ -8,18 +8,20 @@ import 'package:ni_angelos/features/users/data/models/users_model.dart';
 
 @Injectable(as: UsersApiContract)
 class UsersApiImpl extends UsersApiContract {
-DioService dio;
-@factoryMethod
-UsersApiImpl(this.dio);
+  DioService dio;
+  @factoryMethod
+  UsersApiImpl(this.dio);
   @override
-  Future<Either<UsersModel, String>> getAllUsers() async {
+  Future<Either<List<User>, String>> getAllUsers() async {
     try {
       var connected = await isConnected();
-      if (connected){
-        final response = await dio.get('/users');
-        return Left(UsersModel.fromJson(response.data));
-      }
-      else {
+      if (connected) {
+        final response = await dio.get('api/users');
+        final List<dynamic> usersList = response.data['data']['users'];
+        final users =
+            usersList.map((userJson) => User.fromJson(userJson)).toList();
+        return Left(users);
+      } else {
         return Right(StringsManager.pleaseReconnect);
       }
     } catch (e) {

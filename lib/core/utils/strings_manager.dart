@@ -100,6 +100,10 @@ class StringsManager {
   static const String absenceCount = "عدد الغياب ";
   static const String attendanceCount = "عدد الحضور";
   static const String classCount = "عدد الفصل ";
+  static const String selectAll = "تحديد الكل";
+  static const String notFound = "لا يوجد";
+  static const String yes = "نعم";
+  static const String no = "لا";
   static const String pleaseReconnect =
       "لقد حدث خطآ برجاء التآكد من اتصال الانترنت والمحاولة مرة أخرى";
   static const String pleaseChooseDateAndClass =

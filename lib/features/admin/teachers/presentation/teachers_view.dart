@@ -38,7 +38,8 @@ class TeachersView extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 itemCount: 2,
                 itemBuilder: (context, index) {
-                  return CustomChildContainer(teacherModel: teacherModel);
+                  return CustomChildContainer(
+                      teacherModel: teacherModel);
                 },
               ),
             ],

@@ -32,10 +32,12 @@ import 'package:ni_angelos/features/home/home_view.dart';
 import 'package:ni_angelos/features/home/main_screen.dart';
 import 'package:ni_angelos/features/splash_screen/splash_screen.dart';
 
+import 'di/injection.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('ar');
-  await initializeDateFormatting('en');
+  await configureDependencies();
   runApp(const MyApp());
 }
 

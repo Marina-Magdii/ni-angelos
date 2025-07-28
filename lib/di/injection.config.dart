@@ -16,6 +16,12 @@ import 'package:ni_angelos/features/users/data/data_sources/users_api_contract.d
     as _i5;
 import 'package:ni_angelos/features/users/data/data_sources/users_api_impl.dart'
     as _i508;
+import 'package:ni_angelos/features/users/data/repositories/users_repo_impl.dart'
+    as _i1068;
+import 'package:ni_angelos/features/users/domain/repositories/users_repo_contract.dart'
+    as _i52;
+import 'package:ni_angelos/features/users/presentation/manager/users_bloc.dart'
+    as _i839;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -27,6 +33,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i669.DioService>(() => _i669.DioService());
     gh.factory<_i5.UsersApiContract>(
       () => _i508.UsersApiImpl(gh<_i669.DioService>()),
+    );
+    gh.factory<_i52.UsersRepoContract>(
+      () => _i1068.UsersRepoImpl(gh<_i5.UsersApiContract>()),
+    );
+    gh.factory<_i839.UsersBloc>(
+      () => _i839.UsersBloc(gh<_i52.UsersRepoContract>()),
     );
     return this;
   }

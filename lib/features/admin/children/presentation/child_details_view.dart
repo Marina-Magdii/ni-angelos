@@ -10,7 +10,7 @@ import 'package:ni_angelos/core/custom/custom_textfield.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
-import 'package:ni_angelos/models/child_model.dart';
+import 'package:ni_angelos/features/users/data/models/users_model.dart';
 
 class ChildDetailsView extends StatefulWidget {
   const ChildDetailsView({super.key});
@@ -25,9 +25,9 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    ChildModel args = ModalRoute.of(context)?.settings.arguments as ChildModel;
+    User args = ModalRoute.of(context)?.settings.arguments as User;
     return MyCustomScaffold(
-      appBarTitle: args.name,
+      appBarTitle: args.usersData.name,
       withBackArrow: true,
       body: SingleChildScrollView(
         child: Padding(
@@ -35,114 +35,116 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
           child: Column(
             children: [
               annualPayment(),
-              SizedBox(height: 8.h,),
+              SizedBox(height: 8.h),
               bookPayment(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-
                   // child image
                   titleText(StringsManager.childImage),
                   CustomContainer(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
-                          Icons.close_rounded,
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.close_rounded),
                           color: ColorManager.secondaryColor,
                         ),
                         Text(StringsManager.chooseImage),
                         CustomContainer(
                           verticalPadding: 0,
                           horizontalPadding: 0,
-                          child: Image.asset(ImageAssets.childLogo, width: 50.w),
+                          child:
+                              args.usersData.image != null
+                                  ? Image.network(
+                                    args.usersData.image!,
+                                    width: 50.w,
+                                  )
+                                  : Image.asset(
+                                    ImageAssets.childLogo,
+                                    width: 50.w,
+                                  ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 8.h,),
+                  SizedBox(height: 8.h),
 
                   // child name
                   Text(StringsManager.childName),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(8.r),
-                    hintText: "",
+                    hintText: args.usersData.name ?? "",
                     validator: (v) {
                       return null;
                     },
                     controller: TextEditingController(),
                   ),
-                  SizedBox(height: 8.h,),
+                  SizedBox(height: 8.h),
 
-                 titleText(StringsManager.year),
+                  // year
+                  titleText(StringsManager.year),
                   CustomDropFormField(
-                    labelText: StringsManager.primaryAge,
+                    labelText: args.usersData.academicYear ?? "",
                     items: [],
-                    value: "",
+                    value: args.usersData.academicYear,
                   ),
-                  SizedBox(height: 8.h,),
+                  SizedBox(height: 8.h),
 
-                 titleText(StringsManager.deacon),
+                  // deacon
+                  titleText(StringsManager.deacon),
                   CustomDropFormField(
                     value: "",
-                    // widget.items.map((item) {
-                    //   return DropdownMenuItem<String>(
-                    //     alignment: AlignmentDirectional.centerEnd,
-                    //     value: item["label"],
-                    //     child: Directionality(
-                    //       textDirection: TextDirection.rtl,
-                    //       child: Row(
-                    //         mainAxisAlignment: MainAxisAlignment.end,
-                    //         children: [
-                    //           item["icon"]!=null
-                    //               ?SvgPicture.asset(item["icon"]!):SizedBox(),
-                    //           SizedBox(width: 4.w),
-                    //           Expanded(
-                    //             child: Text(
-                    //               item["label"]!,
-                    //               textDirection: TextDirection.rtl,),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   );
-                    // }).toList(),
-                    // items: [{"label":"yes"},{ "label":"no"}],
-                    labelText: "", items: [],
-                  ),                  SizedBox(height: 8.h,),
+                    labelText:
+                        args.userDetails.isDeacon == 1
+                            ? StringsManager.yes
+                            : StringsManager.no,
+                    items: [],
+                  ),
+                  SizedBox(height: 8.h),
 
+                  // phone number
                   Text(StringsManager.childNumber),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(8.r),
-                    hintText: "",
-                    validator: (v) {
-                      return null;
-                    },
-                    controller: TextEditingController(),
-                  ),                  SizedBox(height: 8.h,),
-
-                  Text(StringsManager.profileId),
-                  CustomTextField(
-                    borderRadius: BorderRadius.circular(8.r),
-                    hintText: "",
-                    validator: (v) {
-                      return null;
-                    },
-                    controller: TextEditingController(),
-                  ),                  SizedBox(height: 8.h,),
-
-                  Text(StringsManager.profilePass),
-                  CustomTextField(
-                    obscure: true,
-                    borderRadius: BorderRadius.circular(8.r),
-                    hintText: "",
-                    isPass: true,
+                    hintText:
+                        args.usersData.phoneNumber ??
+                        args.userDetails.fatherPhoneNumber ??
+                        args.userDetails.motherPhoneNumber ??
+                        StringsManager.notFound,
                     validator: (v) {
                       return null;
                     },
                     controller: TextEditingController(),
                   ),
-                  CustomButton(title:   StringsManager.save,)
+                  SizedBox(height: 8.h),
+
+                  // profile id
+                  Text(StringsManager.profileId),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: "${args.usersData.id ?? ""}",
+                    validator: (v) {
+                      return null;
+                    },
+                    controller: TextEditingController(),
+                  ),
+                  SizedBox(height: 8.h),
+
+                  // password
+                  Text(StringsManager.profilePass),
+                  CustomTextField(
+                    borderRadius: BorderRadius.circular(8.r),
+                    hintText: args.usersData.password ?? "",
+                    validator: (v) {
+                      return null;
+                    },
+                    controller: TextEditingController(),
+                  ),
+
+                  // save button
+                  CustomButton(title: StringsManager.save),
                 ],
               ),
             ],
@@ -203,8 +205,9 @@ class _ChildDetailsViewState extends State<ChildDetailsView> {
       ),
     );
   }
-  titleText (String title){
-    return   Padding(
+
+  titleText(String title) {
+    return Padding(
       padding: REdgeInsets.symmetric(vertical: 8.0),
       child: Text(title),
     );
