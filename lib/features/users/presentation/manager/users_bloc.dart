@@ -11,9 +11,9 @@ class UsersBloc extends Bloc<UsersEvent,UsersState> {
   UsersBloc(this.usersRepo):super(UsersInitState()){
     on<UsersDataEvent>(getAllUsers);
     on<UsersSelectEvent>(selectUser);
-    final bool isSelected = false;
   }
   UsersRepoContract usersRepo;
+  bool isSelected = false;
 
   getAllUsers (UsersDataEvent event , Emitter<UsersState> emit) async {
     emit(UsersLoadingState());
@@ -35,6 +35,6 @@ class UsersBloc extends Bloc<UsersEvent,UsersState> {
   }
 
   selectUser (UsersSelectEvent event , Emitter<UsersState> emit){
-
+    isSelected = true;
   }
 }

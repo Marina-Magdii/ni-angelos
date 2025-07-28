@@ -64,7 +64,9 @@ class TeachersCheckView extends StatelessWidget {
                       itemCount: users.length,
                       itemBuilder: (context, index) {
                         return CustomChildContainer(
-                          onCheck: (){},
+                          onCheck: (){
+                            bloc.add(UsersSelectEvent());
+                          },
                           check: true,
                           user: users[index],
                         );

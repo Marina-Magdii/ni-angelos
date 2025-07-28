@@ -5,3 +5,5 @@ class UsersDataEvent extends UsersEvent {}
 class UsersSearchEvent extends UsersEvent {}
 
 class UsersSelectEvent extends UsersEvent {}
+
+class UsersSelectAllEvent extends UsersEvent {}
