@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:ni_angelos/core/custom/custom_child_container.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/core/custom/custom_search_container.dart';
+import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_bloc.dart';
@@ -48,7 +49,11 @@ class ChildrenView extends StatelessWidget {
                   bloc: bloc,
                   builder: (context, state) {
                     if (state is UsersLoadingState) {
-                      return Center(child: CircularProgressIndicator());
+                      return SizedBox(
+                        height: 500.h,
+                          child: Center(child: CircularProgressIndicator(
+                            color: ColorManager.secondaryColor,
+                          )));
                     } else if (state is UsersErrorState) {
                       return Column(
                         children: [Center(child: Text(state.errorMessage))],

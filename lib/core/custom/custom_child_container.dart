@@ -28,13 +28,15 @@ class CustomChildContainer extends StatelessWidget {
     return user?.usersData.name != null
         ? CustomContainer(
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              user != null
-                  ? RoutesManager.childDetails
-                  : RoutesManager.teacherDetails,
-              arguments: user ?? teacherModel,
-            );
+            check == true
+                ? () {}
+                : Navigator.pushNamed(
+                  context,
+                  user != null
+                      ? RoutesManager.childDetails
+                      : RoutesManager.teacherDetails,
+                  arguments: user ?? teacherModel,
+                );
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
