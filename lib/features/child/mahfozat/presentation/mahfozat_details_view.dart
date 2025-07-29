@@ -55,7 +55,9 @@ class _MahfozatDetailsViewState extends State<MahfozatDetailsView> {
     return MyCustomScaffold(
       withBackArrow: true,
       appBarTitle: args.title,
-      leading: IconButton(onPressed: (){}, icon: Icon(Icons.delete_forever_rounded)),
+      leading: isAdmin()
+      ? IconButton(onPressed: (){}, icon: Icon(Icons.delete_forever_rounded))
+      :SizedBox(),
       body: Padding(
         padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
         child: Column(

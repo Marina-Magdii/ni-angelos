@@ -20,7 +20,7 @@ class TaksDetailsView extends StatefulWidget {
   State<TaksDetailsView> createState() => _TaksDetailsViewState();
 }
 
-class _TaksDetailsViewState extends State<TaksDetailsView>{
+class _TaksDetailsViewState extends State<TaksDetailsView> {
   final TextEditingController controller = TextEditingController();
   final record = RecordPlatform.instance;
   final audioPlayer = AudioPlayer();
@@ -55,7 +55,13 @@ class _TaksDetailsViewState extends State<TaksDetailsView>{
     return MyCustomScaffold(
       withBackArrow: true,
       appBarTitle: args.title,
-      leading: IconButton(onPressed: (){}, icon: Icon(Icons.delete_forever_rounded)),
+      leading:
+          isAdmin()
+              ? IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.delete_forever_rounded),
+              )
+              : SizedBox(),
       body: Padding(
         padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
         child: Column(

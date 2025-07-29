@@ -56,10 +56,11 @@ class _CopticDetailsViewState extends State<CopticDetailsView> {
       leadingWidth: 20.w,
       withBackArrow: true,
       appBarTitle: args.title,
-      leading: IconButton(
+      leading: isAdmin()
+      ? IconButton(
         onPressed: () {},
         icon: Icon(Icons.delete_forever_rounded, size: 25.sp),
-      ),
+      ):SizedBox(),
       body: Padding(
         padding: REdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
         child: Column(

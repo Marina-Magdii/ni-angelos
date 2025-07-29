@@ -92,7 +92,9 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       ),
 
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, RoutesManager.newTune);
+                        },
                         icon: Icon(Icons.edit_rounded),
                       ),
                     ],
@@ -240,7 +242,6 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SvgPicture.asset(ImageAssets.backSecIcon),
                           Padding(
                             padding: REdgeInsets.symmetric(horizontal: 64.0),
                             child: GestureDetector(

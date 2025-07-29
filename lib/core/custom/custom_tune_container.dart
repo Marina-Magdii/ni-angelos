@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/custom/custom_container.dart';
 import 'package:ni_angelos/core/custom/custom_red_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/models/tune_model.dart';
 
@@ -28,7 +29,7 @@ class CustomTuneContainer extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            teacher?IconButton(
+            isAdmin()?IconButton(
               onPressed: () {},
               icon: Icon(Icons.delete_forever_rounded,size: 25.sp,),
             ):SizedBox(),
