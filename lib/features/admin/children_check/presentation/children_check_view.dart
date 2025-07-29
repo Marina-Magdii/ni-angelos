@@ -72,7 +72,8 @@ class ChildrenCheckView extends StatelessWidget {
                               itemCount: users.length,
                               itemBuilder: (context, index) {
                                 return CustomChildContainer(
-                                    user: users[index],
+                                  isSelected: state.selectedUsers.contains(users[index]),
+                                  user: users[index],
                                     check: true,
                                     onCheck: (){},
                                     );

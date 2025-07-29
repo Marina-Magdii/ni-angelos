@@ -20,7 +20,7 @@ class TeachersCheckView extends StatelessWidget {
     final UsersBloc bloc = GetIt.I.get<UsersBloc>()..add(UsersDataEvent());
     return MyCustomScaffold(
       withBackArrow: true,
-      appBarTitle:StringsManager.teachersCheck,
+      appBarTitle: StringsManager.teachersCheck,
       body: SingleChildScrollView(
         child: Padding(
           padding: REdgeInsets.all(8.0),
@@ -29,12 +29,22 @@ class TeachersCheckView extends StatelessWidget {
               CustomSearchContainer(),
               Align(
                 alignment: Alignment.centerLeft,
-                child: TextButton(onPressed: (){}, child: Text(StringsManager.selectAll,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(decoration: TextDecoration.underline))),
-              ),              BlocBuilder(
+                child: TextButton(
+                  onPressed: () {
+                    bloc.add(UsersSelectAllEvent());
+                  },
+                  child: Text(
+                    StringsManager.selectAll,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ),
+              BlocBuilder(
                 bloc: bloc,
-                builder: (context,state) {
-                  if (state is UsersLoadingState){
+                builder: (context, state) {
+                  if (state is UsersLoadingState) {
                     return SizedBox(
                       height: 500.h,
                       child: Center(
@@ -43,40 +53,39 @@ class TeachersCheckView extends StatelessWidget {
                         ),
                       ),
                     );
-                  }
-                  else if (state is UsersErrorState) {
+                  } else if (state is UsersErrorState) {
                     return Column(
-                      children: [
-                        Center(
-                          child: Text(state.errorMessage),
-                        )
-                      ],
+                      children: [Center(child: Text(state.errorMessage))],
                     );
                   }
-                  if(state is UsersSuccessState){
-                    var users =state.users;
+                  if (state is UsersSuccessState) {
+                    var users = state.users;
                     return ListView.separated(
-                      separatorBuilder: (context,index){
-                        return SizedBox(height: 8.h,);
+                      separatorBuilder: (context, index) {
+                        return SizedBox(height: 8.h);
                       },
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: users.length,
                       itemBuilder: (context, index) {
+                        final user = users[index];
+                        final isSelected = state.selectedUsers.contains(user);
+
                         return CustomChildContainer(
-                          onCheck: (){
-                            bloc.add(UsersSelectEvent(users[index]));
+                          onCheck: () {
+                            bloc.add(UsersSelectEvent(user));
                           },
                           check: true,
-                          user: users[index],
+                          user: user,
+                          isSelected: isSelected,
                         );
                       },
                     );
                   }
-               return Container();
-                }
+                  return Container();
+                },
               ),
-              CustomButton(title: StringsManager.send,onTap: (){},)
+              CustomButton(title: StringsManager.send, onTap: () {}),
             ],
           ),
         ),

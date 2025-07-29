@@ -63,7 +63,9 @@ class ChildrenView extends StatelessWidget {
                         physics: NeverScrollableScrollPhysics(),
                         itemCount: users.length,
                         itemBuilder: (context, index) {
-                          return CustomChildContainer(user: users[index]);
+                          return CustomChildContainer(
+                              isSelected: state.selectedUsers.contains(users[index]),
+                              user: users[index]);
                         },
                       );
                     }

@@ -12,6 +12,7 @@ class UsersErrorState extends UsersState {
 class UsersLoadingState extends UsersState {}
 
 class UsersSuccessState extends UsersState {
-  List<User> users;
-  UsersSuccessState(this.users);
+  final List<User> users;
+  final List<User> selectedUsers;
+  UsersSuccessState({required this.users, required this.selectedUsers});
 }

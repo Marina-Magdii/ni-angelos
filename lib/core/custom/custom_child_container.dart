@@ -8,36 +8,32 @@ import 'package:ni_angelos/core/utils/routes_manager.dart';
 import 'package:ni_angelos/features/users/data/models/users_model.dart';
 import 'package:ni_angelos/models/teacher_model.dart';
 
-class CustomChildContainer extends StatefulWidget {
+class CustomChildContainer extends StatelessWidget {
   const CustomChildContainer({
     super.key,
     this.check = false,
     this.user,
     this.teacherModel,
+    required this.isSelected,
     this.onCheck,
   });
   final User? user;
   final TeacherModel? teacherModel;
   final bool check;
   final void Function()? onCheck;
+  final bool isSelected;
 
-  @override
-  State<CustomChildContainer> createState() => _CustomChildContainerState();
-}
-
-class _CustomChildContainerState extends State<CustomChildContainer> {
-  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return widget.user?.usersData.name != null
+    return user?.usersData.name != null
         ? CustomContainer(
           onTap: () {
             Navigator.pushNamed(
               context,
-              widget.user != null
+              user != null
                   ? RoutesManager.childDetails
                   : RoutesManager.teacherDetails,
-              arguments: widget.user ?? widget.teacherModel,
+              arguments: user ?? teacherModel,
             );
           },
           child: Row(
@@ -47,27 +43,21 @@ class _CustomChildContainerState extends State<CustomChildContainer> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    widget.user?.usersData.name ??
-                        widget.teacherModel?.name ??
-                        "",
+                    user?.usersData.name ?? teacherModel?.name ?? "",
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    widget.user?.usersData.academicYear ??
-                        widget.teacherModel?.childrenAge ??
+                    user?.usersData.academicYear ??
+                        teacherModel?.childrenAge ??
                         "",
                     style: Theme.of(context).textTheme.titleSmall,
                   ),
                 ],
               ),
               SizedBox(width: 8.w),
-              widget.check
+              check
                   ? CustomContainer(
-                    onTap: () {
-                      isSelected = !isSelected;
-                      widget.onCheck;
-                      setState(() {});
-                    },
+                    onTap: onCheck,
                     verticalPadding: 0,
                     horizontalPadding: 0,
                     child: Icon(
@@ -78,8 +68,8 @@ class _CustomChildContainerState extends State<CustomChildContainer> {
                       color: ColorManager.secondaryColor,
                     ),
                   )
-                  : widget.user?.usersData.image != null
-                  ? Image.network(widget.user!.usersData.image!, width: 48.w)
+                  : user?.usersData.image != null
+                  ? Image.network(user!.usersData.image!, width: 48.w)
                   : SvgPicture.asset(ImageAssets.boyImage, width: 48.w),
             ],
           ),

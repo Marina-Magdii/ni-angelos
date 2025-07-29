@@ -55,6 +55,17 @@ class User {
     userDetails: UserDetails.fromJson(json['user_details']),
     usersData: UserModel.fromJson(json['users_data']),
   );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+          other is User &&
+              runtimeType == other.runtimeType &&
+              usersData.id != null &&
+              other.usersData.id != null &&
+              usersData.id == other.usersData.id;
+
+  @override
+  int get hashCode => usersData.id?.hashCode??0;
 }
 
 class UserDetails {
