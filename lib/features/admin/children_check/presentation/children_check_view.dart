@@ -36,7 +36,9 @@ class ChildrenCheckView extends StatelessWidget {
                       CustomSearchContainer(),
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: TextButton(onPressed: (){}, child: Text(StringsManager.selectAll,
+                        child: TextButton(onPressed: (){
+                          bloc.add(UsersSelectAllEvent());
+                        }, child: Text(StringsManager.selectAll,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(decoration: TextDecoration.underline))),
                       ),
                       BlocBuilder(
@@ -71,12 +73,17 @@ class ChildrenCheckView extends StatelessWidget {
                               physics: BouncingScrollPhysics(),
                               itemCount: users.length,
                               itemBuilder: (context, index) {
+                                final user = users[index];
+                                final isSelected = state.selectedUsers.contains(user);
+
                                 return CustomChildContainer(
-                                  isSelected: state.selectedUsers.contains(users[index]),
-                                  user: users[index],
-                                    check: true,
-                                    onCheck: (){},
-                                    );
+                                  onCheck: () {
+                                    bloc.add(UsersSelectEvent(user));
+                                  },
+                                  check: true,
+                                  user: user,
+                                  isSelected: isSelected,
+                                );
                               },
                             );
                           }
