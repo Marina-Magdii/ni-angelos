@@ -26,7 +26,11 @@ class TeachersCheckView extends StatelessWidget {
           padding: REdgeInsets.all(8.0),
           child: Column(
             children: [
-              CustomSearchContainer(),
+              CustomSearchContainer(
+                onChanged: (value) {
+                  bloc.add(UsersSearchEvent(value));
+                },
+              ),
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(

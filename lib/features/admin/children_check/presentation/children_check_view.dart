@@ -24,77 +24,83 @@ class ChildrenCheckView extends StatelessWidget {
   Widget build(BuildContext context) {
     final UsersBloc bloc = GetIt.I.get<UsersBloc>()..add(UsersDataEvent());
     return BlocProvider(
-      create: (_)=>bloc,
+      create: (_) => bloc,
       child: MyCustomScaffold(
         withBackArrow: true,
-          appBarTitle: StringsManager.childrenCheck,
-          body: Padding(
-            padding: REdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: Column(
-                    children: [
-                      CustomSearchContainer(),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: TextButton(onPressed: (){
-                          bloc.add(UsersSelectAllEvent());
-                        }, child: Text(StringsManager.selectAll,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(decoration: TextDecoration.underline))),
+        appBarTitle: StringsManager.childrenCheck,
+        body: Padding(
+          padding: REdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CustomSearchContainer(
+                  onChanged: (value) {
+                    bloc.add(UsersSearchEvent(value));
+                  },
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () {
+                      bloc.add(UsersSelectAllEvent());
+                    },
+                    child: Text(
+                      StringsManager.selectAll,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        decoration: TextDecoration.underline,
                       ),
-                      BlocBuilder(
-                        bloc: bloc,
-                        builder: (context,state) {
-                          if (state is UsersLoadingState){
-                            return SizedBox(
-                              height: 500.h,
-                              child: Center(
-                                child: CircularProgressIndicator(
-                                  color: ColorManager.secondaryColor,
-                                ),
-                              ),
-                            );
-                          }
-                          else if (state is UsersErrorState) {
-                            return Column(
-                              children: [
-                                Center(
-                                  child: Text(state.errorMessage),
-                                )
-                              ],
-                            );
-                          }
-                          else if (state is UsersSuccessState){
-                            var users = state.users;
-                            return ListView.separated(
-                              shrinkWrap: true,
-                              separatorBuilder: (context,index){
-                                return SizedBox(height: 8.h,);
-                              },
-                              physics: BouncingScrollPhysics(),
-                              itemCount: users.length,
-                              itemBuilder: (context, index) {
-                                final user = users[index];
-                                final isSelected = state.selectedUsers.contains(user);
-
-                                return CustomChildContainer(
-                                  onCheck: () {
-                                    bloc.add(UsersSelectEvent(user));
-                                  },
-                                  check: true,
-                                  user: user,
-                                  isSelected: isSelected,
-                                );
-                              },
-                            );
-                          }
-                        return Container();
-                        }
-                      ),
-                      CustomButton(title: StringsManager.send,onTap: (){},)
-                    ],
+                    ),
                   ),
+                ),
+                BlocBuilder(
+                  bloc: bloc,
+                  builder: (context, state) {
+                    if (state is UsersLoadingState) {
+                      return SizedBox(
+                        height: 500.h,
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            color: ColorManager.secondaryColor,
+                          ),
+                        ),
+                      );
+                    } else if (state is UsersErrorState) {
+                      return Column(
+                        children: [Center(child: Text(state.errorMessage))],
+                      );
+                    } else if (state is UsersSuccessState) {
+                      var users = state.users;
+                      return ListView.separated(
+                        shrinkWrap: true,
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: 8.h);
+                        },
+                        physics: BouncingScrollPhysics(),
+                        itemCount: users.length,
+                        itemBuilder: (context, index) {
+                          final user = users[index];
+                          final isSelected = state.selectedUsers.contains(user);
+
+                          return CustomChildContainer(
+                            onCheck: () {
+                              bloc.add(UsersSelectEvent(user));
+                            },
+                            check: true,
+                            user: user,
+                            isSelected: isSelected,
+                          );
+                        },
+                      );
+                    }
+                    return Container();
+                  },
+                ),
+                CustomButton(title: StringsManager.send, onTap: () {}),
+              ],
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

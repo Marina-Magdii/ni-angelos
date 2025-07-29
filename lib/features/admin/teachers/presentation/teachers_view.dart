@@ -22,7 +22,7 @@ class TeachersView extends StatelessWidget {
   Widget build(BuildContext context) {
     final UsersBloc bloc = GetIt.I.get<UsersBloc>()..add(UsersDataEvent());
     return BlocProvider(
-      create: (context)=>bloc,
+      create: (context) => bloc,
       child: MyCustomScaffold(
         withBackArrow: true,
         appBarTitle: "${StringsManager.teachers} (2)",
@@ -35,7 +35,11 @@ class TeachersView extends StatelessWidget {
             padding: REdgeInsets.all(8.0),
             child: Column(
               children: [
-                CustomSearchContainer(),
+                CustomSearchContainer(
+                  onChanged: (value) {
+                    bloc.add(UsersSearchEvent(value));
+                  },
+                ),
                 SizedBox(height: 20.h),
                 // ListView.separated(
                 //   separatorBuilder: (context, index) {
