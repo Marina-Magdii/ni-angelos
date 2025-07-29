@@ -14,5 +14,6 @@ class UsersLoadingState extends UsersState {}
 class UsersSuccessState extends UsersState {
   final List<User> users;
   final List<User> selectedUsers;
-  UsersSuccessState({required this.users, required this.selectedUsers});
+  final List<User> filteredUsers;
+  UsersSuccessState( {required this.users,required this.filteredUsers, required this.selectedUsers});
 }

@@ -12,6 +12,7 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
   UsersBloc(this.usersRepo) : super(UsersInitState()) {
     on<UsersDataEvent>(getAllUsers);
     on<UsersSelectEvent>(selectUser);
+    on<UsersSearchEvent>(searchUsers);
     on<UsersSelectAllEvent>(selectAllUsers);
   }
   UsersRepoContract usersRepo;
@@ -22,7 +23,13 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
       var response = await usersRepo.getAllUsers();
       response.fold(
         (users) {
-          emit(UsersSuccessState(users: users, selectedUsers: []));
+          emit(
+            UsersSuccessState(
+              users: users,
+              selectedUsers: [],
+              filteredUsers: users,
+            ),
+          );
           return Left(users);
         },
         (error) {
@@ -46,16 +53,52 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
         selectedUsers.add(event.selectedUser);
       }
 
-      emit(UsersSuccessState(
-        users: currentState.users,
-        selectedUsers: selectedUsers,
-      ));
-    }  }
+      emit(
+        UsersSuccessState(
+          users: currentState.users,
+          selectedUsers: selectedUsers,
+          filteredUsers: [],
+        ),
+      );
+    }
+  }
+
+  searchUsers(UsersSearchEvent event, Emitter<UsersState> emit) {
+    if (state is UsersSuccessState) {
+      final currentState = state as UsersSuccessState;
+      final allUsers = currentState.users;
+
+      final filteredUsers =
+          allUsers
+              .where(
+                (user) =>
+                    user.usersData.name?.toLowerCase().contains(
+                      event.searchQuery.toLowerCase(),
+                    ) ??
+                    false,
+              )
+              .toList();
+
+      emit(
+        UsersSuccessState(
+          users: currentState.users, // Keep full list
+          selectedUsers: currentState.selectedUsers,
+          filteredUsers: filteredUsers, // Optionally add this field
+        ),
+      );
+    }
+  }
 
   selectAllUsers(UsersSelectAllEvent event, Emitter<UsersState> emit) {
     if (state is UsersSuccessState) {
       final users = (state as UsersSuccessState).users;
-      emit(UsersSuccessState(users: users, selectedUsers: List.from(users)));
+      emit(
+        UsersSuccessState(
+          users: users,
+          selectedUsers: List.from(users),
+          filteredUsers: [],
+        ),
+      );
     }
   }
 }

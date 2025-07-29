@@ -4,7 +4,10 @@ abstract class UsersEvent {}
 
 class UsersDataEvent extends UsersEvent {}
 
-class UsersSearchEvent extends UsersEvent {}
+class UsersSearchEvent extends UsersEvent {
+  final String searchQuery;
+  UsersSearchEvent (this.searchQuery);
+}
 
 class UsersSelectEvent extends UsersEvent {
   User selectedUser;
