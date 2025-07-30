@@ -23,7 +23,7 @@ class ChildrenView extends StatelessWidget {
       create: (context) => bloc,
       child: MyCustomScaffold(
         withBackArrow: true,
-        appBarTitle: "${StringsManager.children} (225)",
+        appBarTitle: "${StringsManager.children} ",
         leading: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -44,9 +44,9 @@ class ChildrenView extends StatelessWidget {
             child: Column(
               children: [
                 CustomSearchContainer(
-                onChanged: (value) {
-          bloc.add(UsersSearchEvent(value));
-          },
+                  onChanged: (value) {
+                    bloc.add(UsersSearchEvent(value));
+                  },
                 ),
                 SizedBox(height: 20.h),
                 BlocBuilder<UsersBloc, UsersState>(
@@ -55,9 +55,12 @@ class ChildrenView extends StatelessWidget {
                     if (state is UsersLoadingState) {
                       return SizedBox(
                         height: 500.h,
-                          child: Center(child: CircularProgressIndicator(
+                        child: Center(
+                          child: CircularProgressIndicator(
                             color: ColorManager.secondaryColor,
-                          )));
+                          ),
+                        ),
+                      );
                     } else if (state is UsersErrorState) {
                       return Column(
                         children: [Center(child: Text(state.errorMessage))],
@@ -73,8 +76,11 @@ class ChildrenView extends StatelessWidget {
                         itemCount: users.length,
                         itemBuilder: (context, index) {
                           return CustomChildContainer(
-                              isSelected: state.selectedUsers.contains(users[index]),
-                              user: users[index]);
+                            isSelected: state.selectedUsers.contains(
+                              users[index],
+                            ),
+                            user: users[index],
+                          );
                         },
                       );
                     }

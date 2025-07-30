@@ -6,6 +6,7 @@ import 'package:ni_angelos/core/custom/custom_divider.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
+import 'package:ni_angelos/core/utils/routes_manager.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
 
 class ProfileView extends StatelessWidget {
@@ -21,7 +22,7 @@ class ProfileView extends StatelessWidget {
       // profile content
       body: SingleChildScrollView(
         child: Padding(
-          padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
+          padding: REdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -30,7 +31,7 @@ class ProfileView extends StatelessWidget {
 
               // edit and log out
               Padding(
-                padding: REdgeInsets.symmetric(vertical: 8.0,horizontal: 16),
+                padding: REdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -96,11 +97,9 @@ class ProfileView extends StatelessWidget {
         children: [
           Padding(
             padding: REdgeInsets.only(bottom: 6.0),
-            child: Text(
-              " ${StringsManager.editProfile} ",
-            ),
+            child: Text(" ${StringsManager.editProfile} "),
           ),
-        Icon(Icons.edit_rounded),
+          Icon(Icons.edit_rounded),
         ],
       ),
     );
@@ -108,16 +107,20 @@ class ProfileView extends StatelessWidget {
 
   logOut(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          RoutesManager.signInView,
+          (route) => false,
+        );
+      },
       child: Row(
         children: [
           Padding(
             padding: REdgeInsets.only(bottom: 6.0),
-            child: Text(
-              " ${StringsManager.logOut} ",
-            ),
+            child: Text(" ${StringsManager.logOut} "),
           ),
-          Icon(Icons.logout_rounded)
+          Icon(Icons.logout_rounded),
         ],
       ),
     );
@@ -135,7 +138,7 @@ class ProfileView extends StatelessWidget {
             ),
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 8.0),
-              child: Icon(Icons.calendar_month_rounded)
+              child: Icon(Icons.calendar_month_rounded),
             ),
           ],
         ),
@@ -165,7 +168,7 @@ class ProfileView extends StatelessWidget {
             ),
             Padding(
               padding: REdgeInsets.symmetric(horizontal: 8.0),
-              child: Icon(Icons.event_note_rounded)
+              child: Icon(Icons.event_note_rounded),
             ),
           ],
         ),
@@ -186,8 +189,8 @@ class ProfileView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(StringsManager.attendDate),
-                    SizedBox(width: 4.w,),
-                    Icon(Icons.check_box_rounded)
+                    SizedBox(width: 4.w),
+                    Icon(Icons.check_box_rounded),
                   ],
                 ),
               );
