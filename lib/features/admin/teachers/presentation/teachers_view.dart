@@ -5,7 +5,6 @@ import 'package:get_it/get_it.dart';
 import 'package:ni_angelos/core/custom/custom_child_container.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/core/custom/custom_search_container.dart';
-import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_bloc.dart';
 import 'package:ni_angelos/features/users/presentation/manager/users_event.dart';
@@ -25,10 +24,11 @@ class TeachersView extends StatelessWidget {
       create: (context) => bloc,
       child: MyCustomScaffold(
         withBackArrow: true,
+        leadingWidth: 20.w,
         appBarTitle: "${StringsManager.teachers} (2)",
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.add_box_rounded, color: ColorManager.secondaryColor),
+          icon: Icon(Icons.add_box_rounded,size: 25.sp),
         ),
         body: SingleChildScrollView(
           child: Padding(

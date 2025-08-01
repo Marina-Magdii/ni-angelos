@@ -22,76 +22,87 @@ class ChildrenView extends StatelessWidget {
     return BlocProvider(
       create: (context) => bloc,
       child: MyCustomScaffold(
+        // app bar
         withBackArrow: true,
+        leadingWidth: 70.w,
         appBarTitle: "${StringsManager.children} ",
         leading: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            // add child icon
             IconButton(
               onPressed: () {},
               icon: Icon(Icons.add_box_rounded, size: 25.sp),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.edit_rounded, size: 25.sp),
+
+            // excel icon
+            InkWell(
+              onTap: () {},
+              child: SvgPicture.asset(ImageAssets.excelIcon),
             ),
-            SvgPicture.asset(ImageAssets.excelIcon),
           ],
         ),
+
         body: SingleChildScrollView(
+          // body
           child: Padding(
             padding: REdgeInsets.all(8.0),
             child: Column(
               children: [
+                // search field
                 CustomSearchContainer(
                   onChanged: (value) {
                     bloc.add(UsersSearchEvent(value));
                   },
                 ),
+
+                // just space
                 SizedBox(height: 20.h),
-                BlocBuilder<UsersBloc, UsersState>(
-                  bloc: bloc,
-                  builder: (context, state) {
-                    if (state is UsersLoadingState) {
-                      return SizedBox(
-                        height: 500.h,
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: ColorManager.secondaryColor,
-                          ),
-                        ),
-                      );
-                    } else if (state is UsersErrorState) {
-                      return Column(
-                        children: [Center(child: Text(state.errorMessage))],
-                      );
-                    } else if (state is UsersSuccessState) {
-                      var users = state.filteredUsers;
-                      return ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: 8.h);
-                        },
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: users.length,
-                        itemBuilder: (context, index) {
-                          return CustomChildContainer(
-                            isSelected: state.selectedUsers.contains(
-                              users[index],
-                            ),
-                            user: users[index],
-                          );
-                        },
-                      );
-                    }
-                    return Container();
-                  },
-                ),
+
+                // children list
+                childrenList(bloc),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  childrenList(UsersBloc bloc) {
+    return BlocBuilder<UsersBloc, UsersState>(
+      bloc: bloc,
+      builder: (context, state) {
+        if (state is UsersLoadingState) {
+          return SizedBox(
+            height: 500.h,
+            child: Center(
+              child: CircularProgressIndicator(
+                color: ColorManager.secondaryColor,
+              ),
+            ),
+          );
+        } else if (state is UsersErrorState) {
+          return Column(children: [Center(child: Text(state.errorMessage))]);
+        } else if (state is UsersSuccessState) {
+          var users = state.filteredUsers;
+          return ListView.separated(
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 8.h);
+            },
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: users.length,
+            itemBuilder: (context, index) {
+              return CustomChildContainer(
+                isSelected: state.selectedUsers.contains(users[index]),
+                user: users[index],
+              );
+            },
+          );
+        }
+        return Container();
+      },
     );
   }
 }
