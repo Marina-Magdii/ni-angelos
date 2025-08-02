@@ -39,7 +39,7 @@ class ChildrenCheckView extends StatelessWidget {
                   },
                 ),
                 Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerRight,
                   child: TextButton(
                     onPressed: () {
                       bloc.add(UsersSelectAllEvent());
@@ -65,9 +65,11 @@ class ChildrenCheckView extends StatelessWidget {
                         ),
                       );
                     } else if (state is UsersErrorState) {
-                      return Column(
-                        children: [Center(child: Text(state.errorMessage))],
-                      );
+                      return SizedBox(
+                          height: 500.h,
+                          width: 250.w,
+                          child: Center(child: Text(state.errorMessage,
+                          textAlign: TextAlign.center,)));
                     } else if (state is UsersSuccessState) {
                       var users = state.users;
                       return ListView.separated(

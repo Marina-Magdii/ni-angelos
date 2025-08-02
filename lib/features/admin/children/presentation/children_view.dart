@@ -83,7 +83,10 @@ class ChildrenView extends StatelessWidget {
             ),
           );
         } else if (state is UsersErrorState) {
-          return Column(children: [Center(child: Text(state.errorMessage))]);
+          return SizedBox(
+            height: 500.h,
+              width: 250.w,
+              child: Center(child: Text(state.errorMessage,textAlign: TextAlign.center,)));
         } else if (state is UsersSuccessState) {
           var users = state.filteredUsers;
           return ListView.separated(

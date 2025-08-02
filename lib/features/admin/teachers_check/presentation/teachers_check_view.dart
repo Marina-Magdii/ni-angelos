@@ -32,7 +32,7 @@ class TeachersCheckView extends StatelessWidget {
                 },
               ),
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
                     bloc.add(UsersSelectAllEvent());
@@ -58,9 +58,11 @@ class TeachersCheckView extends StatelessWidget {
                       ),
                     );
                   } else if (state is UsersErrorState) {
-                    return Column(
-                      children: [Center(child: Text(state.errorMessage))],
-                    );
+                    return SizedBox(
+                        height: 500.h,
+                        width: 250.w,
+                        child: Center(child: Text(state.errorMessage,
+                        textAlign: TextAlign.center,)));
                   }
                   if (state is UsersSuccessState) {
                     var users = state.users;
