@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
                     children: [
                       // church image
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
+                        width: widthOfScreen(context) * 0.9,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16.r),
                           boxShadow: ColorManager.shadow,

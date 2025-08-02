@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/custom/custom_container.dart';
 import 'package:ni_angelos/core/custom/custom_red_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
@@ -36,7 +37,7 @@ class CustomNotification extends StatelessWidget {
   // notification title message
   titleMessage(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.66,
+      width: widthOfScreen(context) * 0.66,
       child: Text(
         model.title,
         textDirection: TextDirection.rtl,

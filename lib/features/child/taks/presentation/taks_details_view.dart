@@ -112,12 +112,12 @@ class _TaksDetailsViewState extends State<TaksDetailsView> {
       case MessageType.text:
         return Text(msgType.content);
       case MessageType.image:
-        return Image.file(File(msgType.content), width: 200);
+        return Image.file(File(msgType.content), width: 200.w);
       case MessageType.file:
         return Row(
           children: [
             Icon(Icons.insert_drive_file),
-            SizedBox(width: 8),
+            SizedBox(width: 8.w),
             Flexible(child: Text(msgType.content)), // filename
           ],
         );

@@ -13,8 +13,7 @@ class DioService {
   Future<Response> get(String path) async {
     return _dio.get(path);
   }
-  // "https://backend.emadsobhifilms.com"
- // https://backend.emadsobhifilms.com/api/users/
+
   Future<Response> post(String path, dynamic data) async {
     return _dio.post(path, data: data);
   }

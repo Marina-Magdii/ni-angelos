@@ -5,6 +5,7 @@ import 'package:ni_angelos/core/custom/custom_container.dart';
 import 'package:ni_angelos/core/custom/custom_divider.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
 import 'package:ni_angelos/core/custom/custom_tune_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 import 'package:ni_angelos/core/utils/routes_manager.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
@@ -45,7 +46,7 @@ class CopticView extends StatelessWidget {
               Padding(
                 padding: REdgeInsets.symmetric(vertical: 8.0),
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
+                  width: widthOfScreen(context),
                   child: CustomContainer(
                     child: Padding(
                       padding: REdgeInsets.symmetric(vertical: 8.0),

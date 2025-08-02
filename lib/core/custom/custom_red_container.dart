@@ -15,8 +15,8 @@ class CustomRedContainer extends StatelessWidget {
         children: [
           // dark container
           Container(
-            width: 40,
-            height: 40,
+            width: 40.w,
+            height: 40.h,
             decoration: BoxDecoration(
               color:
                   ColorManager.secondaryColor, // Dark maroon shadow color
@@ -29,8 +29,8 @@ class CustomRedContainer extends StatelessWidget {
             bottom: 4,
             right: 4,
             child: Container(
-              width: 40,
-              height: 40,
+              width: 40.w,
+              height: 40.h,
               decoration: BoxDecoration(
                 color: ColorManager.redContainer, // Main red color
                 borderRadius: BorderRadius.circular(8.r),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/image_assets.dart';
 
 class MyCustomScaffold extends StatelessWidget {
@@ -28,8 +29,8 @@ class MyCustomScaffold extends StatelessWidget {
         children: [
           Image.asset(
             ImageAssets.bgImagePng,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+            height: heightOfScreen(context),
+            width: widthOfScreen(context),
             fit: BoxFit.cover,
           ),
           Scaffold(

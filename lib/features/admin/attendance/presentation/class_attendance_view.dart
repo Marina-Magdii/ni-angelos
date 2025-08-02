@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/custom/custom_attendance_container.dart';
 import 'package:ni_angelos/core/custom/custom_button.dart';
 import 'package:ni_angelos/core/custom/custom_scaffold.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
 import 'package:ni_angelos/models/attendance_model.dart';
@@ -60,7 +61,7 @@ class _ClassAttendanceViewState extends State<ClassAttendanceView> {
             left: 0,
             right: 0,
             child: Container(
-              width: double.infinity,
+              width: widthOfScreen(context),
               decoration: BoxDecoration(color: ColorManager.containerColor),
               child: Padding(
                 padding: REdgeInsets.symmetric(vertical: 16,horizontal: 16),

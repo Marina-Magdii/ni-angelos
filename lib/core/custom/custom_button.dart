@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/custom/custom_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/color_manager.dart';
 
 class CustomButton extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomButton extends StatelessWidget {
     return Padding(
       padding: REdgeInsets.symmetric(vertical: 16.0),
       child: SizedBox(
-        width: double.infinity,
+        width: widthOfScreen(context),
         child: CustomContainer(
             color: ColorManager.secondaryColor,
             onTap: onTap,

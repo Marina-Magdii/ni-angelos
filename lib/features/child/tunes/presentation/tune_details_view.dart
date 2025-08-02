@@ -42,28 +42,6 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   bool showMoaarab = true;
   bool showCoptic = true;
   bool isPlaying = false;
-  static List<TuneContainerModel> optionsList = [
-    TuneContainerModel(
-      title: StringsManager.recorder1,
-      icon: Icon(Icons.mic_rounded, size: 25.sp),
-      onTap: () {},
-    ),
-    TuneContainerModel(
-      title: StringsManager.recorder2,
-      icon: Icon(Icons.mic_rounded, size: 25.sp),
-      onTap: () {},
-    ),
-    TuneContainerModel(
-      title: StringsManager.share,
-      icon: Icon(Icons.link_rounded, size: 25.sp),
-      onTap: () {},
-    ),
-    TuneContainerModel(
-      title: StringsManager.pdf,
-      icon: Icon(Icons.picture_as_pdf_rounded, size: 25.sp),
-      onTap: () {},
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,14 +54,18 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
           leading:
               isAdmin()
                   ? Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+
+                      // add new icon
                       IconButton(
                         onPressed: () {
                           Navigator.pushNamed(context, RoutesManager.newTune);
                         },
                         icon: Icon(Icons.add_box_rounded),
                       ),
+
+                      // delete icon
                       IconButton(
                         onPressed: () {
                           deleteTune();
@@ -91,6 +73,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                         icon: Icon(Icons.delete_forever_rounded, size: 25),
                       ),
 
+                      // edit icon
                       IconButton(
                         onPressed: () {
                           Navigator.pushNamed(context, RoutesManager.newTune);
@@ -100,6 +83,8 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                     ],
                   )
                   : SizedBox.shrink(),
+
+          // boy
           body: SingleChildScrollView(
             child: Padding(
               padding: REdgeInsets.symmetric(horizontal: 8.0),
@@ -109,16 +94,19 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                   options(),
                   Row(
                     children: [
+                      // change languages
                       toggleLanguage(),
                       Expanded(child: CustomDivider()),
                     ],
                   ),
 
+                  // tune quarters
                   Padding(
                     padding: REdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // coptic language
                         if (showCoptic)
                           Expanded(
                             child: Row(
@@ -129,53 +117,58 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                                   isCoptic: true,
                                   texts: TuneDetailsView.copticText,
                                 ),
+
+                                // divider
                                 Padding(
                                   padding: REdgeInsets.symmetric(
                                     horizontal: 4.0,
                                   ),
                                   child: Container(
-                                    width: 1,
+                                    width: 1.w,
                                     color: ColorManager.containerBorderColor,
                                     height:
-                                        MediaQuery.of(context).size.height *
+                                        heightOfScreen(context) *
                                         dividerHeight(),
                                   ),
                                 ),
                               ],
                             ),
                           ),
+
+                        // moaarab language
                         if (showMoaarab)
                           Expanded(
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
-
                               children: [
                                 CustomTuneQuarter(
                                   languages: languagesCount(),
                                   texts: TuneDetailsView.moaarabText,
                                 ),
+
+                                // divider
                                 showArabic
                                     ? Padding(
                                       padding: REdgeInsets.symmetric(
                                         horizontal: 4,
                                       ),
                                       child: Container(
-                                        width: 1,
+                                        width: 1.w,
                                         color:
                                             ColorManager.containerBorderColor,
-                                        height:
-                                            MediaQuery.of(context).size.height,
+                                        height: heightOfScreen(context),
                                       ),
                                     )
                                     : SizedBox(),
                               ],
                             ),
                           ),
+
+                        // arabic language
                         if (showArabic)
                           Expanded(
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
-
                               children: [
                                 CustomTuneQuarter(
                                   languages: languagesCount(),
@@ -187,20 +180,22 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 90.h,
-                  )
+
+                  // just space
+                  SizedBox(height: 90.h),
                 ],
               ),
             ),
           ),
         ),
+
+        // player box
         isAdmin()
             ? SizedBox.shrink()
             : Positioned(
               bottom: 0,
               child: Container(
-                width: MediaQuery.of(context).size.width,
+                width: widthOfScreen(context),
                 decoration: BoxDecoration(
                   boxShadow: ColorManager.shadow,
                   color: ColorManager.containerColor,
@@ -267,7 +262,7 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
                           SvgPicture.asset(ImageAssets.forwardSecIcon),
                         ],
                       ),
-                      SizedBox(height: 50.h),
+                      SizedBox(height: isAdmin() ? 0 : 50.h),
                     ],
                   ),
                 ),
@@ -375,51 +370,63 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
   }
 
   options() {
-    isAdmin()
-        ? optionsList.length == 4
-            ? optionsList.insert(
-              0,
-              TuneContainerModel(
-                title: StringsManager.addNewAttachment,
-                icon: Icon(
-                  Icons.file_copy_rounded,
-                  color: ColorManager.secondaryColor,
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, RoutesManager.newFile);
-                },
-              ),
-            )
-            : null
-        : null;
-    return Padding(
-      padding: REdgeInsets.symmetric(vertical: 8.0),
-      child: SizedBox(
-        height: 90.h,
-        child: ListView.builder(
-          physics: AlwaysScrollableScrollPhysics(),
-          reverse: true,
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: optionsList.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: REdgeInsets.symmetric(horizontal: 4.0),
-              child: CustomContainer(
-                onTap: optionsList[index].onTap ?? () {},
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(child: optionsList[index].icon),
-                    Text(optionsList[index].title),
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
+    return isAdmin()
+        ? Padding(
+          padding: REdgeInsets.symmetric(vertical: 8.0),
+          child: SizedBox(
+            height: 90.h,
+            child: ListView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
+              reverse: true,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: adminOptions().length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: REdgeInsets.symmetric(horizontal: 4.0),
+                  child: CustomContainer(
+                    onTap: adminOptions()[index].onTap ?? () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(child: adminOptions()[index].icon),
+                        Text(adminOptions()[index].title),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        )
+        : Padding(
+          padding: REdgeInsets.symmetric(vertical: 8.0),
+          child: SizedBox(
+            height: 90.h,
+            child: ListView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
+              reverse: true,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: childOptions().length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: REdgeInsets.symmetric(horizontal: 4.0),
+                  child: CustomContainer(
+                    onTap: childOptions()[index].onTap ?? () {},
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(child: childOptions()[index].icon),
+                        Text(childOptions()[index].title),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        );
   }
 
   deleteTune() {
@@ -485,5 +492,64 @@ class _TuneDetailsViewState extends State<TuneDetailsView> {
     } else {
       return 0;
     }
+  }
+
+  adminOptions() {
+    List<TuneContainerModel> adminOptionsList = [
+      TuneContainerModel(
+        title: StringsManager.addNewAttachment,
+        icon: Icon(Icons.file_copy_rounded, color: ColorManager.secondaryColor),
+        onTap: () {
+          Navigator.pushNamed(context, RoutesManager.newFile);
+        },
+      ),
+      TuneContainerModel(
+        title: StringsManager.recorder1,
+        icon: Icon(Icons.mic_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.recorder2,
+        icon: Icon(Icons.mic_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.share,
+        icon: Icon(Icons.link_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.pdf,
+        icon: Icon(Icons.picture_as_pdf_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+    ];
+    return adminOptionsList;
+  }
+
+  childOptions() {
+    List<TuneContainerModel> childOptionsList = [
+      TuneContainerModel(
+        title: StringsManager.recorder1,
+        icon: Icon(Icons.mic_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.recorder2,
+        icon: Icon(Icons.mic_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.share,
+        icon: Icon(Icons.link_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+      TuneContainerModel(
+        title: StringsManager.pdf,
+        icon: Icon(Icons.picture_as_pdf_rounded, size: 25.sp),
+        onTap: () {},
+      ),
+    ];
+    return childOptionsList;
   }
 }

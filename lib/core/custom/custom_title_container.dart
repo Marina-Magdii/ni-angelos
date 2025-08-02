@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ni_angelos/core/custom/custom_container.dart';
+import 'package:ni_angelos/core/services/helper_functions.dart';
 import 'package:ni_angelos/core/utils/strings_manager.dart';
 
 class CustomTitleContainer extends StatefulWidget {
@@ -34,8 +35,8 @@ class _CustomTitleContainerState extends State<CustomTitleContainer> {
             padding: REdgeInsets.symmetric(vertical: 8.0),
             child: CustomContainer(
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.216,
-                height: MediaQuery.of(context).size.height*0.15,
+                width: widthOfScreen(context) * 0.216,
+                height: heightOfScreen(context)*0.15,
                 child: Text(
                   widget.description,
                   maxLines: 6,
